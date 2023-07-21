@@ -1,0 +1,92 @@
+list of topics and expercises:
+
+1) Introduction to the Robot
+	Lessons and exercises:
+		1.1) "Car Showroom" Robot Images or 3D Model with brief descriptions
+		1.2) "Robot Test Drive". Forward Movement
+2) Basics of Robot Programming
+	Lessons and exercises:
+		2.1) "Headlight Check" (Controlling an LED, for example Blinking)
+		2.2) "Morse Code Communication"
+3) Robot Motion Control
+	Lessons and exercises:
+		3.1) "Maneuvering" Robot Forward and Backward Movement. Right and Left Turns. U-turn.
+		3.2) "Speed Record" (controlling robot speed and results displayed on camera)
+4) Encoders and Console Output
+	Lessons and exercises:
+		4.1) "Odometer" (Measuring distance traveled and outputting results to console)
+		4.2) "Speedometer" (Measuring robot speed and outputting results to console)	
+		4.3) "Wheel alignment"/... (measuring angle of rotation)
+		
+5) Conditional Statements and Time Management
+	Lessons and exercises:
+		5.1) "Fuel Indicator" If the distance traveled reaches a certain value, an indicator turns on. When the robot has traveled some more, it stops.
+		5.2) "The Route is Built" Follow a specific route. For example travel a certain distance straight, then turn right, then turn left...
+		5.3) "Compliance with the speed limit" The robot gradually accelerates to a certain speed.
+		5.4) "Drawing Lesson" A trace is left behind the robot over the camera image. Instructions for drawing some shape.
+6) Functions
+	Lessons and exercises:
+		6.1) "Turn Signals, Brake Lights, and Fog Lights" Writing functions to control LEDs
+		6.2) "Steering wheel and pedals" Writing functions with arguments to control robot movement
+7) Real-Time Robot Control
+	Lessons and exercises: 
+		7.1) "Real-time control" Reading from the console and turning on the headlights based on received messages
+		7.2) "Parking" Console input for robot real-time control. Task: park in a specific square.
+		7.3) "Drawing Lesson 2" Free practice with the ability to draw something
+8) Line Sensor
+	Lessons and exercises:
+		8.1) "Stop Line" if Robot reaches the line then it should stop
+		8.2) "Potholes in the Road" If an obstacle is on the road, the robot should avoid it.
+		8.3) "get on the track" Automatic gitting onto the track, meaning if a track is encountered, the robot positions itself on the highway.
+9) Line Following
+	Lessons and exercises:
+		9.1) "Relay Controller" - Relay controller function for staying on the track
+		9.2) "First Lap" - Completing a lap using the relay controller from the previous lesson
+		9.3) "Home Competitions" - Adjusting parameters to perform the best racer at home (just as a target), meaning completing a lap in less time than the opponent
+
+10) Proportional (P) Controller
+	Lessons and exercises:
+		10.1) "Proportional (P) Controller" - Proportional controller function for staying on the track, completing a lap using the P-controller
+		10.2) "City Competitions" - Completing a lap in a specific time to secure a sponsor or join the best team. For example, choosing their emblem and displaying it on an LED matrix or something similar, displayed in the student's profile. It may be something else for the purpose of winning competitions.
+
+11) Proportional-Integral-Derivative (PID) Controller
+	Lessons and exercises:
+		11.1) "PID Controller" - Working principle, function for staying on the track using a PID controller, completing a lap using the PID controller
+		11.2) "World Championship" - Completing a lap in the best time to win the Best Racer Cup
+
+
+12) Smart City
+	Lessons and exercises:
+		12.1) "Crossroads" - Decision-making at crossroads
+		12.2) "How Many crossroads here?" / "Way Home" - Task: Reach a point following the lines, choosing the correct direction at crossroads. Simply calculate the point based on x and y. Use the information to determine the next turn.
+		12.3) "Keep in line" - robot should keep in line between two black lines.
+
+13) Additional Challenges and ideas
+	Lessons and exercises:
+		13.1) "Real-Time Navigation" - Navigate through a labyrinth or a specific route in real-time (I think, that task 7.2 better)
+		13.2) "Automatic Transmission" - Gradually accelerating while controlling in real-time
+		13.3) "Mechanical Transmission" - Program buttons to shift gears, corresponding to specific speed ranges, allowing shifting only at certain speeds. All in real-time.
+		13.4) "Navigator" - Create a library or write a program considering street parameters, their lengths, and names, and enable route planning using a graph (just an idea). Generate commands for the robot, such as "go straight," "turn right at this crossroad," "turn left at the next crossroad," and so on.
+		*13.5) "Escape from labyrinth" - Escape from a labyrinth as a multi-lesson cycle: find the exit by systematically checking all squares, program an exit strategy using the right-hand rule. Additional map required
+		*13.6) "Challenge from Racer Vasya/Petya/Bob, etc." - A new challenging route that the robot must complete within a given minimum time. Additional map required
+		13.7) "Road Maintenance" - A section of the track is missing, represented by a gap in the black surface, and the robot must continue moving along the track.
+		13.8) "Dangerous Section" / "Pedestrian Crossing" - The lines change to transverse lines, indicating a reduced speed zone, and the robot should slow down on this section and not lose its way.
+		13.9) "Advanced Route" - A challenging track with various obstacles. The task is to travel from Point A to Point B, with the option to choose the route. A similar map could be used for various types of challenges, such as the one found at http://roboturnir.by/arkhiv/iv_tournament/race_line/
+		13.10) "Color Inversion" / "Multi-Day Journey" / "Nighttime Road" - Along the route, the colors on the map are inverted ("Nightfall" example on the website http://roboturnir.by/arkhiv/iv_tournament/race_line/). The task for the robot is to continue moving.
+
+14) LED Matrix (in case it is available, it can replace some LED-related tasks)
+	Lessons and exercises:
+		14.1) "Team Logo" - Displaying the team logo or sponsor advertisement on the matrix. Multiple logo options can be provided to choose from.
+		14.2) "Countdown" / "READY, SET, GO" - Displaying a countdown on the matrix before starting the robot.
+		14.3) "Animation" - Animation sequence for robot startup. For example, an animation where the "power symbol" lights up.
+		14.4) "Message Display" / "Sponsor Advertisement" / "Scrolling Text" - Displaying text as a scrolling message using library functions. Also providing character codes to allow students to display their own messages, such as their names.
+		14.5) "Direction Indicators" - Indicating the direction of robot movement according to its motion.
+
+15) Additional Content with Color Sensor: REQUIRED A COLOR SENSOR AND SPECIAL MAPS
+	Introducing the Color Sensor:
+		15.1) "Learning Colors" - Using real-time control, drive to different color marks and record the results for verification.
+
+	Expanding into Urban Environment:
+		15.2) "Parking Spot Search" - Green marks on the streets to indicate available parking spots.
+		15.3) "Service Stations"/"Fuel stations" - Adding colored marks for service stations or fuel stations where the robot should stop if it has already traveled a certain distance. The counter resets after visiting the service station.
+		15.4) "Pedestrian Zones" - Sections of a specific color where the robot needs to reduce speed.
