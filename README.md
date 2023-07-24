@@ -4,7 +4,7 @@ Bolded items introduce new concepts in the lesson.
 
 Italicized lessons are currently not considered due to reasons such as high complexity, limited significance, or implementation difficulties.
 
-There are a total of 55 lessons. The average duration of lessons - ?
+There are a total of 53 lessons. The average duration of lessons - ?
 
 1) Introduction to the Robot
 	- 1.1) "Test Drive" - Brief introduction and robot movement forward using **digitalWrite()**
