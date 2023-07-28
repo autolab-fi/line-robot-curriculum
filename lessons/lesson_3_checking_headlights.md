@@ -10,11 +10,11 @@ In this lesson we will learn about some basic functions in the Wiring programmin
 1. First, copy the code provided below and paste it into the dedicated field of your program.
 ```
 void setup() {
-    pinMode(?, OUTPUT);
-    pinMode(?, OUTPUT);
+    pinMode(?, OUTPUT); //Initiates first LED pin
+    pinMode(?, OUTPUT); //Initiates second LED pin
       
-    digitalWrite(?, HIGH);
-    digitalWrite(?, HIGH);
+    digitalWrite(?, HIGH); //turn on first LED
+    digitalWrite(?, HIGH); //turn on second LED
 }
       
 void loop() {
