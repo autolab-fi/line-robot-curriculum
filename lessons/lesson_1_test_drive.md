@@ -1,7 +1,7 @@
 # Lesson 1. Test drive
 
 ## Lesson objective
-Meet our robot and get it moving immediately.
+Get started with the robot and get it moving immediately.
 
 ## Introduction
 In this lesson we will show you how to make our robot go forward.
@@ -54,10 +54,10 @@ void loop(){
 ### Exercise
 
 ### Verification exercise
-Try writing code for the robot to move forward for 5 seconds.
+- Try writing code for the robot to move forward for 5 seconds.
 
 ### Task for self-testing
-Now, you can try sending a LOW signal to both motors or just one. See what happens.
+- Now, you can try sending a LOW signal to both motors or just one. See what happens.
 
 ## Conclusion
 Congratulations! You have successfully learned how to make the robot move!
