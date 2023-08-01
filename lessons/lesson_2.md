@@ -20,5 +20,5 @@ Write a program for the robot to make it drive straight for 5 seconds.
 
 
 ## Conclusion
-Congratulations! You have written your own program for robot movement. In the next lesson, we will explore the robot's movement in different directions using the library. 
+Congratulations! You have written your own program for robot movement! In the next lesson, we will explore the robot's movement in different directions using the library. 
 
