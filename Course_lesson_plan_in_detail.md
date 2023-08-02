@@ -7,18 +7,18 @@ Italicized lessons are currently not considered due to reasons such as high comp
 There are a total of 53 lessons. The average duration of lessons - ?
 
 1. Introduction to the Robot
-	1. "Test Drive" - Brief introduction and robot movement forward using **digitalWrite()**
-	2. "Car Showroom" - Understanding the components of the robot, robot images with indicated main components.
+	1. "Test Drive" - Brief introduction and robot movement forward using library
+	2. "License to drive" - independent writing a simple program
 
-2. Basics of Robot Programming
-	1. "Headlight Check" - Controlling an LED, turning it on and off. **setup()** **pinMode()**
-	2. "Emergency Signal" - Blinking an LED. **loop()**
-	3. "Morse Code Message" - Transmitting an SOS signal. **int**
-
-3. Robot Motion Control
+2. Robot Motion Control
 	1. "Reversing" - Explanation of how to change the motor rotation direction. Forward and backward movement.
 	2. "Maneuvering" -  Right and Left Turns.
 	3. "Speed Record" - controlling robot speed and results displayed on camera **analogWrite()**
+
+3. Basics of Arduino functions
+	1. "Headlight Check" - Controlling an LED, turning it on and off. **setup()** **pinMode()**
+	2. "Emergency Signal" - Blinking an LED. **loop()**
+	3. "Morse Code Message" - Transmitting an SOS signal. **int**
 
 4. Functions
 	1. "Turn Signals, Brake Lights, and Fog Lights" - Writing functions to control LEDs. **void**, **function**
