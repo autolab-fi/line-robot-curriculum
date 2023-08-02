@@ -4,7 +4,13 @@
 Get started with the robot and get it moving immediately.
 
 ## Introduction
-In this lesson, you will learn how to set the robot in motion, and it's really not difficult, for this you only need a great desire and perseverance. We will use a "lineRobot" library for this task. Let's test the robot by writing a program for moving forward.
+In this lesson, you will learn how to set the robot in motion, and it's really not difficult, for this you only need a great desire and perseverance. We will use a `lineRobot` library for this task.
+
+Below is a photo of the robot.
+
+![image](../images/robot.png)
+
+ Let's test the robot by writing a program for moving forward.
 
 ## Step-by-step Instructions
 1. Copy the code provided below and paste it into the code editor.
