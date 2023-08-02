@@ -3,19 +3,19 @@
 
 1. Get started with robot
 	1. "Test Drive"
-	2. "Car Showroom"
+	2. "License to drive"
 
 
-2. Basics of Robot Programming
-	1. "Headlight Check"
-	2. "Emergency Signal"
-	3. "Morse Code Message"
-
-
-3. Robot Motion Control
+2. Robot Motion Control
 	1. "Reversing"
 	2. "Maneuvering"
 	3. "Speed Record"
+
+
+3. Basic of Arduino functions
+	1. "Headlight Check"
+	2. "Emergency Signal"
+	3. "Morse Code Message"
 
 
 4. Functions

@@ -4,7 +4,7 @@
 Get started with the robot and get it moving immediately.
 
 ## Introduction
-In this lesson, you will learn how to set the robot in motion, and it's really not difficult, for this you only need a great desire and perseverance. We will use a `lineRobot` library for this task.
+In this lesson, you will learn how to set the robot in motion. It's really not difficult, for this you only need a great desire and perseverance.
 
 Below is a photo of the robot.
 

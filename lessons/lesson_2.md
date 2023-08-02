@@ -4,7 +4,7 @@
 Independently write a program for the robot and upload it for verification.
 
 ## Introduction
-In this lesson we will give you a license to drive, if you write a program for the robot by your own. We will talk about one of the most important concepts in programming: functions. Afterward, you will have a task to complete on your own. Good luck!
+In this lesson we are giving you the driver's license: today, you will be writing the program on your own, without the instructor's help. However, first, let's cover some theory. We will talk about one of the most important concepts in programming: functions.
 
 
 ## Block of theory
@@ -17,7 +17,7 @@ In the previous lesson, we used the `lineRobot` library, and we will continue us
 We have already used the function `robot.moveForwardSeconds(seconds)`. This function makes the robot move forward, and the parameter `seconds` sets the duration of the movement in seconds.
 
 ## Task 
-Write a program for the robot to make it drive straight for 5 seconds. You can go back to the previous lesson to recall how to set the robot in motion. 
+Write a program for the robot to make it drive straight for 5 seconds. You can go back to the previous lesson to recall how to set the robot in motion. Good luck!
 
 
 
