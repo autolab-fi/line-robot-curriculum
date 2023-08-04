@@ -1,5 +1,10 @@
-Lesson plan for course is in the file "Course_lesson_plan.md"
+# Course of remote learning on Line-Following Robot
 
-Lesson plan in detail is in the file "Course_lesson_plan_in_detail.md"
-
-Lesson Plan in detail in the Russian is in the file "План_уроков_для_курса.md"
+# Description of repository structure
+- folder `lessons` contains lessons
+- folder `images` contains images for lessons
+- folder `maps` contains maps
+- folder `library` contains custom library
+- `Course_lesson_plan.md` - list of lessons
+- `Course_lesson_plan_in_detail.md` - brief description of lessons from course lesson plan
+- `План_уроков_для_курса.md` - rus version of `Course_lesson_plan_in_detail.md` 
