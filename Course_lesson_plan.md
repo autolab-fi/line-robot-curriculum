@@ -7,9 +7,10 @@
 
 
 2. Robot Motion Control
-	1. "Reversing"
+	1.  "Short distance race"
 	2. "Maneuvering"
-	3. "Speed Record"
+	3. "Long distance race"
+	4. "Speed Record"
 
 
 3. Basic of Arduino functions

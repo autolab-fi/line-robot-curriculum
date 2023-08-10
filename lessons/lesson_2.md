@@ -1,3 +1,7 @@
+---
+module: module_1
+task: license
+---
 # Lesson 2. License to drive
 
 ## Lesson objective
