@@ -1,6 +1,6 @@
 # Course of remote learning on Line-Following Robot
 
-# Description of repository structure
+## Description of repository structure
 - folder `lessons` contains lessons
 - folder `images` contains images for lessons
 - folder `maps` contains maps
