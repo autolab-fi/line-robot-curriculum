@@ -11,9 +11,10 @@ There are a total of 53 lessons. The average duration of lessons - ?
 	2. "License to drive" - independent writing a simple program
 
 2. Robot Motion Control
-	1. "Reversing" - Explanation of how to change the motor rotation direction. Forward and backward movement.
+	1. "Short distance race" - Function for moving the robot a specific distance. Forward and backward movement.
 	2. "Maneuvering" -  Right and Left Turns.
-	3. "Speed Record" - controlling robot speed and results displayed on camera **analogWrite()**
+	3. "Long distance race" - write a sequence of commands to follow the route represented in the image. 
+	4. "Speed Record" - controlling robot speed and results displayed on camera **analogWrite()**
 
 3. Basics of Arduino functions
 	1. "Headlight Check" - Controlling an LED, turning it on and off. **setup()** **pinMode()**
@@ -50,7 +51,7 @@ There are a total of 53 lessons. The average duration of lessons - ?
 9. Line Sensor
 	1. "Stop Line" - if Robot reaches the line then it should stop
 	2. "Potholes in the Road" - If an obstacle is on the road, the robot should avoid it.
-	3. "get on the track" - Automatic gitting onto the track, meaning if a track is encountered, the robot positions itself on the track.
+	3. "get on the track" - Automatic getting onto the track, meaning if a track is encountered, the robot positions itself on the track.
 
 10. Line Following
 	1. "Relay Controller" - Relay controller function for correcting the position on the track to align perfectly.

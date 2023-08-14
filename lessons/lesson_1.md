@@ -1,3 +1,7 @@
+---
+module: module_1
+task: test_drive
+---
 # Lesson 1. Test drive
 
 ## Lesson objective
