@@ -14,12 +14,13 @@ There are a total of 53 lessons. The average duration of lessons - ?
 	1. "Short distance race" - Function for moving the robot a specific distance. Forward and backward movement.
 	2. "Maneuvering" -  Right and Left Turns.
 	3. "Long distance race" - write a sequence of commands to follow the route represented in the image. 
-	4. "Speed Record" - controlling robot speed and results displayed on camera **analogWrite()**
+	4. "Speed record" - controlling robot speed and results displayed on camera 
+	5. "Speed record challenge" - Write a program for motion with the specified minimum average speed for a certain period of time.
 
 3. Basics of Arduino functions
-	1. "Headlight Check" - Controlling an LED, turning it on and off. **setup()** **pinMode()**
-	2. "Emergency Signal" - Blinking an LED. **loop()**
-	3. "Morse Code Message" - Transmitting an SOS signal. **int**
+	1. "Headlight check" - Controlling an LED, turning it on and off. **setup()**
+	2. "Emergency light" - Blinking an LED. **loop()**
+	3. "Morse Code Message" - Transmitting an SOS signal.
 
 4. Functions
 	1. "Turn Signals, Brake Lights, and Fog Lights" - Writing functions to control LEDs. **void**, **function**

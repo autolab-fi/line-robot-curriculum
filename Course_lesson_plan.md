@@ -10,12 +10,13 @@
 	1.  "Short distance race"
 	2. "Maneuvering"
 	3. "Long distance race"
-	4. "Speed Record"
+	4. "Speed record"
+	5. "Speed record challenge"
 
 
 3. Basic of Arduino functions
-	1. "Headlight Check"
-	2. "Emergency Signal"
+	1. "Headlight check"
+	2. "Emergency light"
 	3. "Morse Code Message"
 
 
