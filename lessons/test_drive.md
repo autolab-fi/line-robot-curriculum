@@ -1,6 +1,9 @@
 ---
+index: 1
 module: module_1
 task: test_drive
+previous: draw
+next: license_to_drive
 ---
 # Lesson 1. Test drive
 

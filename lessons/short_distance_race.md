@@ -1,6 +1,9 @@
 ---
+index: 3
 module: module_1
 task: short_distance_race
+previous: license_to_drive
+next: maneuvering
 ---
 # Lesson 3. Short distance race
 

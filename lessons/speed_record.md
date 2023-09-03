@@ -1,6 +1,9 @@
 ---
-module: module_1
+index: 6
+module: module_1 
 task: speed_record
+previous: long_distance_race
+next: speed_record_challenge
 ---
 # Lesson 6. Speed record
 

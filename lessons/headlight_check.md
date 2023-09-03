@@ -1,6 +1,9 @@
 ---
+index: 5
 module: module_2
 task: headlight_check
+previous: speed_record_challenge
+next: emergency_light
 ---
 # Lesson 8. Headlight check
 

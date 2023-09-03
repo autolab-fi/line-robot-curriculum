@@ -1,6 +1,9 @@
 ---
+index: 5
 module: module_1 
 task: long_distance_race
+previous: maneuvering
+next: draw
 ---
 # Lesson 5. Long distance race
 

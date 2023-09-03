@@ -1,6 +1,9 @@
 ---
-module: module_2
+index: 5
+module: module_2 
 task: emergency_light
+previous: headlight_check
+next: -
 ---
 # Lesson 9. Emergency light
 

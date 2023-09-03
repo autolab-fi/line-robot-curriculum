@@ -1,6 +1,9 @@
 ---
-module: module_1
+index: 7
+module: module_1 
 task: speed_record_challenge
+previous: speed_record
+next: headlight_check
 ---
 # Lesson 7. Speed record challenge
 
