@@ -1,6 +1,9 @@
 ---
+index: 4
 module: module_1 
 task: maneuvering
+previous: short_distance_race
+next: long_distance_race
 ---
 # Lesson 4. Maneuvering
 

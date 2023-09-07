@@ -1,6 +1,9 @@
 ---
+index: 2
 module: module_1
-task: license
+task: license_to_drive
+previous: test_drive
+next: short_distance_race
 ---
 # Lesson 2. License to drive
 
