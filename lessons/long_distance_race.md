@@ -21,7 +21,7 @@ Each function of the library `lineRobot` executes a sequence of commands within 
 ## Task 
 Write a program for the robot to follow the route represented in the image.
 
-![image](../images/long_distance_race.png)
+![image](https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/long_distance_race.png?raw=true)
 
 You can remember the library functions by revisiting the previous lessons.
 
