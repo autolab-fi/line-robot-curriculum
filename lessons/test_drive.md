@@ -15,7 +15,7 @@ In this lesson, you will learn how to set the robot in motion. It's really not d
 
 Below is a photo of the robot.
 
-![image](../images/robot.png)
+![image](https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/robot.png?raw=true)
 
  Let's test the robot by writing a program for moving forward.
 
