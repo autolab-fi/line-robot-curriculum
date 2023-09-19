@@ -1,36 +1,28 @@
 [
 
     {
-        "name": "draw:",
+        "name": "0. Draw",
         "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/draw.md"
     },
     {
-        "name":"test_drive",
+        "name":"1. Test drive",
         "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/test_drive.md"
     },
     {
-        "name": "license_to_drive",
+        "name": "2. License to drive",
         "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/license_to_drive.md"
     },
     {
-        "name": "short_distance_race",
+        "name": "3. Short distance race",
         "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/short_distance_race.md"
     },
     {
-        "name":"maneuvering",
+        "name":"4. Maneuvering",
         "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/maneuvering.md"
     },
     {
-        "name": "long_distance_race",
+        "name": "5. Long distance race",
         "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/long_distance_race.md"
-    },
-    {
-        "name":"speed_record",
-        "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/speed_record.md"
-    },
-    {
-        "name": "speed_record_challenge",
-        "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/speed_record_challenge.md"
     }
     
 ]

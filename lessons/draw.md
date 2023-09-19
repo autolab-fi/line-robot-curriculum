@@ -14,11 +14,18 @@ Hello! This is the sandbox mode, where you can test your programs. Moreover, you
 
 # Code example
 ```
+#include <lineRobot.h>
 void setup(){
-
+   robot.turnRight();
+   robot.turnRightAngle(45);
+   robot.moveForwardDistance(20);
+   robot.turnRight();
+   robot.moveForwardDistance(20);
+   robot.turnRight();
+   robot.moveForwardDistance(20);
+   robot.turnRight();
+   robot.moveForwardDistance(20);
 }
-
 void loop(){
-    
 }
 ```
