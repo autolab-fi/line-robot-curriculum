@@ -9,8 +9,9 @@ next: test_drive
 
 
 # Description
-Hello! This is the sandbox mode, where you can test your programs. Moreover, you can run the task check, and a blue trail will be left behind the robot for 20 seconds.
+Hello! Welcome to sandbox mode, where you can test your programs. Additionally, you can execute Verify' and a blue trail will be left behind the robot for 20 seconds.
 
+*Add image how it should look*
 
 # Code example
 ```
