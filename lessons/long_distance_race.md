@@ -7,24 +7,24 @@ next: draw
 ---
 # Lesson 5. Long distance race
 
-## Lesson objective
+## Objective
 Write a program with a specific sequence of movements.
 
 ## Introduction
-Now you know how to control the robot in four directions. In this lesson, you will need to write a sequence of commands in such a way that the robot follows a specified route.
+Now that you know how to control the robot in four directions, this lesson requires you to craft a sequence of commands to guide the robot along a predefined route.
 
 ## Block of theory
-You've been writing programs for several lessons now. Let's define what a program is: program is a ordered sequence of commands.  Commands performs by executor. In our case, the executor of commands is the robot. 
+Throughout the preceding lessons, you've been creating programs. Let's define what a program is: a program is an ordered sequence of commands. These commands are executed by a designated executor, which, in our case, is the robot.
 
-Each function of the library `lineRobot` executes a sequence of commands within the function. In the upcoming lessons, you will write your own functions using the basic functions of the Arduino Wiring programming language.
+Each function within the **lineRobot.h** library executes a sequence of commands specific to that function. In the upcoming lessons, you'll advance to writing your own functions using the basic functions of the Arduino Wiring programming language.
 
 ## Task 
 Write a program for the robot to follow the route represented in the image.
 
 ![image](https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/long_distance_race.png?raw=true)
+i.e.
 
-You can remember the library functions by revisiting the previous lessons.
-
+You can refresh your memory of the library functions by revisiting the previous lessons.
 
 ## Conclusion
-Congratulations! You have learned about the concept of a program and an executor. In the next lesson, you will learn how to control the robot's speed.
+You are awesome! You've gained insight into the concept of a program and its executor. In the next lesson, you'll learn how to control the robot's speed.
