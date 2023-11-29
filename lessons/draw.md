@@ -10,6 +10,7 @@ next: test_drive
 
 # Description
 Hello! Welcome to sandbox-draw mode, where you can test your code. Additionally, you can execute Verify' and a blue trail will be left behind the robot for 20 seconds.
+
 ![verfification](https://github.com/autolab-fi/line-robot-curriculum/assets/13139586/ca70754f-2cbf-4e1f-b4b0-c3497fc658e4)
 
 # Code example
