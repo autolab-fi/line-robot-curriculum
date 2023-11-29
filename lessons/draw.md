@@ -32,6 +32,7 @@ void loop(){
 
 # Hint 
 Notice that the trajectory of your roobt is also displayed in the Output section.
+
 ![Verification_output](https://github.com/autolab-fi/line-robot-curriculum/assets/13139586/2ed60da4-7158-43a8-894d-824ec26e6eab)
 
 
