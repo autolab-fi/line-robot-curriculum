@@ -7,28 +7,27 @@ next: long_distance_race
 ---
 # Lesson 4. Maneuvering
 
-## Lesson objective
+## Objective
 Learn about functions for turning the robot right and left.
 
 ## Introduction
-You have successfully learned how to control the robot's forward and backward movements, but this is not enough for free movement across the field. In this lesson, you will learn functions for turning right and left.
+You have successfully learned how to control the robot's forward and backward movements, but this is not sufficient for free movement across the field. In this lesson, you will learn functions for turning the robot right and left.
 
-## Block of theory
-You already know how to control the robot for straight movement, now let's learn about turning the robot right and left to move in four directions.
+## Theory
+You already know how to control the robot for straight movement; now, let's delve into turning the robot right and left to facilitate movement in four directions.
 
-Below, the image represent the possible directions of the robot's movement.
+Below, the image represents the possible directions of the robot's movement.
 
-![image](https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/robot_directions.png?raw=true)
+[Image: A visual representation of possible robot movement directions]
 
-`robot.turnRight()` - function for turning right.
+**robot.turnRight()** - Function for turning right.
 
-`robot.turnLeft()` - function for turning left.
+**robot.turnLeft()** - Function for turning left.
 
-As you can see, the turning functions don't take any parameters. It's enough to call them, and the robot will turn in place in the desired direction.
+As you can see, the turning functions don't require any parameters. It's sufficient to call them, and the robot will turn in place in the desired direction.
 
-## Task 
-Write a program for the robot to turn right, then turn left, and finally turn left again.
-
+## Assignment 
+Write code for the robot to **turn right, then turn left, and finally turn left again**.
 
 ## Conclusion
-Congratulations! Now you can move the robot in four directions! This will be very useful for you in the next lesson.
+Congratulations! Now you can move the robot in four directions! This skill will prove very useful for you in the next lesson.
