@@ -21,7 +21,7 @@ In the previous lesson, you gained insight into **functions** and **parameters**
 **robot.moveBackwardDistance(dist)** -  A function for moving the robot backward by the number of centimeters specified by the parameter **dist**.
 
 Robot directions
-![robot](https://github.com/autolab-fi/line-robot-curriculum/assets/13139586/90dc8bde-d2c5-4556-8b20-b8d8bf423e37)
+![robot_directions](https://github.com/autolab-fi/line-robot-curriculum/assets/13139586/8d6b0c8c-0432-4525-8e7b-6786c9c9b5cc)
 
 ## Assignment 
 Write a program for the robot to move **backward 35** centimeters and then **forward 20** centimeters. Good luck!
