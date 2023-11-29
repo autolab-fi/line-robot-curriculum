@@ -8,7 +8,7 @@ next: short_distance_race
 # Lesson 2. License to drive
 
 ## Objective
-Change function parameter.
+Modify function parameter.
 
 ## Introduction
 In this lesson, we are granting you the driver's license. Today, you will be writing the program on your own without the instructor's help. However, first, let's cover some theory. We will discuss one of the most important concepts in programming: functions.
