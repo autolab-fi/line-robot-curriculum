@@ -7,7 +7,7 @@ next: short_distance_race
 ---
 # Lesson 2. License to drive
 
-## Lesson objective
+## Objective
 Change function parameter.
 
 ## Introduction
