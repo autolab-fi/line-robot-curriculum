@@ -5,7 +5,7 @@ task: draw
 previous: None
 next: test_drive
 ---
-# Lesson Draw.
+# Sandbox: Draw
 
 
 # Description
