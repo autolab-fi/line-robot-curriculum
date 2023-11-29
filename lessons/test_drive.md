@@ -14,7 +14,8 @@ Get started with the robot and set it in motion promptly.
 In this lesson, you will learn how to initiate movement in the robot. It's not a complex task; all you need is a strong desire and perseverance.
 
 Behold the mighty robot who will assist you in learning.
-![robot](https://github.com/autolab-fi/line-robot-curriculum/assets/13139586/888c76f9-8b02-4159-ae0c-64348a880620)
+
+![robot](https://github.com/autolab-fi/line-robot-curriculum/assets/13139586/97adf860-56b5-4ebe-afc6-9f49cbea6047)
 
 Now let's test the robot by writing a program for forward movement.
 
@@ -35,4 +36,4 @@ void loop(){
 
 
 ## Conclusion
-Wasn't hard, was it? But you have successfully acquired the skill to make the robot move. Now, you can proceed to the next lesson!
+Wasn't hard, was it? A tiny code though a giant leap towards building your robotics skillset. you have successfully acquired the skill to make the robot move. Now, you can proceed to the next lesson!
