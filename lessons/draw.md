@@ -8,12 +8,12 @@ next: test_drive
 # Sandbox: Draw
 
 
-# Description
+## Description
 Hello and welcome to sandbox-draw mode, where you can test your code. Additionally, you can execute Verify' and a blue trail will be left behind the robot for 20 seconds.
 
 ![verfification](https://github.com/autolab-fi/line-robot-curriculum/assets/13139586/ca70754f-2cbf-4e1f-b4b0-c3497fc658e4)
 
-# Code example
+## Code example
 ```
 #include <lineRobot.h>
 void setup(){
@@ -30,7 +30,7 @@ void loop(){
 }
 ```
 
-# Hint 
+## Hint 
 Notice that the trajectory of your roobt is also displayed in the Output section.
 
 ![Verification_output](https://github.com/autolab-fi/line-robot-curriculum/assets/13139586/2ed60da4-7158-43a8-894d-824ec26e6eab)
