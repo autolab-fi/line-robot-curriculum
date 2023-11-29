@@ -7,19 +7,18 @@ next: license_to_drive
 ---
 # Lesson 1. Test drive
 
-## Lesson objective
+## Objective
 Get started with the robot and set it in motion promptly.
 
 ## Introduction
 In this lesson, you will learn how to initiate movement in the robot. It's not a complex task; all you need is a strong desire and perseverance.
 
-Below is a photo of the robot.
-_edit_photo_
-![image](https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/robot.png?raw=true)
+Behold the mighty robot who will assist you in learning.
+![robot](https://github.com/autolab-fi/line-robot-curriculum/assets/13139586/888c76f9-8b02-4159-ae0c-64348a880620)
 
-Let's test the robot by writing a program for forward movement.
+Now let's test the robot by writing a program for forward movement.
 
-## Step-by-step Instructions
+## Instructions
 1. Copy the code provided below and paste it into the code editor.
 ```
 #include <lineRobot.h>
@@ -36,4 +35,4 @@ void loop(){
 
 
 ## Conclusion
-Congratulations! You have successfully acquired the skill to make the robot move. Now, you can proceed to the next lesson!
+Wasn't hard, was it? But you have successfully acquired the skill to make the robot move. Now, you can proceed to the next lesson!
