@@ -36,4 +36,4 @@ void loop(){
 
 
 ## Conclusion
-Wasn't hard, was it? A tiny code though a giant leap towards building your robotics skillset. you have successfully acquired the skill to make the robot move. Now, you can proceed to the next lesson!
+Wasn't hard, was it? A tiny code though a giant leap towards building your robotics skillset. You have successfully acquired the skill to make the robot move. Now, you can proceed to the next lesson!
