@@ -21,7 +21,7 @@ Each function within the **lineRobot.h** library executes a sequence of commands
 ## Assignment 
 Write a program for the robot to follow the route represented in the image.
 
-![image](https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/long_distance_race.png?raw=true)
+![trajectory](https://github.com/autolab-fi/line-robot-curriculum/assets/13139586/e9780f73-3e5b-4b78-ad54-95162b409a13)
 
 You can refresh your memory of the library functions by revisiting the previous lessons.
 
