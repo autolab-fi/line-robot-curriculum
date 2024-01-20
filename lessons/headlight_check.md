@@ -1,32 +1,41 @@
 ---
-index: 5
+index: 6
 module: module_2
 task: headlight_check
-previous: speed_record_challenge
+previous: long_distance_race
 next: emergency_light
 ---
-# Lesson 8. Headlight check
+# Lesson 6: Headlight Check
 
-## Lesson objective
-Learn about the `setup()` function and how to control LED using the `lineRobot` library.
+## Objective
+Learn about the **setup()** function and how to control the LED using the lineRobot library.
 
 ## Introduction
-In previous lessons, you learned about functions for controlling the robot's movement. Now, let's check the robot's headlights to learn about the `setup()` function in Arduino Wiring.
+In the previous lessons, you acquired knowledge about functions for managing the robot's movement. In this lesson, we will inspect the robot's headlights to learn about the **setup()** function in Arduino Wiring.
 
+## Theory
 
-## Block of theory
-In the Wiring language for Arduino, every program has two functions: `setup()` and `loop()`
-The `setup()` function runs **only once** after the program starts. Inside this function, you can write code to execute other functions or to initialize variables.
+### setup function
+In the Wiring language for Arduino, each program consists of two functions: **setup()** and **loop()**.
+The **setup()** function executes **only once** after the program initiation. Within this function, you can compose code to perform other functions or initialize variables.
 
-The `turnOnHeadlight()` function turns on the LED.
-The `turnOffHeadlight` function turns off the LED.
-The `turnOnHeadlightForSecond()` function turns on the LED on the robot for exactly one second.
+### Light Emitting Diode (LED)
+Light Emitting Diode is a device that emits light when an electric current passes through it.
 
-## Task 
-Write a program for the robot to turn on Headlights for 3 seconds. 
-Hint: you can do this by two ways: using `delay()` or `turnOnHeadlightForSecond()`
+![image](https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/LED.jpg?raw=true)
 
+LED Control Functions in the lineRobot library:
+- The **turnOnHeadlight()** function illuminates the LED.
+- The **turnOffHeadlight()** function extinguishes the LED.
+- The **turnOnHeadlightForSecond()** function activates the LED on the robot for precisely one second.
+
+## Assignment
+Write a program for the robot to illuminate the headlights for 3 seconds.
+<details>
+<summary>Hint</summary>
+
+You can achieve this in two ways: using **delay()** or **turnOnHeadlightForSecond()**.
+</details>
 
 ## Conclusion
-Congratulations! Now you know about one of the fundamental functions in Arduino programs and can control the LED on the robot.
-
+Congratulations! You now possess knowledge about one of the fundamental functions in Arduino programs and can manipulate the LED on the robot.
