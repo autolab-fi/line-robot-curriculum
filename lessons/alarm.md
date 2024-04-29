@@ -16,7 +16,7 @@ In this lesson, you will write a classic program to make an LED blink. This will
 ## Theory
 In the previous lesson, you learned about gpio and LEDs. Now, let's take a closer look at how LEDs are connected.
 
-<img src="https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/long_distance_race.png?raw=true" alt="led image" style="width:180px;"/>
+<img src="https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/alarm_1.png?raw=true" alt="led image" style="width:180px;"/>
 
 
 An LED has two contacts - anode and cathode. The anode is the longer one and it is connected to pin 32, while the cathode is connected to the ground. Electric current can only flow through the LED in one direction, from the anode to the cathode. When we send a high signal to pin 32, electric current flows through the LED from the anode to the cathode. When we send a low signal, the electric current doesn't flow. Remember, current flows through the LED only from the anode to the cathode.
