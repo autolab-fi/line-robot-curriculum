@@ -31,7 +31,7 @@ You already know how to turn on an LED using the **digitalWrite()** function. In
 ## Assignment
 Write a program for the robot to turn on the LEDs for 1 second, then turn them off for 1 second, and repeat this indefinitely.
 
-Remember, the LEDs are connected to pins 32 and 33.
+Remember, the LEDs are connected to pins 22 and 23.
 
 ## Conclusion
 Congratulations! Now you know how to control logical signals using the GPIO interface in a more complex manner!
