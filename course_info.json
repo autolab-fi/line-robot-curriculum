@@ -1,0 +1,10 @@
+{
+    "fullCourseName":"Line-following robot controlled by an ESP32 board",
+    "shortCourseName":"LineRobot",
+    "shortDescription":"Learn the basics of C++ programming with a remote-controlled ESP32 robot. Control motors and LEDs, read sensor data, and navigate along the track using a PID regulator.",
+    "fullDescription":"You will learn to program a mobile platform, starting with just one line of code. We use the microcontroller to control motors, LEDs, and read data from sensors. Next, there's a racing track awaiting you. Begin with simple if statements to navigate along the line. From there, move to more challenging assignments, improving your algorithm by developing the PID regulator. The last part of the course is a digital city with different living and industrial areas. You use a combination of a color sensor and a line-following sensor to navigate among the districts.",
+    "imageSmall":"https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/image_640_360.jpg?raw=true",
+    "imageBig":"https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/image_1920_1080.jpg?raw=true",
+    "workload":"64 hours",
+    "requirements":"No previous programming or robotics knowledge is required."
+}
