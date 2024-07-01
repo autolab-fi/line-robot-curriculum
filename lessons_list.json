@@ -3,65 +3,79 @@
     {
         "str_id": "draw",
         "name": "Drawing",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/draw.md",
+        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/draw.md",
         "sn": 0,
         "module": "module_1",
-        "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/draw.md"
+        "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/draw.md"
     },
     {
         "str_id": "test_drive",
         "name": "Test drive",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/test_drive.md",
+        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/test_drive.md",
         "sn": 1,
         "module": "module_1",
-        "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/test_drive.md"
+        "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/test_drive.md"
     },
     {
         "str_id": "license_to_drive",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/license_to_drive.md",
+        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/license_to_drive.md",
         "sn": 2,
         "module": "module_1",
         "name": "License to drive",
-        "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/license_to_drive.md"
+        "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/license_to_drive.md"
     },
     {
         "str_id": "short_distance_race",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/short_distance_race.md",
+        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/short_distance_race.md",
         "sn": 3,
         "module": "module_1",
         "name": "Short distance race",
-        "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/short_distance_race.md"
+        "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/short_distance_race.md"
     },
     {
         "str_id": "maneuvering",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/maneuvering.md",
+        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/maneuvering.md",
         "sn": 4,
         "module": "module_1",
         "name":"Maneuvering",
-        "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/maneuvering.md"
+        "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/maneuvering.md"
     },
     {
         "str_id": "long_distance_race",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/long_distance_race.md",
+        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/long_distance_race.md",
         "sn": 5,
         "module": "module_1",
         "name": "Long distance race",
-        "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/long_distance_race.md"
+        "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/long_distance_race.md"
     },
     {
         "str_id": "headlights",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/headlights.md",
+        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_2/headlights.md",
         "sn": 6,
         "module": "module_2",
         "name": "Headlights",
-        "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/headlights.md"
+        "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_2/headlights.md"
     },
     {
         "str_id": "alarm",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/alarm.md",
+        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_2/alarm.md",
         "sn": 7,
         "module": "module_2",
         "name": "Robot's alarm",
-        "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/alarm.md"
+        "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_2/alarm.md"
+    },
+    {
+        "str_id": "electric_motor",
+        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_3/electric-motor.md",
+        "sn": 8,
+        "module": "module_3",
+        "name": "Electric Motor"
+    },
+    {
+        "str_id": "differential_drive",
+        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_3/differential_drive.md",
+        "sn": 9,
+        "module": "module_3",
+        "name": "Differential drive"
     }
 ]

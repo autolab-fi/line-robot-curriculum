@@ -35,8 +35,8 @@ Basic functions of working with gpio using LEDs as examples.
 ### Controlling Motors
 What are DC motors, how to control them via a driver, concept of PWM.
 
-1. "Electric Motor" - Basic principles of DC motors. Task: get the robot moving by sending a signal to the driver.
-2. "Robot Movement" - PWM and analogWrite(), information about the driver, a bit about robot kinematics. Task: implement turning by sending a signal to the driver.
+1. "Electric Motor" - Basic principles of DC motors. Task: move specific trajectory with functions controlling motors.
+2. "Differential drive" - a little about robot's kinematic. Task: experiment with functions for moving robot forward
 
 ### Encoders
 What are encoders, solving the problem of turning to a given angle. Studying robot kinematics.
