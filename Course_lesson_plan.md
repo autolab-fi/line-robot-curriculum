@@ -20,7 +20,7 @@
 
 4. Controlling Motors
 	1. "Electric Motor"
-	2. "Robot Movement"
+	2. "Differential drive"
 
 
 5. Encoders
