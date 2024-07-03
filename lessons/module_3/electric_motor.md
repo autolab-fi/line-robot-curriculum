@@ -59,9 +59,9 @@ The function **moveRightMotorSpeed(speed)** works similarly for the right motor.
 To stop the motors, use the functions **stopMotorRight()** and **stopMotorLeft()**.
 
 ## Assignment
-Write a program for the robot so that it navigates around two cones. The robot will have only 20 seconds to complete this maneuver. To succeed, it needs to follow an optimal trajectory. The best trajectory would be a figure-eight, which can be achieved using the new functions to control each motor individually.
+Write a program for the robot to reach a point on the map. However, remember that you will not be able to use the built-in robot movement functions. The functions: **moveForwardDistance**, **moveBackwardDistance**, **turnLeft**, **turnRight**, **moveForwardSeconds**, and **moveBackwardSeconds** will not work. 
 
-![image](https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/module_3/trajectory.png?raw=True)
+![image](https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/module_3/finsh_point.jpg?raw=True)
 
 
 ## Conclusion
