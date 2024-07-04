@@ -15,7 +15,7 @@ In this lesson, you will learn how to initiate movement in the robot. It's not a
 
 Behold the mighty robot who will assist you in learning.
 
-![robot](https://github.com/autolab-fi/line-robot-curriculum/assets/13139586/97adf860-56b5-4ebe-afc6-9f49cbea6047)
+![robot](https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/module_1/robot.png?raw=true)
 
 Now let's test the robot by writing a program for forward movement.
 

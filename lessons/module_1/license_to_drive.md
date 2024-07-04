@@ -19,7 +19,7 @@ In the previous lesson, we used the **lineRobot.h** library, and we will continu
 
 **Functions** are named blocks of code that perform specific tasks. This means that when you invoke a function, it performs a specific action, such as multiplying two numbers or displaying a message on the console. Some functions have **parameters**; for example, the function **function(param1, param2)** has two parameters, param1 and param2. Parameters allow you to pass data into the function and work with it. In future lessons, you will write your own functions for controlling the robot.
 
-![image](https://github.com/autolab-fi/line-robot-curriculum/assets/13139586/dc0e39f3-f349-4d8b-87df-ee64c2b120bd)
+![verfification](https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/module_1/function.png?raw=true)
 
 We have already used the function **robot.moveForwardSeconds(seconds)**. This function makes the robot move forward, and the parameter **seconds** sets the duration of the movement in seconds.
 
