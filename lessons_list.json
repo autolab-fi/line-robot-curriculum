@@ -65,17 +65,24 @@
         "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_2/alarm.md"
     },
     {
-        "str_id": "electric_motor",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_3/electric-motor.md",
-        "sn": 8,
-        "module": "module_3",
-        "name": "Electric Motor"
-    },
-    {
         "str_id": "differential_drive",
         "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_3/differential_drive.md",
-        "sn": 9,
+        "sn": 8,
         "module": "module_3",
         "name": "Differential drive"
+    },
+    {
+        "str_id": "move_function",
+        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_3/move_function.md",
+        "sn": 9,
+        "module": "module_3",
+        "name": "Movement Function"
+    },
+    {
+        "str_id": "electric_motor",
+        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_3/electric-motor.md",
+        "sn": 10,
+        "module": "module_3",
+        "name": "Electric Motor"
     }
 ]

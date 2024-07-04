@@ -1,4 +1,4 @@
-# Lesson 8: Electric Motor
+# Lesson 10: Electric Motor
 
 ## Lesson objective
 Lear about electric motors.
@@ -47,16 +47,6 @@ An electric motor can also be equipped with a gearbox, which transfers the rotat
 
 ![image](https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/module_3/small_size_gearbox.png?raw=True)
 
-
-
-### Controlling Motor
-In the **lineRobot** library, functions for controlling the motors are already written, and they can be used to control the motors individually.
-
-The function **moveLeftMotorSpeed(speed)** is used to send a signal to the motors, with the speed parameter specified as a percentage. The speed can be either negative or positive, ranging from -100 to 100. When the parameter is greater than 0, the left wheel will rotate forward, and if the parameter is less than 0, the wheel will rotate in the opposite direction. IMPORTANT! These functions only start the motors; they do not stop them. To stop the motors, you can use specified function or provide 0 as parameter for the funtion **moveLeftMotorSpeed(speed)**.
-
-The function **moveRightMotorSpeed(speed)** works similarly for the right motor.
-
-To stop the motors, use the functions **stopMotorRight()** and **stopMotorLeft()**.
 
 ## Assignment
 Write a program for the robot to reach a point on the map. However, remember that you will not be able to use the built-in robot movement functions. The functions: **moveForwardDistance**, **moveBackwardDistance**, **turnLeft**, **turnRight**, **moveForwardSeconds**, and **moveBackwardSeconds** will not work. 
