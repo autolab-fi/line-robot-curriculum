@@ -1,88 +1,117 @@
 [
-
     {
-        "str_id": "draw",
-        "name": "Drawing",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/draw.md",
+        "name":"Introduction to the Robot",
+        "description": "Getting familiar with the platform and learning how to control the robot.",
         "sn": 0,
-        "module": "module_1",
-        "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/draw.md"
+        "str_id":"module_0",
+        "lessons":[
+            {
+                "str_id": "draw",
+                "name": "Drawing",
+                "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/draw.md",
+                "sn": 0,
+                "module": "module_1",
+                "description": "Introduction to the platform, listing all peripherals, describing what we will be working with, and outlining any restrictions on libraries and tag words."
+            },
+            {
+                "str_id": "test_drive",
+                "name": "Test drive",
+                "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/test_drive.md",
+                "sn": 1,
+                "module": "module_1",
+                "description": "Some introductory words on moving the robot forward using a library."
+            },
+            {
+                "str_id": "license_to_drive",
+                "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/license_to_drive.md",
+                "sn": 2,
+                "module": "module_1",
+                "name": "License to drive",
+                "description": "Writing a simple program independently, similar to the previous lesson."
+            }
+        ]
     },
     {
-        "str_id": "test_drive",
-        "name": "Test drive",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/test_drive.md",
+        "name":"Controlling Robot Movement",
+        "description": "Demonstrating the robot's capabilities.",
         "sn": 1,
-        "module": "module_1",
-        "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/test_drive.md"
+        "str_id":"module_1",
+        "lessons":[{
+            "str_id": "short_distance_race",
+            "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/short_distance_race.md",
+            "sn": 3,
+            "module": "module_1",
+            "name": "Short distance race",
+            "description": "Using library functions to move a specific distance, both forward and backward."
+        },
+        {
+            "str_id": "maneuvering",
+            "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/maneuvering.md",
+            "sn": 4,
+            "module": "module_1",
+            "name":"Maneuvering",
+            "description": "Turning right and left in place. Task: Read data from a file and write it to another."
+        },
+        {
+            "str_id": "long_distance_race",
+            "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/long_distance_race.md",
+            "sn": 5,
+            "module": "module_1",
+            "name": "Fruit Ninja",
+            "description": "Writing a program with a sequence of commands to move along a trajectory depicted in the diagram."
+        }]
     },
     {
-        "str_id": "license_to_drive",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/license_to_drive.md",
+        "name":"Controlling LEDs",
+        "description": "Basic arduino functions of working with GPIO using LEDs as examples.",
         "sn": 2,
-        "module": "module_1",
-        "name": "License to drive",
-        "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/license_to_drive.md"
+        "str_id":"module_2",
+        "lessons":[
+        {
+            "str_id": "headlights",
+            "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_2/headlights.md",
+            "sn": 6,
+            "module": "module_2",
+            "name": "Headlights",
+            "description": "Understanding how LEDs work. Task: Turning on LEDs."
+        },
+        {
+            "str_id": "alarm",
+            "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_2/alarm.md",
+            "sn": 7,
+            "module": "module_2",
+            "name": "Robot's alarm",
+            "description": "More about the digitalWrite() and pinMode() functions. Task: Blinking LEDs."
+        }]
     },
     {
-        "str_id": "short_distance_race",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/short_distance_race.md",
+        "name":"Controlling Motors",
+        "description": "Studying robot kinematics. Writing functions. What are DC motors.",
         "sn": 3,
-        "module": "module_1",
-        "name": "Short distance race",
-        "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/short_distance_race.md"
-    },
-    {
-        "str_id": "maneuvering",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/maneuvering.md",
-        "sn": 4,
-        "module": "module_1",
-        "name":"Maneuvering",
-        "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/maneuvering.md"
-    },
-    {
-        "str_id": "long_distance_race",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/long_distance_race.md",
-        "sn": 5,
-        "module": "module_1",
-        "name": "Long distance race",
-        "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/long_distance_race.md"
-    },
-    {
-        "str_id": "headlights",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_2/headlights.md",
-        "sn": 6,
-        "module": "module_2",
-        "name": "Headlights",
-        "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_2/headlights.md"
-    },
-    {
-        "str_id": "alarm",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_2/alarm.md",
-        "sn": 7,
-        "module": "module_2",
-        "name": "Robot's alarm",
-        "link": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_2/alarm.md"
-    },
-    {
-        "str_id": "differential_drive",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_3/differential_drive.md",
-        "sn": 8,
-        "module": "module_3",
-        "name": "Differential drive"
-    },
-    {
-        "str_id": "move_function",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_3/move_function.md",
-        "sn": 9,
-        "module": "module_3",
-        "name": "Movement Function"
-    },
-    {
-        "str_id": "electric_motor",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_3/electric-motor.md",
-        "sn": 10,
-        "module": "module_3",
-        "name": "Electric Motor"
+        "str_id":"module_3",
+        "lessons":[{
+            "str_id": "differential_drive",
+            "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_3/differential_drive.md",
+            "sn": 8,
+            "module": "module_3",
+            "name": "Differential drive",
+            "description": "An introduction to the robot's kinematics. Task: Experiment with functions for moving the robot forward."
+        },
+        {
+            "str_id": "move_function",
+            "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_3/move_function.md",
+            "sn": 9,
+            "module": "module_3",
+            "name": "Movement Function",
+            "description": "Writing functions in Arduino. Task: Write a function to rotate the robot."
+        },
+        {
+            "str_id": "electric_motor",
+            "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_3/electric-motor.md",
+            "sn": 10,
+            "module": "module_3",
+            "name": "Electric Motor",
+            "description": "Basic principles of DC motors. Task: Move to a specific point on the map using only functions for controlling motors."
+        }]
     }
 ]
