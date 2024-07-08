@@ -6,5 +6,6 @@
     "imageSmall":"https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/basic/image_640_360.jpg?raw=true",
     "imageBig":"https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/basic/image_1920_1080.jpg?raw=true",
     "workload":"64 hours",
-    "requirements":"No previous programming or robotics knowledge is required."
+    "requirements":"No previous programming or robotics knowledge is required.",
+    "programmingLanguage":"cpp"
 }

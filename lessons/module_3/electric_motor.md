@@ -1,7 +1,7 @@
 # Lesson 10: Electric Motor
 
 ## Lesson objective
-Lear about electric motors.
+Learn about electric motors.
 
 ## Introduction
 In this lesson, you will learn about electric motors and the basic principles of DC motors.
@@ -24,35 +24,36 @@ In this lesson, we will take a closer look at direct current motors, also known 
 
 ### Structure of an Electric Motor
 
-![image](https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/module_3/inside_motor.png?raw=True)
+![image](https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/module_3/inside_motor.jpg?raw=True)
 
 An electric motor consists of a stator and a rotor. The stator creates a constant magnetic field, which in our case is provided by permanent magnets. The rotor is the rotating part and consists of a shaft with windings on several coils.
 
 
 ### Principle of Operation
 
-1. Voltage of different polarities is applied to the brushes; one brush has a negative potential, and the other has a positive potential.
-2. The potential from the brushes is transferred to the coil windings.
-3. The coils generate a magnetic field with corresponding polarity: the coil with the negative potential generates a north pole magnetic field, while the coil with the positive potential generates a south pole magnetic field.
-4. The polarities of the magnetic fields on the rotor coils match the polarity of the corresponding permanent magnets on the stator, causing them to repel each other since like charges repel.
-5. The rotor rotates, and by inertia, the coil reaches the brush with the opposite potential, causing the coil to remagnetize. The polarity on the rotor coil again matches the polarity of the permanent magnet on the stator. This process continues, keeping the rotor in motion as long as there is voltage on the brushes.
+We can't disassemble the motor online, so let's look at the GIF animation of the working DC motor along with a short description:
 
-You can also observe the principle of operation in the GIF image below, where each coil changes polarity as it moves due to the potential from the brushes:
+*![image](https://upload.wikimedia.org/wikipedia/commons/5/50/DCMotor3Pol.gif)
 
-![image](https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/module_3/animation.gif?raw=True)
+Voltage of different polarities is applied to the brushes, creating magnetic fields in the coil windings that cause the rotor to rotate and continually remagnetize as it reaches brushes with opposite potentials, keeping the rotor in motion as long as voltage is supplied.
 
 ### Gearbox in Electric Motors
 
 An electric motor can also be equipped with a gearbox, which transfers the rotational motion from the motor shaft to the mechanism. A gearbox can increase the maximum torque from the motor shaft and reduce the rotational speed. In the case of a line-following robot, the gearbox increases torque to allow the robot to move despite its weight and to overcome obstacles. A gearbox typically consists of a set of gears. You can see the internal structure of a gearbox in the photo below:
 
-![image](https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/module_3/small_size_gearbox.png?raw=True)
+![image](https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/module_3/small_size_gearbox.jpg?raw=True)
 
+
+For example, the robot on the stage uses motors with speed 178 RPM (Revolutions Per Minute).
 
 ## Assignment
-Write a program for the robot to reach a point on the map. However, remember that you will not be able to use the built-in robot movement functions. The functions: **moveForwardDistance**, **moveBackwardDistance**, **turnLeft**, **turnRight**, **moveForwardSeconds**, and **moveBackwardSeconds** will not work. 
+Let's practice more with robot movement: write a program for the robot to reach a point on the map. However, remember that you will not be able to use the built-in robot movement functions. The functions: **moveForwardDistance**, **moveBackwardDistance**, **turnLeft**, **turnRight**, **moveForwardSeconds**, and **moveBackwardSeconds** will not work. 
 
 ![image](https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/module_3/finsh_point.jpg?raw=True)
 
 
 ## Conclusion
 Congratulations! In this lesson, you learned about the structure of a simple electric motor. Electric motors are a fascinating area in robotics, with a wide variety of types, each having its own application.
+
+## Links
+*MichaelFrey (https://commons.wikimedia.org/wiki/File:DCMotor3Pol.gif), „DCMotor3Pol“, https://creativecommons.org/licenses/by-sa/4.0/legalcode 

@@ -24,11 +24,11 @@ As mentioned earlier, differential drive offers great capabilities for a robot, 
 ### Controlling Motor
 In the **lineRobot** library, functions for controlling the motors are already written, and they can be used to control the motors individually.
 
-The function **startMotorSpeedLeft(speed)** is used to send a signal to the motors, with the speed parameter specified as a percentage. The speed can be either negative or positive, ranging from -100 to 100. When the parameter is greater than 0, the left wheel will rotate forward, and if the parameter is less than 0, the wheel will rotate in the opposite direction. IMPORTANT! These functions only start the motors; they do not stop them. To stop the motors, you can use specified function or provide 0 as parameter for the funtion **startMotorSpeedLeft(speed)**.
+The function **runMotorSpeedLeft(speed)** is used to send a signal to the motors, with the speed parameter specified as a percentage. The speed can be either negative or positive, ranging from -100 to 100. When the parameter is greater than 0, the left wheel will rotate forward, and if the parameter is less than 0, the wheel will rotate in the opposite direction. IMPORTANT! These functions only start the motors; they do not stop them. To stop the motors, you can use specified function or provide 0 as parameter for the funtion **runMotorSpeedLeft(0)**.
 
-The function **startMotorSpeedRight(speed)** works similarly for the right motor.
+The function **runMotorSpeedRight(speed)** works similarly for the right motor.
 
-To stop the motors, use the functions **stopMotorRight()** and **stopMotorLeft()**.
+To stop the motors, you can also use the functions **stopMotorRight()** and **stopMotorLeft()**.
 
 ## Assignment
 In this lesson, we encourage you to experiment with the differential drive of the robot: write a program that makes the robot drive straight for 3 seconds with a deviation of no more than 10 degrees. You will not be able to use the **moveForwardDistance**, **moveForwardSpeedDistance**, or **moveForwardSeconds** functions from the library. You will likely have to send the program multiple times, adjusting the motor speeds to achieve the desired result.
