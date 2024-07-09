@@ -17,7 +17,7 @@ In this lesson, you will learn about a basic concept for microcontrollers - GPIO
 ### What is GPIO?
 GPIO stands for "General Purpose Input/Output." It's an interface for the microcontroller to interact with external devices. GPIO pins allow us to read signals from a pin or write signals to a device. The signal for GPIO is voltage. 
 
-![image](https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/headlights_2.png?raw=True)
+![image](https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/module_2/headlights_2.png?raw=True)
 
 Today, we'll only discuss signals of the logical high and logical low types: a low signal is 0 volts, while a high signal can have different values depending on the platform. For example, on Arduino Uno, Mega, Nano, this value will be 5 volts, but our robot uses an ESP32 board, where the logical high level is 3.3 volts. With GPIO pins, we can connect various devices, including:
 

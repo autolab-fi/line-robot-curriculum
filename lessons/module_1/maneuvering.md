@@ -18,7 +18,7 @@ You already know how to control the robot for straight movement; now, let's delv
 
 Below, the image represents the possible directions of the robot's movement.
 
-![robot_directions](https://github.com/autolab-fi/line-robot-curriculum/assets/13139586/9543dc26-469c-4c63-a717-3ba8cbf297ef)
+![robot_directions](https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/module_1/directions.png?raw=true)
 
 **robot.turnRight()** - Function for turning right.
 

@@ -14,29 +14,31 @@
 - [Smart City](#smart-city)
 
 ### Introduction to the Robot
-Getting familiar with the platform. How to control the robot.
-0. "Drawing" - Introduction to the platform, list of all peripherals, what we will be working with, any restrictions on libraries and tag words.
-1. "Test Drive" - Some introductory words and moving the robot forward using a library.
-2. "Driver's License" - Writing a simple program similar to the previous lesson independently.
+Getting familiar with the platform and learning how to control the robot.
+
+0. "Drawing" - Introduction to the platform, listing all peripherals, describing what we will be working with, and outlining any restrictions on libraries and tag words.
+1. "Test Drive" - Some introductory words on moving the robot forward using a library.
+2. "Driver's License" - Writing a simple program independently, similar to the previous lesson.
 
 ### Controlling Robot Movement
 Demonstrating the robot's capabilities.
 
-1. "Short distance race" - Library functions for moving a specific distance. Forward and backward movement.
-2. "Maneuvering" - Turning right and left in place. Task: read data from a file and write it to another.
-3. "Fruit Ninja" - Write a program with a sequence of commands for moving along a trajectory depicted on the scheme.
+1. "Short Distance Race" - Using library functions to move a specific distance, both forward and backward.
+2. "Maneuvering" - Turning right and left in place. Task: Read data from a file and write it to another.
+3. "Fruit Ninja" - Writing a program with a sequence of commands to move along a trajectory depicted in the diagram.
 
 ### Controlling LEDs
-Basic functions of working with gpio using LEDs as examples.
+Basic functions of working with GPIO using LEDs as examples.
 
-1. "Headlights" - How LEDs work. Task: turning on LEDs.
-2. "Robot's alarm system" - More about digitalWrite(), pinMode() functions. Task: blinking LEDs.
+1. "Headlights" - Understanding how LEDs work. Task: Turning on LEDs.
+2. "Robot's Alarm" - More about the digitalWrite() and pinMode() functions. Task: Blinking LEDs.
 
 ### Controlling Motors
-What are DC motors, how to control them via a driver, concept of PWM.
+Studying robot kinematics. Writing functions. What are DC motors.
 
-1. "Electric Motor" - Basic principles of DC motors. Task: get the robot moving by sending a signal to the driver.
-2. "Robot Movement" - PWM and analogWrite(), information about the driver, a bit about robot kinematics. Task: implement turning by sending a signal to the driver.
+1. "Differential Drive" - An introduction to the robot's kinematics. Task: Experiment with functions for moving the robot forward.
+2. "Movement Function" - Writing functions in Arduino. Task: Write a function to rotate the robot.
+3. "Electric Motor" - Basic principles of DC motors. Task: Move to a specific point on the map using only functions for controlling motors.
 
 ### Encoders
 What are encoders, solving the problem of turning to a given angle. Studying robot kinematics.
