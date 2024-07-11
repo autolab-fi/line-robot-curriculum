@@ -33,7 +33,7 @@ An electric motor consists of a stator and a rotor. The stator creates a constan
 
 We can't disassemble the motor online, so let's look at the GIF animation of the working DC motor along with a short description:
 
-*![image](https://upload.wikimedia.org/wikipedia/commons/5/50/DCMotor3Pol.gif)
+*![image](https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/module_3/animation.gif?raw=True)
 
 Voltage of different polarities is applied to the brushes, creating magnetic fields in the coil windings that cause the rotor to rotate and continually remagnetize as it reaches brushes with opposite potentials, keeping the rotor in motion as long as voltage is supplied.
 

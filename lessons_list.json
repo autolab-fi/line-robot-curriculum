@@ -97,7 +97,7 @@
         },
         {
             "str_id": "electric_motor",
-            "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_3/electric-motor.md",
+            "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_3/electric_motor.md",
             "sn": 10,
             "name": "Electric Motor",
             "description": "Basic principles of DC motors. Task: Move to a specific point on the map using only functions for controlling motors."
