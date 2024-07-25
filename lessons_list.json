@@ -10,21 +10,24 @@
                 "name": "Drawing",
                 "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/draw.md",
                 "sn": 0,
-                "description": "Introduction to the platform, listing all peripherals, describing what we will be working with, and outlining any restrictions on libraries and tag words."
+                "description": "Introduction to the platform, listing all peripherals, describing what we will be working with, and outlining any restrictions on libraries and tag words.",
+                "template":"// Include the library for controlling the robot\n#include <lineRobot.h>\n// The setup() function runs once when the robot is powered on or reset\nvoid setup() {\n//uncomment lines with commands, which you want to use\n//to uncomment line just remove \"//\"\n\n// Turn the robot left by 45 degrees\nrobot.turnLeftAngle(45);\n \n // Move the robot forward for a distance of 20 units\nrobot.moveForwardDistance(20);\n\n// Turn the robot right by 90 degrees\nrobot.turnRight();\n\n// Move the robot forward for a distance of 20 units\nrobot.moveForwardDistance(20);\n\n// Turn the robot right by 90 degrees again\nrobot.turnRight();\n\n // Move the robot forward for a distance of 20 units\nrobot.moveForwardDistance(20);\n\n// Turn the robot right by 90 degrees for the third time\nrobot.turnRight();\n\n// Move the robot forward for a distance of 20 units\nrobot.moveForwardDistance(20);\n}\n\n// The loop() function runs repeatedly after setup() has finished\nvoid loop() {\n// No instructions for continuous execution\n}"
             },
             {
                 "str_id": "test_drive",
                 "name": "Test drive",
                 "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/test_drive.md",
                 "sn": 1,
-                "description": "Some introductory words on moving the robot forward using a library."
+                "description": "Some introductory words on moving the robot forward using a library.",
+                "template":"// Paste code here"
             },
             {
                 "str_id": "license_to_drive",
                 "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/license_to_drive.md",
                 "sn": 2,
                 "name": "License to drive",
-                "description": "Writing a simple program independently, similar to the previous lesson."
+                "description": "Writing a simple program independently, similar to the previous lesson.",
+                "template": "#include <lineRobot.h>\nvoid setup() {\n// Write movement function here\n}\nvoid loop(){\n}"
             }
         ]
     },
@@ -38,21 +41,24 @@
             "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/short_distance_race.md",
             "sn": 3,
             "name": "Short distance race",
-            "description": "Using library functions to move a specific distance, both forward and backward."
+            "description": "Using library functions to move a specific distance, both forward and backward.",
+            "template": "#include <lineRobot.h>\nvoid setup() {\n// Write movement functions here\n}\nvoid loop(){\n}"
         },
         {
             "str_id": "maneuvering",
             "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/maneuvering.md",
             "sn": 4,
             "name":"Maneuvering",
-            "description": "Turning right and left in place. Task: Read data from a file and write it to another."
+            "description": "Turning right and left in place. Task: Read data from a file and write it to another.",
+            "template": "#include <lineRobot.h>\nvoid setup() {\n// Write functions to rotate robot here\n}\nvoid loop(){\n}"
         },
         {
             "str_id": "long_distance_race",
             "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/long_distance_race.md",
             "sn": 5,
             "name": "Fruit Ninja",
-            "description": "Writing a program with a sequence of commands to move along a trajectory depicted in the diagram."
+            "description": "Writing a program with a sequence of commands to move along a trajectory depicted in the diagram.",
+            "template": "#include <lineRobot.h>\nvoid setup() {\n// Write sequnce of movement functions here\n}\nvoid loop(){\n}"
         }]
     },
     {
@@ -66,14 +72,16 @@
             "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_2/headlights.md",
             "sn": 6,
             "name": "Headlights",
-            "description": "Understanding how LEDs work. Task: Turning on LEDs."
+            "description": "Understanding how LEDs work. Task: Turning on LEDs.",
+            "template": "#include <lineRobot.h>\nvoid setup() {\n// Write code to tutn on led here\n}\nvoid loop(){\n}"
         },
         {
             "str_id": "alarm",
             "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_2/alarm.md",
             "sn": 7,
             "name": "Robot's alarm",
-            "description": "More about the digitalWrite() and pinMode() functions. Task: Blinking LEDs."
+            "description": "More about the digitalWrite() and pinMode() functions. Task: Blinking LEDs.",
+            "template": "#include <lineRobot.h>\nvoid setup() {\n// // Use the pinMode function here\n}\nvoid loop(){\n// Write code to turn the LED on and off here, and don't forget to add pauses \n}"
         }]
     },
     {
@@ -86,21 +94,24 @@
             "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_3/differential_drive.md",
             "sn": 8,
             "name": "Differential drive",
-            "description": "An introduction to the robot's kinematics. Task: Experiment with functions for moving the robot forward."
+            "description": "An introduction to the robot's kinematics. Task: Experiment with functions for moving the robot forward.",
+            "template": "#include <lineRobot.h>\nvoid setup() {\n// Write code to run and stop the motors here\n}\nvoid loop(){\n}"
         },
         {
             "str_id": "move_function",
             "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_3/move_function.md",
             "sn": 9,
             "name": "Movement Function",
-            "description": "Writing functions in Arduino. Task: Write a function to rotate the robot."
+            "description": "Writing functions in Arduino. Task: Write a function to rotate the robot.",
+            "template": "#include <lineRobot.h>\nvoid setup() {\n// Call your function here\n}\nvoid loop(){\n}\n // Write your function here"
         },
         {
             "str_id": "electric_motor",
             "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_3/electric_motor.md",
             "sn": 10,
             "name": "Electric Motor",
-            "description": "Basic principles of DC motors. Task: Move to a specific point on the map using only functions for controlling motors."
+            "description": "Basic principles of DC motors. Task: Move to a specific point on the map using only functions for controlling motors.",
+            "template": "#include <lineRobot.h>\n\n // We recommend writing a function to control the robot's movement \nvoid setup() {\n// Call your function here \n}\nvoid loop(){\n}\n // Write your function here"
         }]
     }
 ]
