@@ -49,7 +49,7 @@ For example, the robot on the stage uses motors with speed 178 RPM (Revolutions 
 ## Assignment
 Let's practice more with robot movement: write a program for the robot to reach a point on the map. However, remember that you will not be able to use the built-in robot movement functions. The functions: **moveForwardDistance**, **moveBackwardDistance**, **turnLeft**, **turnRight**, **moveForwardSeconds**, and **moveBackwardSeconds** will not work. 
 
-![image](https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/module_3/finsh_point.jpg?raw=True)
+![image](https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/module_3/finish_point.jpg?raw=True)
 
 
 ## Conclusion
