@@ -25,6 +25,7 @@ Every lessons has structure:
 - *url*: URL for the lesson's Markdown file.
 - *sn*: Serial number of the lesson in the course, starting from 0.
 - *description*: description of the lesson.
+- *template*: code template that would be displayed for user in the code editor
 
 ### Structure of course-info.json
 Course info:
