@@ -1,7 +1,7 @@
 # Sandbox drive
 
 ## Lesson Objective
-How to move robot to specified zone. 
+How to move robot with different methods. 
 
 ## Introduction
 In this lesson, you can come up with a way to move the robot in Arduino Wiring.
@@ -10,12 +10,12 @@ In this lesson, you can come up with a way to move the robot in Arduino Wiring.
 
 Now you can write you own functions to complite the task using knowledge from modules 1-3.
 
-### Code template with rotating the robot
+### Code template
 
 There are no examples - rely on your own knowledge.
 ## Assignment
 
-Write a program that provide robot to move to specified zone.
+Write a program that provide robot to move the robot and test defferent methods.
 Good luck!
 
 ## Conclusion
