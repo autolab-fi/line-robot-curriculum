@@ -112,6 +112,14 @@
             "name": "Electric Motor",
             "description": "Basic principles of DC motors. Task: Move to a specific point on the map using only functions for controlling motors.",
             "template": "#include <lineRobot.h>\n\n// We recommend writing a function to control the robot's movement \nvoid setup() {\n\t// Call your function here \n}\nvoid loop(){\n}\n // Write your function here"
+        },
+        {
+            "str_id": "sandbox_drive",
+            "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_3/sandbox_drive.md",
+            "sn": 11,
+            "name": "Sandbox drive",
+            "description": "Basic principles of DC motors. Task: Move to a specific point on the map using what you want.",
+            "template": "#include <lineRobot.h>\n\n// We recommend writing a function to control the robot's movement \nvoid setup() {\n\t// Call your function here \n}\nvoid loop(){\n}\n // Write your function here"
         }]
     }
 ]
