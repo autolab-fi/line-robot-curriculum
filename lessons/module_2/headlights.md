@@ -38,7 +38,7 @@ The **pinMode(pin, mode)** function sets the operating mode of the **pin** to on
 The **digitalWrite(pin, value)** function is used to set a high or low logical voltage level. **pin**: GPIO pin number; **value**: the value you want to set on the specified pin, you can provide values **HIGH** (high voltage level) or **LOW** (low voltage level).
 
 ## Assignment
-Write a program that turns on two LEDs on the robot. The LEDs are connected to pins 22 and 23.
+Write a program that turns on two LEDs on the robot. The LEDs are connected to pins 5 and 15.
 
 ## Hint
 You need to set the correct operating mode for the pin and send a signal to it. Use the **pinMode()** function to set the required operating mode for each pin, and use **digitalWrite()** to send a signal to each pin.
