@@ -62,31 +62,31 @@ void setup() {
     robot.resetLeftEncoder();
     robot.resetRightEncoder();
     // Read start position values
-  print("START POSITION");
-    print("LEFT:");
+  printMQTT("START POSITION");
+    printMQTT("LEFT:");
     // Will take encoder values in degrees
     // Assume one rotation ~360°
-    // print(robot.encoderDegreesLeft()); // TODO: this line should be done by student
-    print("RIGHT:");
-    //print(robot.encoderDegreesRight()); // TODO: this line should be done by student
+    // printMQTT(robot.encoderDegreesLeft()); // TODO: this line should be done by student
+    printMQTT("RIGHT:");
+    //printMQTT(robot.encoderDegreesRight()); // TODO: this line should be done by student
     
     // Move forward
     robot.moveForwardDistance(3.5 * 2 * 3.14159);  // one rotation forward (wheels diameter * pi)
-    print("FORWARD MOVEMENT POSITION");
-    print("LEFT:");
-    //print(robot.encoderDegreesLeft()); // TODO: this line should be done by student
-    print("RIGHT:");
-    //print(robot.encoderDegreesRight()); // TODO: this line should be done by student
+    printMQTT("FORWARD MOVEMENT POSITION");
+    printMQTT("LEFT:");
+    //printMQTT(robot.encoderDegreesLeft()); // TODO: this line should be done by student
+    printMQTT("RIGHT:");
+    //printMQTT(robot.encoderDegreesRight()); // TODO: this line should be done by student
     
     delay(500);
     
     // Move backward
     robot.moveBackwardDistance(3.5 * 2 * 3.14159);  // one rotation backward (wheels diameter * pi)
-    print("BACKWARD MOVEMENT POSITION");
-    print("LEFT:");
-   // print(robot.encoderDegreesLeft()); //TODO: this line should be done by student
-    print("RIGHT:");
-    //print(robot.encoderDegreesRight()); //TODO: this line should be done by student
+    printMQTT("BACKWARD MOVEMENT POSITION");
+    printMQTT("LEFT:");
+   // printMQTT(robot.encoderDegreesLeft()); //TODO: this line should be done by student
+    printMQTT("RIGHT:");
+    //printMQTT(robot.encoderDegreesRight()); //TODO: this line should be done by student
 }
 
 void loop() {
