@@ -50,7 +50,7 @@ When this program runs, the robot will move forward 20 centimeters, pause for 3 
 ## Assignment
 Write a program for the robot to turn on the LEDs for 1 second, then turn them off for 1 second, and repeat this indefinitely.
 
-Remember, the LEDs are connected to pins 5 and 15.
+Remember, the LEDs are connected to pins defined in the code as **ledPin1** and **ledPin2**.
 
 ### Hint
 1. Remember, the **setup** function executes only once, so the code within this function will run only a single time. In contrast, the **loop** function executes continuously, meaning the code within this function will repeat indefinitely.
