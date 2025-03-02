@@ -18,7 +18,7 @@ Line sensors use **infrared (IR) reflection** to detect black and white surfaces
 - **Black surfaces** absorb most of the IR light, resulting in a **lower voltage**.
 
 ### IR Sensor Working Principle:
-![IR Sensor Working](../images/IRs.png)
+![IR Sensor Working](../module_6/IR's.png)
 
 In a typical **line-following robot**, an **array of IR sensors** detects the black track. The robot then adjusts its movement accordingly.
 
