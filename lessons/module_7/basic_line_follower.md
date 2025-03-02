@@ -1,5 +1,4 @@
 
-
 # **Lesson 10: Implementing Line Following with an IR Sensor**  
 
 ## **Lesson Objective**  
@@ -16,12 +15,11 @@ In this lesson, we will use an **IR line sensor array** to detect and follow a b
 
 A **line-following robot** uses an array of **infrared (IR) sensors** to detect the track. These sensors measure reflected IR light, distinguishing between black (low reflection) and white (high reflection).  
 
-- **Middle sensors detect the line** → Robot moves forward.  
-- **Left sensors detect the line** → Robot turns left.  
-- **Right sensors detect the line** → Robot turns right.  
+### **How IR Sensors Work**  
+Infrared sensors operate by emitting infrared light and detecting the amount of reflection. When placed over a white surface, a significant amount of IR light is reflected back to the sensor. However, a black surface absorbs more infrared light, resulting in lower reflection detected by the sensor. This principle is used to differentiate between the black line and the surrounding surface.  
 
 ### **IR Sensor Configuration**  
-The **Octoliner** sensor array has **8 sensors**, each providing an analog value indicating the intensity of reflected IR light.  
+The **Octoliner** sensor array consists of **8 sensors**, each providing an analog value that indicates the intensity of reflected IR light.  
 
 ![IR Sensor Logic](https://github.com/pranavk-2003/line-robot-curriculum/blob/main/images/module_7/IR_sensor_array.png)  
 
@@ -30,14 +28,21 @@ In this lesson:
 - **Left sensors (0,1,2)** → Guide left turns  
 - **Right sensors (5,6,7)** → Guide right turns  
 
----  
+### **Line Detection Mechanism**  
+- If the middle sensors detect the line, the robot moves forward.  
+- If the left sensors detect the line, the robot turns left by reducing the left motor speed.  
+- If the right sensors detect the line, the robot turns right by reducing the right motor speed.  
+- If no sensors detect the line, the robot stops or searches for the line.  
 
-## **Challenges**  
-- **Sensor calibration**: The black line's reflectivity can vary, affecting detection accuracy.  
-- **Speed balancing**: The robot must maintain smooth turns without jerking.  
-- **Noise filtering**: Some sensors may provide fluctuating readings, requiring stability checks.  
+### **Challenges in Line Following**  
+1. **Sensor Calibration**  
+   - The reflectivity of different surfaces varies, so sensor thresholds must be carefully tuned.  
+2. **Speed Control**  
+   - Sudden turns can cause instability, requiring smooth speed adjustments.  
+3. **Noise Filtering**  
+   - The sensor readings may fluctuate due to variations in ambient light or minor surface irregularities. Filtering techniques may be required to stabilize the readings.  
 
----  
+---
 
 ## **Programming the Line Following Algorithm**  
 
@@ -53,49 +58,23 @@ This code will:
 
 // I2C Address (default 42)
 Octoliner octoliner(42);
+int speed=30;
 
 // Black threshold for detection
 const int MY_BLACK_THRESHOLD = 100;  
-int fwdspeed = 30;
-int turnspeed = 40;
 
 void setup() {
-    digitalWrite(15, HIGH);
     octoliner.begin();
     octoliner.setSensitivity(230);  // Adjust sensitivity if needed
-    robot.moveBackwardDistance(15); // Initial backward movement
-    robot.turnLeft(); // Initial turn to position robot
 }
 
 void loop() {
-    int sensorvalues[8];
-
     // Read all sensor values
     for (uint8_t i = 0; i < 8; i++) {
-        sensorvalues[i] = octoliner.analogRead(i);
-        printMQTT(sensorvalues[i]);  // Send data for debugging
+       int value = octoliner.analogRead(i);
     }
-
-    // Move forward if the middle sensors detect the line
-    if (sensorvalues[3] > MY_BLACK_THRESHOLD || sensorvalues[4] > MY_BLACK_THRESHOLD) {
-        robot.runMotorSpeedRight(fwdspeed);
-        robot.runMotorSpeedLeft(fwdspeed);
-    }
-    // Turn left if the left sensors detect the line
-    else if (sensorvalues[0] > MY_BLACK_THRESHOLD || sensorvalues[1] > MY_BLACK_THRESHOLD || sensorvalues[2] > MY_BLACK_THRESHOLD) {
-        robot.runMotorSpeedLeft(turnspeed);
-        robot.runMotorSpeedRight(fwdspeed / 2);
-    }
-    // Turn right if the right sensors detect the line
-    else if (sensorvalues[5] > MY_BLACK_THRESHOLD || sensorvalues[6] > MY_BLACK_THRESHOLD || sensorvalues[7] > MY_BLACK_THRESHOLD) {
-        robot.runMotorSpeedLeft(fwdspeed / 2);
-        robot.runMotorSpeedRight(turnspeed);
-    }
-    // Stop if no sensors detect the line
-    else {
-        robot.runMotorSpeedRight(0);
-        robot.runMotorSpeedLeft(0);
-    }
+    robot.runMotorSpeedRight(speed);
+    robot.runMotorSpeedLeft(speed);
 }
 ```
 
@@ -119,15 +98,11 @@ Below is a flowchart for a clear understanding:
 
 ## **Assignment**  
 Modify the program to:  
+1. **Write a program to make the robot line follow**. 
 1. **Fine-tune** motor speeds for smoother movement.  
-2. **Add debugging messages** to print which sensors detect the line.  
-3. **Experiment with different thresholds** to improve accuracy.  
+2. **Experiment with different thresholds** to improve accuracy.  
 
 ---
 
 ## **Conclusion**  
-Congratulations! You have successfully programmed a **line-following robot** using an **Octoliner IR sensor**. 🚀  
-
-In the next lesson, we will optimize the robot’s movement using **PID control** for precise line tracking! 🔥  
-
-
+In this lesson, you have learned how to implement a basic **line-following algorithm** using an **Octoliner IR sensor array**. Understanding how to read sensor values and adjust movement based on input is fundamental to developing more advanced autonomous navigation systems.  
