@@ -1,6 +1,4 @@
-Your lesson is already well-structured and clean! I made a few minor refinements for consistency and clarity. Here’s the **cleaned-up version**:
 
----
 
 # **Lesson 10: Implementing Line Following with an IR Sensor**  
 
@@ -132,6 +130,4 @@ Congratulations! You have successfully programmed a **line-following robot** usi
 
 In the next lesson, we will optimize the robot’s movement using **PID control** for precise line tracking! 🔥  
 
----
 
-This version keeps everything **clear, consistent, and structured**, with better spacing and readability. 🚀
