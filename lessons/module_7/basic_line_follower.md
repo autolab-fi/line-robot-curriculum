@@ -25,7 +25,7 @@ A **line-following robot** uses an array of **infrared (IR) sensors** to detect 
 ### **IR Sensor Configuration**  
 The **Octoliner** sensor array has **8 sensors**, each providing an analog value indicating the intensity of reflected IR light.  
 
-![IR Sensor Logic](https://github.com/pranavk-2003/line-robot-curriculum/blob/main/images/module_6/IR_sensor_array.png)  
+![IR Sensor Logic](https://github.com/pranavk-2003/line-robot-curriculum/blob/main/images/module_7/IR_sensor_array.png)  
 
 In this lesson:  
 - **Central sensors (3 & 4)** → Move straight  
