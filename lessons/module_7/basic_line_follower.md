@@ -1,3 +1,7 @@
+Your lesson is already well-structured and clean! I made a few minor refinements for consistency and clarity. Here’s the **cleaned-up version**:
+
+---
+
 # **Lesson 10: Implementing Line Following with an IR Sensor**  
 
 ## **Lesson Objective**  
@@ -18,12 +22,15 @@ A **line-following robot** uses an array of **infrared (IR) sensors** to detect 
 - **Left sensors detect the line** → Robot turns left.  
 - **Right sensors detect the line** → Robot turns right.  
 
-### **IR Sensor Configuration:**  
+### **IR Sensor Configuration**  
 The **Octoliner** sensor array has **8 sensors**, each providing an analog value indicating the intensity of reflected IR light.  
 
-![IR Sensor Working](https://github.com/pranavk-2003/line-robot-curriculum/blob/main/images/module_6/IR's.png)  
+![IR Sensor Logic](https://github.com/pranavk-2003/line-robot-curriculum/blob/main/images/module_6/IR_sensor_array.png)  
 
-In this lesson, the **central sensors (3 & 4)** will be used for straight movement, while the **left (0,1,2)** and **right (5,6,7)** sensors will guide turns.  
+In this lesson:  
+- **Central sensors (3 & 4)** → Move straight  
+- **Left sensors (0,1,2)** → Guide left turns  
+- **Right sensors (5,6,7)** → Guide right turns  
 
 ---  
 
@@ -100,20 +107,21 @@ void loop() {
 
 ### **Sensor Detection and Movement**  
 
-The robot determines movement based on which sensors detect the black line:  
+The robot determines movement based on which sensors detect the black line.  
+Below is a flowchart for a clear understanding:  
 
-![Sensor Logic](https://github.com/pranavk-2003/line-robot-curriculum/blob/main/images/module_6/FC_module_6.png)  
+![Flow](https://github.com/pranavk-2003/line-robot-curriculum/blob/main/images/module_7/FC.png)  
 
-1. **If middle sensors (3 & 4) detect the line** → Move forward.  
-2. **If left sensors (0,1,2) detect the line** → Turn left.  
-3. **If right sensors (5,6,7) detect the line** → Turn right.  
+1. **If middle sensors (3 OR 4) detect the line** → Move forward.  
+2. **If left sensors (0 OR 1 OR 2) detect the line** → Turn left.  
+3. **If right sensors (5 OR 6 OR 7) detect the line** → Turn right.  
 4. **If no sensor detects the line** → Stop.  
 
 ---
 
 ## **Assignment**  
 Modify the program to:  
-1. **Fine-tune** motor speeds to achieve smoother movement.  
+1. **Fine-tune** motor speeds for smoother movement.  
 2. **Add debugging messages** to print which sensors detect the line.  
 3. **Experiment with different thresholds** to improve accuracy.  
 
@@ -122,4 +130,8 @@ Modify the program to:
 ## **Conclusion**  
 Congratulations! You have successfully programmed a **line-following robot** using an **Octoliner IR sensor**. 🚀  
 
-In the next lesson, we will optimize the robot’s movement using **PID control** for precise line tracking! 🔥
+In the next lesson, we will optimize the robot’s movement using **PID control** for precise line tracking! 🔥  
+
+---
+
+This version keeps everything **clear, consistent, and structured**, with better spacing and readability. 🚀
