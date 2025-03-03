@@ -130,4 +130,21 @@
             }
         ]
     }
+    {
+        "name": "Line Following",
+        "description": "Learn how to program a robot to follow a line using infrared sensors. This module covers sensor calibration, movement control, and line-tracking algorithms.",
+        "sn": 6,
+        "str_id": "module_7",
+        "lessons": [
+            {
+                "str_id": "line_following",
+                "name": "Basic Line Following",
+                "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_7/line_following.md",
+                "sn": 12,
+                "description": "This lesson introduces the concept of line following using an IR sensor array and provides an example program for basic line tracking.",
+                "template": "#include <Octoliner.h>\n#include <lineRobot.h>\n\nOctoliner octoliner(42);\nint speed = 30;\nconst int MY_BLACK_THRESHOLD = 100;\n\nvoid setup() {\n    octoliner.begin();\n    octoliner.setSensitivity(230);\n}\n\nvoid loop() {\n    int sensorValues[8];\n    for (uint8_t i = 0; i < 8; i++) {\n        sensorValues[i] = octoliner.analogRead(i);\n    }\n    \n    if (sensorValues[3] < MY_BLACK_THRESHOLD || sensorValues[4] < MY_BLACK_THRESHOLD) {\n        robot.runMotorSpeedRight(speed);\n        robot.runMotorSpeedLeft(speed);\n    } else if (sensorValues[0] < MY_BLACK_THRESHOLD || sensorValues[1] < MY_BLACK_THRESHOLD || sensorValues[2] < MY_BLACK_THRESHOLD) {\n        robot.runMotorSpeedRight(speed);\n        robot.runMotorSpeedLeft(speed / 2);\n    } else if (sensorValues[5] < MY_BLACK_THRESHOLD || sensorValues[6] < MY_BLACK_THRESHOLD || sensorValues[7] < MY_BLACK_THRESHOLD) {\n        robot.runMotorSpeedRight(speed / 2);\n        robot.runMotorSpeedLeft(speed);\n    } else {\n        robot.stopMotors();\n    }\n}"
+            }
+        ]
+    }
+
 ]
