@@ -95,12 +95,12 @@ Below is a flowchart for a clear understanding:
 4. **If no sensor detects the line** → Stop.  
 
 ---
-
 ## **Assignment**  
 Modify the program to:  
-1. **Write a program to make the robot line follow**. 
-1. **Fine-tune** motor speeds for smoother movement.  
-2. **Experiment with different thresholds** to improve accuracy.  
+1. **Write a program to make the robot line follow**.  
+2. **Fine-tune** motor speeds for smoother movement.  
+3. **Experiment with different thresholds** to improve accuracy.  
+4. **Ensure the robot successfully crosses both checkpoints to complete the Assignment**.  
 
 ---
 
