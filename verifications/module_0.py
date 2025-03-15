@@ -69,10 +69,10 @@ def test_drive(robot, image, td: dict):
             td['robot_end_move_time'] = time.time()
 
     # check if task failed
-    if ('robot_end_move_time' not in td and td["end_time"]-1<time.time()) 
-        or ('robot_start_move_time'in td and 'robot_end_move_time' in td 
-        and (td['time_for_task']+0.8<td['robot_end_move_time']-td['robot_start_move_time'] 
-        or td['robot_end_move_time']-td['robot_start_move_time']<td['time_for_task']-0.8)):
+    if ('robot_end_move_time' not in td and td["end_time"]-1<time.time()
+            ) or ('robot_start_move_time'in td and 'robot_end_move_time' in td and 
+            (td['time_for_task']+0.8<td['robot_end_move_time']-td['robot_start_move_time'] 
+            or td['robot_end_move_time']-td['robot_start_move_time']<td['time_for_task']-0.8)):
 
         result["success"] = False
         result["score"] = 0
@@ -119,7 +119,7 @@ def draw_trajectory(image, points, color, width, restore):
         prev_point = point
 
 
-def draw(robot, image, td: DataTest):
+def draw(robot, image, td: dict):
     """Drawing trajectory at lesson Drawing"""
 
     # init result dictionary
