@@ -42,7 +42,7 @@ def test_drive(robot, image, td: dict):
     # init result dictionary
     result = {
         "success": True,
-        "desc": "You are amazing! The Robot has completed the assignment",
+        "description": "You are amazing! The Robot has completed the assignment",
         "score": 100
     }
     # init test data dictionary
@@ -129,7 +129,7 @@ def draw(robot, image, td: dict):
     # init result dictionary
     result = {
         "success": True,
-        "desc": "You are amazing! The Robot has completed the assignment",
+        "description": "You are amazing! The Robot has completed the assignment",
         "score": 100
     }
 
@@ -142,10 +142,12 @@ def draw(robot, image, td: dict):
         }
     image = robot.draw_info(image)
     # get robot position in pixels
-    robot_position = robot.get_info()['position_px']
+    info = robot.get_info()
+    robot_position_px = info['position_px']
+    robot_position = info['position']
     # if robot found on the image then add point to trajectory
     if robot_position is not None:
-        td['trajectory'].append(robot_position)
+        td['trajectory'].append(robot_position_px)
         text = f'Robot position: x: {robot_position[0]:0.1f} y: {robot_position[1]:0.1f}'
     # draw trajectory
     if len(td['trajectory'])>0:
