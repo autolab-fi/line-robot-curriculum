@@ -1,8 +1,11 @@
 import cv2
 import math
 import time
-from base import delta_points
 
+
+def delta_points(point_0, point_1):
+    return math.sqrt(((point_0[0] - point_1[0]) ** 2) +
+                     ((point_0[1] - point_1[1]) ** 2))
 
 # start points for the tasks
 target_points = {
