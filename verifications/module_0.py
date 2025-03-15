@@ -56,6 +56,7 @@ def test_drive(robot, image, td: dict):
     robot_position = robot.get_info["position"]
 
     text = "Not recognized"
+    image = robot.draw_info(image)
 
     # check if robot position is not none and previous robot is not none
     if  td["prev_robot_center"] is not None and robot_position is not None:
@@ -135,9 +136,11 @@ def draw(robot, image, td: dict):
     text = "Not recognized"
     # init testData
     if not td:
-        td["end_time"] = time.time() + 20
-        td['trajectory'] = []
-
+        td = {
+            "end_time": time.time() + 20
+            'trajectory': []
+        }
+    image = robot.draw_info(image)
     # get robot position in pixels
     robot_position = robot.get_info()['position_px']
     # if robot found on the image then add point to trajectory
