@@ -1,5 +1,5 @@
 
-# **Lesson 1: Implementing Line Following with an IR Sensor**  
+# **Lesson 2: Implementing Line Following with an IR Sensor**  
 
 ## **Lesson Objective**  
 Learn how to program an **ESP32-based robot** to follow a black line using an **Octoliner** IR sensor array.  
