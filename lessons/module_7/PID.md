@@ -1,3 +1,4 @@
+
 # Lesson 1: Relay Controller
 
 ## Lesson Objective
@@ -42,9 +43,6 @@ where:
 ## Lesson Objective
 Learn about P-controllers and their advantages over relay controllers.
 
-## Introduction
-In previous lessons, we used relay controllers to control movement. However, relay controllers switch between on and off states, which can cause oscillations and inefficiencies. A P-controller provides a smoother and more stable control by adjusting the output proportionally to the error.
-
 ## Theory
 
 ### What is a P-Controller?
@@ -62,17 +60,6 @@ where:
 ### Block Diagram
 ![P Controller](https://github.com/pranavk-2003/line-robot-curriculum/blob/main/images/module_7/p.png)
 
-## Assignment
-Write a program that implements a P-controller to turn a robot towards a desired angle.
-
-```cpp
-float Kp = 0.5; // Proportional gain
-float desired_angle = 90.0;
-float current_angle = get_robot_angle();
-float error = desired_angle - current_angle;
-float turn_speed = Kp * error;
-set_motor_speeds(turn_speed);
-```
 
 ---
 
@@ -101,60 +88,84 @@ where:
 ### Block Diagram
 ![PI Controller](https://github.com/pranavk-2003/line-robot-curriculum/blob/main/images/module_7/pi.png)
 
-## Assignment
-Write a program that implements a PI-controller for turning a robot.
-
-```cpp
-float Kp = 0.5, Ki = 0.1;
-float desired_angle = 90.0;
-float current_angle = get_robot_angle();
-float error = desired_angle - current_angle;
-static float integral = 0.0;
-integral += error;
-float turn_speed = Kp * error + Ki * integral;
-set_motor_speeds(turn_speed);
-```
 
 ---
 
-# Lesson 4: PID-Controller
+# Lesson 4: PID-Controller  
 
-## Lesson Objective
-Introduce the derivative component to reduce overshoot and improve stability.
+## Lesson Objective  
+Introduce the derivative component to reduce overshoot and improve stability.  
 
-## Theory
+## Theory  
 
-### What is a Differential Component and How Does It Help Eliminate Overshoot?
-- The derivative term predicts the system's future behavior and reduces overshoot.
-- The control law becomes:
+### What is a Differential Component and How Does It Help Eliminate Overshoot?  
+- The derivative term predicts the system's future behavior and reduces overshoot.  
+- The control law becomes:  
 
-$$
- u(t) = K_p \cdot e(t) + K_i \cdot \int e(t) dt + K_d \cdot \frac{de(t)}{dt} 
-$$
+$$  
+ u(t) = K_p \cdot e(t) + K_i \cdot \int e(t) dt + K_d \cdot \frac{de(t)}{dt}  
+$$  
 
-where:
-- \( K_d \) is the derivative gain,
-- The derivative term (\( de(t)/dt \)) reduces rapid changes and dampens oscillations.
+where:  
+- \( K_d \) is the derivative gain,  
+- The derivative term (\( de(t)/dt \)) reduces rapid changes and dampens oscillations.  
 
-### Block Diagram
-![PID Controller](https://github.com/pranavk-2003/line-robot-curriculum/blob/main/images/module_7/pid_f.png)
+### Block Diagram  
+![PID Controller](https://github.com/pranavk-2003/line-robot-curriculum/blob/main/images/module_7/pid_f.png)  
 
-## Assignment
-Write a program that implements a PID-controller for turning a robot.
+## Assignment  
+Write a program that implements a PID-controller for a line-following robot.  
 
-```cpp
-float Kp = 0.5, Ki = 0.1, Kd = 0.05;
-float desired_angle = 90.0;
-float current_angle = get_robot_angle();
-float error = desired_angle - current_angle;
-static float integral = 0.0;
-static float previous_error = 0.0;
-integral += error;
-float derivative = error - previous_error;
-float turn_speed = Kp * error + Ki * integral + Kd * derivative;
-previous_error = error;
-set_motor_speeds(turn_speed);
-```
+### **Hint: Understanding Weighted Sum, Total Value, and Error Calculation**  
 
-## Conclusion
-You've learned about Relay, P, PI, and PID controllers, their advantages, and how to implement them in robot movement. The next lesson will focus on tuning PID controllers for optimal performance.
+#### **1. Calculating Weighted Sum and Total Value**  
+To estimate the robot’s position relative to the line, we use **sensor readings** and assign weights based on their positions.  
+
+- Each sensor has an index (e.g., **0 to 7** for an 8-sensor array).  
+- The **weighted sum** is calculated as:  
+
+  $$  
+  \text{position} = \frac{\text{weightedSum}}{\text{totalValue}}  
+  $$ 
+
+This gives more weight to sensors detecting a stronger signal (higher reading).  
+
+- The **total value** is simply:  
+
+  $$  
+  \text{position} = \frac{\text{weightedSum}}{\text{totalValue}}  
+  $$
+  
+It ensures that only detected parts of the line contribute to the position calculation.  
+
+#### **2. Computing the Error**  
+Once we calculate the weighted sum and total value, we estimate the line’s **position**:  
+
+  $$  
+  \text{position} = \frac{\text{weightedSum}}{\text{totalValue}}  
+  $$  
+
+To center the robot on the line, we define an expected **midpoint** (e.g., **3.5 for an 8-sensor array**). The error is then:  
+
+  $$  
+  \text{error} = \text{position} - 3.5  
+  $$  
+
+#### **3. Applying PID Control**  
+The PID **output** is computed as:  
+
+  $$  
+  \text{output} = K_p \times \text{error} + K_i \times \sum \text{error} + K_d \times (\text{error} - \text{prevError})  
+  $$  
+
+To determine **motor speeds**:  
+
+  $$  
+  \text{leftSpeed} = \text{fwdspeed} - 1.5 \times \text{output}  
+  $$  
+  $$  
+  \text{rightSpeed} = \text{fwdspeed} + 1.5 \times \text{output}  
+  $$  
+
+---
+
