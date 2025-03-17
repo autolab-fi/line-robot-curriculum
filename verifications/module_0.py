@@ -67,9 +67,9 @@ def test_drive(robot, image, td: dict):
         # init time when robot started motion
         if 'robot_start_move_time' not in td and delta_pos>0.7:
             td['robot_start_move_time'] = time.time()
-            td["end_time"] = time.time() + td.data['time_for_task'] + 3
+            td["end_time"] = time.time() + td['time_for_task'] + 3
         # init time when robot finished motion
-        if 'robot_start_move_time' in td and 'robot_end_move_time' not in td.data and delta_pos<0.7:
+        if 'robot_start_move_time' in td and 'robot_end_move_time' not in td and delta_pos<0.7:
             td['robot_end_move_time'] = time.time()
 
     # check if task failed
@@ -104,7 +104,7 @@ def license_to_drive(robot, image, td: dict):
             "prev_robot_center": None
         }
 
-    return task_test_drive(robot, image, td)
+    return test_drive(robot, image, td)
 
 
 def restore_trajectory(image, prev_point, point, color, width):
