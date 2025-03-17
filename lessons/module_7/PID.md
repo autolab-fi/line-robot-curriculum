@@ -1,4 +1,3 @@
-
 # Lesson 1: Relay Controller
 
 ## Lesson Objective
@@ -34,6 +33,8 @@ where:
 - Lack of fine control, leading to inefficiencies.
 - Not suitable for smooth adjustments required in robotics.
 
+**Note:** We already implemented a relay controller in the last lesson.
+
 ---
 
 # Lesson 2: P-Controller
@@ -42,7 +43,7 @@ where:
 Learn about P-controllers and their advantages over relay controllers.
 
 ## Introduction
-In the last lesson, we implemented a relay controller to control the robot’s movement. However, relay controllers switch between on and off states, which can cause oscillations and inefficiencies. A P-controller provides a smoother and more stable control by adjusting the output proportionally to the error.
+In previous lessons, we used relay controllers to control movement. However, relay controllers switch between on and off states, which can cause oscillations and inefficiencies. A P-controller provides a smoother and more stable control by adjusting the output proportionally to the error.
 
 ## Theory
 
@@ -57,6 +58,23 @@ where:
 - \( u(t) \) is the control output,
 - \( K_p \) is the proportional gain,
 - \( e(t) \) is the error (desired value - actual value).
+
+### Block Diagram
+![P Controller](p.png)
+
+## Assignment
+Write a program that implements a P-controller to turn a robot towards a desired angle.
+
+```cpp
+float Kp = 0.5; // Proportional gain
+float desired_angle = 90.0;
+float current_angle = get_robot_angle();
+float error = desired_angle - current_angle;
+float turn_speed = Kp * error;
+set_motor_speeds(turn_speed);
+```
+
+---
 
 # Lesson 3: PI-Controller
 
@@ -80,6 +98,23 @@ where:
 - \( K_i \) is the integral gain,
 - The integral term accumulates past errors to eliminate steady-state error.
 
+### Block Diagram
+![PI Controller](pi.png)
+
+## Assignment
+Write a program that implements a PI-controller for turning a robot.
+
+```cpp
+float Kp = 0.5, Ki = 0.1;
+float desired_angle = 90.0;
+float current_angle = get_robot_angle();
+float error = desired_angle - current_angle;
+static float integral = 0.0;
+integral += error;
+float turn_speed = Kp * error + Ki * integral;
+set_motor_speeds(turn_speed);
+```
+
 ---
 
 # Lesson 4: PID-Controller
@@ -101,9 +136,25 @@ where:
 - \( K_d \) is the derivative gain,
 - The derivative term (\( de(t)/dt \)) reduces rapid changes and dampens oscillations.
 
+### Block Diagram
+![PID Controller](pid_f.png)
+
 ## Assignment
 Write a program that implements a PID-controller for turning a robot.
 
+```cpp
+float Kp = 0.5, Ki = 0.1, Kd = 0.05;
+float desired_angle = 90.0;
+float current_angle = get_robot_angle();
+float error = desired_angle - current_angle;
+static float integral = 0.0;
+static float previous_error = 0.0;
+integral += error;
+float derivative = error - previous_error;
+float turn_speed = Kp * error + Ki * integral + Kd * derivative;
+previous_error = error;
+set_motor_speeds(turn_speed);
+```
 
 ## Conclusion
 You've learned about Relay, P, PI, and PID controllers, their advantages, and how to implement them in robot movement. The next lesson will focus on tuning PID controllers for optimal performance.
