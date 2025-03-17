@@ -1,6 +1,6 @@
 
 
-# **Lesson 9: Line Sensor and Black Line Detection**  
+# **Lesson 1: Line Sensor and Black Line Detection**  
 
 ## **Lesson Objective**  
 This lesson focuses on understanding how an **Octoliner** sensor detects black lines using an **ESP32**. You will learn the working principle of **IR line sensors**, explore challenges associated with black line detection, and implement a program to process sensor readings. By the end of this lesson, you will be able to detect black lines efficiently and use this data for robotics applications.  
