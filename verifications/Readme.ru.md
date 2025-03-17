@@ -89,6 +89,247 @@
         return block_library_functions[task]
     ```
 
+
 ## Объект робот
 
-In progress...
+Объект `robot` представляет собой экземпляр класса `RobotESP32_MQTT`, который используется для управления и взаимодействия с роботом на полигоне. Этот класс предоставляет методы и поля для получения информации о роботе. Посмотреть на исходные файлы можно [здесь](https://github.com/autolab-fi/lineRobot-cpp-worker/blob/main/src/RobotESP32MQTT.py)(при наличии соответсвующего доуступа к репозиторию).
+
+
+### Поля объекта
+
+- **`name`** (`str`): Название робота на полигоне.
+- **`model`** (`str`): FQBN (Fully Qualified Board Name) платы робота. Для данного робота это значение всегда `esp32:esp32:nodemcu-32s`.
+- **`user`** (`str`): Имя пользователя, код которого в данный момент проверяется.
+- **`status`** (`str`): Текущий статус робота. Возможные значения: `"Online"` (подключен) и `"Offline"` (не подключен).
+- **`position`** (`tuple[float, float]`): Позиция робота в сантиметрах. Точка соответствует центру apriltag, закрепленного на роботе.
+- **`position_px`** (`tuple[int, int]`): Позиция робота в пикселях на изображении. Точка соответствует центру apriltag.
+- **`top_right`** (`tuple[float, float]`): Правый верхний угол apriltag в сантиметрах.
+- **`top_left`** (`tuple[float, float]`): Левый верхний угол apriltag в сантиметрах.
+- **`bottom_left`** (`tuple[float, float]`): Левый нижний угол apriltag в сантиметрах.
+- **`bottom_right`** (`tuple[float, float]`): Правый нижний угол apriltag в сантиметрах.
+- **`top_right_px`** (`tuple[int, int]`): Правый верхний угол apriltag в пикселях.
+- **`top_left_px`** (`tuple[int, int]`): Левый верхний угол apriltag в пикселях.
+- **`bottom_left_px`** (`tuple[int, int]`): Левый нижний угол apriltag в пикселях.
+- **`bottom_right_px`** (`tuple[int, int]`): Правый нижний угол apriltag в пикселях.
+
+### Методы объекта
+
+#### `get_info() -> Dict[str, Any]`
+Возвращает словарь с информацией о роботе. Все данные в словаре соответствуют полям объекта.
+
+**Возвращаемое значение:**
+```json
+{
+    "name": name,
+    "position": position,
+    "position_px": position_px,
+    "direction": compute_angle_x(),
+    "firmware_version": firmware_version,
+    "top_right": top_right,
+    "top_left": top_left,
+    "bottom_left": bottom_left,
+    "bottom_right": bottom_right,
+    "top_right_px": top_right_px,
+    "top_left_px": top_left_px,
+    "bottom_left_px": bottom_left_px,
+    "bottom_right_px": bottom_right_px
+}
+```
+
+Все поля относящиеся к положению робота могут иметь значение **`None`**, если робот не был найден на избражении.
+
+
+#### `get_msg() -> Optional[str]`
+Получает сообщение из пользовательского MQTT-топика. Если в коде для робота была использована функция `printMQTT`, то сообщение можно прочитать с помощью этого метода. Сообщения помещаются в очередь размером 10 элементов. Если очередь переполняется, самое старое сообщение удаляется.
+
+**Важно:** Сообщения не могут быть прочитаны быстрее чем 10 раз в секунду(а более вероятна скорость чтения 6-7 раз в секунду). Рекомендуется использовать задержки (например, 200-500 мс) в коде пользователя.
+
+#### `pixels_to_cm(pixels: float) -> float`
+Переводит значение из пикселей в сантиметры.
+
+**Аргументы:**
+- `pixels` (`float`): Значение в пикселях.
+
+**Возвращаемое значение:**
+- `float`: Значение в сантиметрах.
+
+#### `cm_to_pixel(cm: float) -> int`
+Переводит значение из сантиметров в пиксели.
+
+**Аргументы:**
+- `cm` (`float`): Значение в сантиметрах.
+
+**Возвращаемое значение:**
+- `int`: Значение в пикселях.
+
+#### `create_vector(point_0: Tuple[float, float], point_1: Tuple[float, float]) -> Tuple[float, float]`
+Создает вектор на плоскости из двух точек.
+
+**Аргументы:**
+- `point_0` (`Tuple[float, float]`): Начальная точка.
+- `point_1` (`Tuple[float, float]`): Конечная точка.
+
+**Возвращаемое значение:**
+- `Tuple[float, float]`: Вектор, представленный как кортеж из двух чисел с плавающей точкой.
+
+#### `angle_of_vectors(vec_0: Tuple[float, float], vec_1: Tuple[float, float]) -> float`
+Возвращает угол между двумя векторами.
+
+**Аргументы:**
+- `vec_0` (`Tuple[float, float]`): Первый вектор.
+- `vec_1` (`Tuple[float, float]`): Второй вектор.
+
+**Возвращаемое значение:**
+- `float`: Угол между векторами в градусах.
+
+#### `mid_point(point_0: Tuple[float, float], point_1: Tuple[float, float]) -> Tuple[float, float]`
+Возвращает среднюю точку между двумя точками.
+
+**Аргументы:**
+- `point_0` (`Tuple[float, float]`): Первая точка.
+- `point_1` (`Tuple[float, float]`): Вторая точка.
+
+**Возвращаемое значение:**
+- `Tuple[float, float]`: Средняя точка.
+
+#### `compute_angle_robot_point(point: Tuple[float, float]) -> float`
+Вычисляет угол между текущим направлением робота и вектором, направленным на заданную точку.
+
+**Аргументы:**
+- `point` (`Tuple[float, float]`): Точка, на которую направлен вектор.
+
+**Возвращаемое значение:**
+- `float`: Угол в градусах.
+
+#### `compute_angle(vec: Tuple[float, float]) -> float`
+Вычисляет угол между текущим направлением робота и заданным вектором.
+
+**Аргументы:**
+- `vec` (`Tuple[float, float]`): Вектор, с которым вычисляется угол.
+
+**Возвращаемое значение:**
+- `float`: Угол в градусах.
+
+#### `compute_angle_x() -> float`
+Вычисляет угол между текущим направлением робота и осью X.
+
+**Возвращаемое значение:**
+- `float`: Угол в градусах.
+
+#### `draw_frame(image: numpy.ndarray) -> numpy.ndarray`
+Рисует рамку вокруг apriltag и точку по центру на изображении с использованием OpenCV.
+
+**Аргументы:**
+- `image` (`numpy.ndarray`): Входное изображение.
+
+**Возвращаемое значение:**
+- `numpy.ndarray`: Изображение с нарисованной рамкой и точкой.
+
+#### `draw_info(image: numpy.ndarray) -> numpy.ndarray`
+Рисует графику поверх изображения, включая рамку вокруг apriltag, текущее время в UTC, статус робота, имя пользователя и положение робота в пространстве.
+
+**Аргументы:**
+- `image` (`numpy.ndarray`): Входное изображение.
+
+**Возвращаемое значение:**
+- `numpy.ndarray`: Изображение с нарисованной информацией.
+
+#### `delta_points(point_0: Tuple[float, float], point_1: Tuple[float, float]) -> float`
+Вычисляет расстояние между двумя точками на плоскости.
+
+**Аргументы:**
+- `point_0` (`Tuple[float, float]`): Первая точка.
+- `point_1` (`Tuple[float, float]`): Вторая точка.
+
+**Возвращаемое значение:**
+- `float`: Расстояние между точками.
+
+
+## Пример реализации функции проверки
+
+
+```python
+def task_test(robot, image, td: dict):
+    # init result structure
+    result = {"success": True, "description": "You are amazing! The Robot has completed the assignment", "score": 100}
+    # init text for user
+    text = "Not recognized"
+
+    # init test data structure
+    if not td:
+        td = {"end_time": time.time() + 20}
+
+    # draw basic info about robot, verification and user
+    image = robot.draw_info(image)
+
+    # get info about the robot
+    info = robot.get_info()
+    robot_position_px = info['position_px']
+    robot_position = info['position']
+
+    # print robot position if it is found on the image
+    if robot_position is not None:
+        text = f'Robot position: x: {robot_position[0]:0.1f} y: {robot_position[1]:0.1f}'
+
+    # get message from the robot and display to user if it is not none
+    msg = robot.get_msg()
+    if msg is not None:
+        text = f"Message received: {msg}"
+
+    # NB: return IMAGE
+    return image, td, text, result
+```
+
+- Инициализация структуры описывющей результаты проверки. Как можно видеть, далее в коде нигде не переопределяются значения в этой структуре, поэтому эта проверка всегда будет заврещатся успехом. Подробнее о структуре [здесь](#описание-функции-проверки).
+
+    ```python
+    result = {"success": True, "description": "You are amazing! The Robot has completed the assignment", "score": 100}
+    ```
+
+- Инициализация текста для пользователя, который будет выведен, если робот не будет найден на изображении и если не будет получено никаких сообщений из MQTT.
+
+    ```python
+    text = "Not recognized"
+    ```
+
+- Инициализация структуры td, которая может хранить значения, необходимые для проверки. Подробнее о структуре [здесь](#описание-функции-проверки).
+
+    ```python
+    if not td:
+        td = {"end_time": time.time() + 20}
+    ```
+
+- Нарисовать графику поверх изображения. Подробнее [здесь](#draw_infoimage-numpyndarray---numpyndarray).
+
+    ```python
+    image = robot.draw_info(image)
+    ```
+
+- Получение информации о текущем положении робота. Подробнее [здесь](#get_info---dictstr-any).
+
+    ```python
+    info = robot.get_info()
+    robot_position_px = info['position_px']
+    robot_position = info['position']
+    ```
+
+- Проверка, что робот был найден на изображении
+
+    ```python
+    if robot_position is not None:
+        text = f'Robot position: x: {robot_position[0]:0.1f} y: {robot_position[1]:0.1f}'
+    ```
+
+- Чтение пользовательского сообещения, отправленного с помощью `printMQTT`. Подробнее [здесь](#get_msg---optionalstr).
+
+    ```python
+    msg = robot.get_msg()
+    if msg is not None:
+        text = f"Message received: {msg}"
+    ```
+
+- Функция возвращает **4** параметра, обязательно в этом порядке
+
+    ```python
+    return image, td, text, result
+    ```
