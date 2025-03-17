@@ -53,7 +53,7 @@ def test_drive(robot, image, td: dict):
             "prev_robot_center": None
         }
 
-    robot_position = robot.get_info["position"]
+    robot_position = robot.get_info()["position"]
 
     text = "Not recognized"
     image = robot.draw_info(image)
