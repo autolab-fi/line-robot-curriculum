@@ -1,4 +1,3 @@
-
 # Lesson 1: Relay Controller
 
 ## Lesson Objective
@@ -60,7 +59,6 @@ where:
 ### Block Diagram
 ![P Controller](https://github.com/pranavk-2003/line-robot-curriculum/blob/main/images/module_7/p.png)
 
-
 ---
 
 # Lesson 3: PI-Controller
@@ -87,7 +85,6 @@ where:
 
 ### Block Diagram
 ![PI Controller](https://github.com/pranavk-2003/line-robot-curriculum/blob/main/images/module_7/pi.png)
-
 
 ---
 
@@ -118,28 +115,24 @@ Write a program that implements a PID-controller for a line-following robot.
 
 ### **Hint: Understanding Weighted Sum, Total Value, and Error Calculation**  
 
-#### **1. Calculating Weighted Sum and Total Value**  
-To estimate the robot’s position relative to the line, we use **sensor readings** and assign weights based on their positions.  
+### **1. Calculating Weighted Sum and Total Value**  
+To estimate the robot's position relative to the line, we use **sensor readings** and assign weights based on their positions.  
 
 - Each sensor has an index (e.g., **0 to 7** for an 8-sensor array).  
 - The **weighted sum** is calculated as:  
 
-  $$  
-  \text{position} = \frac{\text{weightedSum}}{\text{totalValue}}  
-  $$ 
+$$\text{weightedSum} = \sum_{i=0}^{7} (i \times \text{sensorValue}_i)$$
 
 This gives more weight to sensors detecting a stronger signal (higher reading).  
 
 - The **total value** is simply:  
 
-  $$  
-  \text{position} = \frac{\text{weightedSum}}{\text{totalValue}}  
-  $$
+$$\text{totalValue} = \sum_{i=0}^{7} \text{sensorValue}_i$$
   
-It ensures that only detected parts of the line contribute to the position calculation.  
+It ensures that only detected parts of the line contribute to the position calculation.
 
 #### **2. Computing the Error**  
-Once we calculate the weighted sum and total value, we estimate the line’s **position**:  
+Once we calculate the weighted sum and total value, we estimate the line's **position**:  
 
   $$  
   \text{position} = \frac{\text{weightedSum}}{\text{totalValue}}  
@@ -168,4 +161,3 @@ To determine **motor speeds**:
   $$  
 
 ---
-
