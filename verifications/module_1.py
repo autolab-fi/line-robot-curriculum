@@ -1,6 +1,8 @@
 import cv2
 import math
 import time
+import os
+import numpy as np
 
 
 def delta_points(point_0, point_1):
@@ -63,7 +65,7 @@ def short_distance_race(robot, image, td: dict):
     return image, td, text, result
 
 
-def task_maneuvering(robot, image, td: dict):
+def maneuvering(robot, image, td: dict):
     """Test for lesson 4: Maneuvering"""
 
     result = {
@@ -146,5 +148,151 @@ def task_maneuvering(robot, image, td: dict):
 
 
     result["description"] += f' | Score: {result["score"]}'  
+    return image, td, text, result
+
+
+
+def calculate_target_point(rb, targets):
+    """Calculate the target points based on the robot's current position and movement directions."""
+    point = [rb.center[0], rb.center[1]]
+    direction = rb.compute_angle_x(rb)
+    res = []
+    for target in targets:
+        if isinstance(target, dict):
+            point[0] += target['forward'] * math.cos(math.radians(direction))
+            point[0] -= target['backward'] * math.cos(math.radians(direction))
+            point[1] -= target['forward'] * math.sin(math.radians(direction))
+            point[1] += target['backward'] * math.sin(math.radians(direction))
+            res.append((point[0], point[1]))
+        else:
+            # Handle reversed y-axis
+            direction += target[0]['left']
+            direction -= target[0]['right']
+
+    res.reverse()
+    return res
+
+
+def image_to_mask(filename, percentage):
+    """Load an image and create a mask with a given scaling percentage."""
+    temp = cv2.imread(filename)
+    temp = cv2.resize(temp, (int(temp.shape[1] * percentage), int(temp.shape[0] * percentage)))
+
+    lower_limit = np.array([0, 0, 0])  
+    upper_limit = np.array([255, 254, 255])  
+    mask = cv2.inRange(temp, lower_limit, upper_limit)
+
+    return temp, mask
+
+
+def fruit_ninja(robot, image, td: dict):
+    """Test for lesson 5: Long distance race."""
+
+    # ✅ Initialize the result structure
+    result = {
+        "success": True,
+        "description": "You are amazing! The Robot has completed the assignment",
+        "score": 100
+    }
+    text = "Not recognized"
+
+    # ✅ Initialize task parameters
+    if not td:
+        td = {
+            "start_time": time.time(),
+            "end_time": time.time() + 24,
+            "data": {},
+            "delta": 4,
+            "reached_point": False
+        }
+
+    # ✅ Setup task parameters
+    if not td["data"] and robot:
+        route = [
+            {'forward': 30, 'backward': 0},
+            [{'left': 90, 'right': 0}],
+            {'forward': 20, 'backward': 0},
+            [{'left': 0, 'right': 90}],
+            {'forward': 30, 'backward': 0},
+            [{'left': 0, 'right': 90}],
+            {'forward': 20, 'backward': 0}
+        ]
+
+        td["data"]['targets'] = calculate_target_point(robot, route)
+        td["data"]['delta'] = 4
+        td["data"]['reached_point'] = False
+
+        # Initialize fruit, mask, and animation data
+        td["data"]["fruit"] = {}
+        td["data"]["mask"] = {}
+        td["data"]["animation"] = {}
+
+        basepath = os.path.abspath(os.path.dirname(__file__))
+
+        for i in range(4):
+            td["data"]["fruit"][i] = {}
+            td["data"]["mask"][i] = {}
+            
+            for j in range(1, 7):
+                filepath = os.path.join(basepath, 'images', f'{i}-{j}.jpg')
+                td["data"]["fruit"][i][j], td["data"]["mask"][i][j] = image_to_mask(filepath, percentage=0.7)
+            
+            td["data"]["animation"][i] = 1
+
+        # Convert targets to pixel coordinates
+        td["data"]['coordinates'] = [(cm_to_pixel(x), cm_to_pixel(y)) for x, y in td["data"]['targets']]
+
+    # ✅ Robot movement handling
+    d = None
+
+    if robot:
+        d = delta_points(robot.center, td["data"]['targets'][-1])
+        text = f'The distance to the next ({td["data"]["targets"][-1][0]:0.0f}, {td["data"]["targets"][-1][1]:0.0f}) ' \
+               f'point is {d:0.0f}'
+
+        # Check if the robot reaches the target point
+        if d < td["data"]['delta']:
+            if len(td["data"]['targets']) > 1:
+                td["data"]["animation"][len(td["data"]['targets']) - 1] += 1
+                td["data"]['delta'] += 1.3
+                td["data"]['targets'].pop()
+            elif not td["data"]['reached_point']:
+                td["data"]["animation"][0] += 1
+                td["data"]['reached_point'] = True
+                td["end_time"] = time.time() + 4
+
+    # ✅ Failure condition handling
+    if d is not None and td["end_time"] - time.time() < 2 and (
+            len(td["data"]['targets']) != 1 or d > td["data"]['delta']):
+        if len(td["data"]['targets']) > 1:
+            text = "Robot missed several checkpoints"
+        else:
+            text = f'It is disappointing, but robot failed the task, because it is {d:0.0f} centimeters away from the target point'
+        result["description"] = text
+        result["success"] = False
+        result["score"] = 0
+
+    # ✅ Displaying fruit and mask animation
+    if td["data"]:
+        for i in range(len(td["data"]['coordinates'])):
+            if td["data"]["animation"][i] > 6:
+                td["data"]['coordinates'].pop()
+                td["data"]['fruit'].pop(i)
+                td["data"]["mask"].pop(i)
+                td["data"]["animation"].pop(i)
+            else:
+                x, y = td["data"]['coordinates'][i]
+                fruit = td["data"]["fruit"][i][td["data"]["animation"][i]]
+                mask = td["data"]["mask"][i][td["data"]["animation"][i]]
+
+                ymin = fruit.shape[0] // 2
+                ymax = fruit.shape[0] - ymin
+                xmin = fruit.shape[1] // 2
+                xmax = fruit.shape[1] - xmin
+
+                cv2.copyTo(fruit, mask, image[y - ymin:y + ymax, x - xmin:x + xmax])
+
+                if td["data"]["animation"][i] > 1:
+                    td["data"]["animation"][i] += 1
 
     return image, td, text, result
