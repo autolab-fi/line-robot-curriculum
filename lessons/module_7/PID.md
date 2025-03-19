@@ -131,6 +131,13 @@ $$\text{totalValue} = \sum_{i=0}^{7} \text{sensorValue}_i$$
   
 It ensures that only detected parts of the line contribute to the position calculation.
 
+Code Snippet:
+```cpp
+ if (sensorvalues[i] > MY_BLACK_THRESHOLD) {  
+        weightedSum += i * sensorvalues[i];  
+        totalValue += sensorvalues[i];  
+    } 
+```
 #### **2. Computing the Error**  
 Once we calculate the weighted sum and total value, we estimate the line's **position**:  
 
@@ -143,7 +150,14 @@ To center the robot on the line, we define an expected **midpoint** (e.g., **3.5
   $$  
   \text{error} = \text{position} - 3.5  
   $$  
-
+  
+Code Snippet:
+```cpp
+double error = 0;  
+if (totalValue > 0) {  
+    error = (weightedSum / totalValue) - 3.5;  
+}
+```
 #### **3. Applying PID Control**  
 The PID **output** is computed as:  
 
@@ -154,10 +168,34 @@ The PID **output** is computed as:
 To determine **motor speeds**:  
 
   $$  
-  \text{leftSpeed} = \text{fwdspeed} - 1.5 \times \text{output}  
+  \text{leftSpeed} = \text{fwdspeed} - 1.5 \times \text{output}   
   $$  
   $$  
   \text{rightSpeed} = \text{fwdspeed} + 1.5 \times \text{output}  
   $$  
+
+
+Code Snippet:
+```cpp
+integral += error;  
+integral = constrain(integral, -30, 30);  // Prevent integral windup  
+double derivative = error - prevError;  
+double output = (Kp * error) + (Ki * integral) + (Kd * derivative);  
+prevError = error; 
+```
+#### **4. Usage of Functions**
+The calculated speeds of the Left and Right motor can be passed to the functions :
+```cpp
+robot.runMotorSpeedLeft(leftSpeed);  
+robot.runMotorSpeedRight(rightSpeed);  
+```
+to move the robot.
+
+## **Conclusion**  
+Congratulations!  You have successfully implemented a **PID controller** for a line-following robot using an **Octoliner IR sensor array**. Through this lesson, you learned how to read and process sensor values, calculate the **weighted sum and total value**, and use them to estimate the robot's position. By applying **PID corrections**, you were able to smoothly and accurately follow the black line, even around curves and turns.  
+
+This foundational knowledge is essential for building **autonomous robots** capable of navigating predefined paths with precision. By fine-tuning the **PID constants (Kp, Ki, and Kd)**, you can further optimize the robot's stability and responsiveness. In the next lesson, you will explore more advanced control techniques to enhance the robot's navigation capabilities.   
+
+
 
 ---
