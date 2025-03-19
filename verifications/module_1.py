@@ -188,7 +188,7 @@ def image_to_mask(filename, percentage):
 def fruit_ninja(robot, image, td: dict):
     """Test for lesson 5: Long distance race."""
 
-    # ✅ Initialize the result structure
+
     result = {
         "success": True,
         "description": "You are amazing! The Robot has completed the assignment",
@@ -196,7 +196,6 @@ def fruit_ninja(robot, image, td: dict):
     }
     text = "Not recognized"
 
-    # ✅ Initialize task parameters
     if not td:
         td = {
             "start_time": time.time(),
@@ -206,7 +205,7 @@ def fruit_ninja(robot, image, td: dict):
             "reached_point": False
         }
 
-    # ✅ Setup task parameters
+
     if not td["data"] and robot:
         route = [
             {'forward': 30, 'backward': 0},
@@ -222,7 +221,6 @@ def fruit_ninja(robot, image, td: dict):
         td["data"]['delta'] = 4
         td["data"]['reached_point'] = False
 
-        # Initialize fruit, mask, and animation data
         td["data"]["fruit"] = {}
         td["data"]["mask"] = {}
         td["data"]["animation"] = {}
@@ -239,10 +237,8 @@ def fruit_ninja(robot, image, td: dict):
             
             td["data"]["animation"][i] = 1
 
-        # Convert targets to pixel coordinates
-        td["data"]['coordinates'] = [(cm_to_pixel(x), cm_to_pixel(y)) for x, y in td["data"]['targets']]
+        td["data"]['coordinates'] = [(robot.cm_to_pixel(x), robot.cm_to_pixel(y)) for x, y in td["data"]['targets']]
 
-    # ✅ Robot movement handling
     d = None
 
     if robot:
@@ -250,7 +246,6 @@ def fruit_ninja(robot, image, td: dict):
         text = f'The distance to the next ({td["data"]["targets"][-1][0]:0.0f}, {td["data"]["targets"][-1][1]:0.0f}) ' \
                f'point is {d:0.0f}'
 
-        # Check if the robot reaches the target point
         if d < td["data"]['delta']:
             if len(td["data"]['targets']) > 1:
                 td["data"]["animation"][len(td["data"]['targets']) - 1] += 1
@@ -261,7 +256,7 @@ def fruit_ninja(robot, image, td: dict):
                 td["data"]['reached_point'] = True
                 td["end_time"] = time.time() + 4
 
-    # ✅ Failure condition handling
+
     if d is not None and td["end_time"] - time.time() < 2 and (
             len(td["data"]['targets']) != 1 or d > td["data"]['delta']):
         if len(td["data"]['targets']) > 1:
@@ -272,7 +267,6 @@ def fruit_ninja(robot, image, td: dict):
         result["success"] = False
         result["score"] = 0
 
-    # ✅ Displaying fruit and mask animation
     if td["data"]:
         for i in range(len(td["data"]['coordinates'])):
             if td["data"]["animation"][i] > 6:
