@@ -48,14 +48,17 @@ def short_distance_race(robot, image, td: dict):
             td["goal"][direction] -= delta_pos
 
         if td['goal']['forward'] <= 3 and td['goal']['backward'] <= 3 and td['robot_end_move_time'] - td['robot_start_move_time'] >= 20:
-            td['robot_end_move_time'] = time.time() + 5
+            td['robot_end_move_time'] = time.time() + 3
 
     if (td['goal']['forward'] < 15 and td['goal']['backward'] > 5) or td['goal']['forward'] < -5 or td['goal']['backward'] < -5 or (
                 td['robot_end_move_time'] - time.time() <= 2 and (td['goal']['backward'] > 5 or td['goal']['forward'] > 5)):
         result["success"] = False
+        result["score"] = 0
         backward = 35 - td['goal']['backward']
         forward = 20 - td['goal']['forward']
-
+        result["description"] = (
+            f'Robot failed the task, moved {forward:.1f} cm forward, {backward:.1f} cm backward | Score: {result["score"]}'
+        )
 
     td['prev_robot_center'] = robot_position
     return image, td, text, result
