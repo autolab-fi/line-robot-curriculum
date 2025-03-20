@@ -5,6 +5,12 @@ import os
 import numpy as np
 
 
+target_points = {
+    'short_distance_race': [(80, 50), (30, 0)],
+    'maneuvering': [(35, 50), (30, 0)],
+    'long_distance_race': [(35, 50), (30, 0)]
+}
+
 def delta_points(point_0, point_1):
     return math.sqrt(((point_0[0] - point_1[0]) ** 2) +
                      ((point_0[1] - point_1[1]) ** 2))
@@ -20,6 +26,7 @@ def short_distance_race(robot, image, td: dict):
     }
     text = "Not recognized"
 
+    # Initialize the dictionary with consistent structure
     if not td:
         td = {
             "end_time": time.time() + 20,
@@ -29,15 +36,15 @@ def short_distance_race(robot, image, td: dict):
                 "backward": 35   
             }
         }
+
+    # Get the current robot position
     robot_position = robot.get_info()["position"]
     
     if td["prev_robot_center"] is not None and robot_position is not None:
         delta_pos = delta_points(robot_position, td["prev_robot_center"])
         text = f'Robot position: x: {robot_position[0]:0.1f} y: {robot_position[1]:0.1f}'
 
-        if 'robot_start_move_time' in td and 'robot_end_move_time' not in td and delta_pos < 0.7:
-            td['robot_end_move_time'] = time.time()
-
+        # Calculate the angle for direction
         ang = robot.compute_angle_robot_point(td["prev_robot_center"])
         
         direction = 'unknown'
@@ -46,24 +53,32 @@ def short_distance_race(robot, image, td: dict):
         elif 350 < ang or ang < 10:
             direction = 'backward'
 
+        # Adjust goal distances based on the movement direction
         if direction != 'unknown':
             td["goal"][direction] -= delta_pos
 
-        if td['goal']['forward'] <= 3 and td['goal']['backward'] <= 3 and td['robot_end_move_time'] - td['robot_start_move_time'] >= 20:
-            td['robot_end_move_time'] = time.time() + 3
+        # Check for task completion and add extra time if needed
+        if td['goal']['forward'] <= 3 and td['goal']['backward'] <= 3 and (td["end_time"] - time.time()) >= 20:
+            td["end_time"] = time.time() + 3
 
-    if (td['goal']['forward'] < 15 and td['goal']['backward'] > 5) or td['goal']['forward'] < -5 or td['goal']['backward'] < -5 or (
-                td['robot_end_move_time'] - time.time() <= 2 and (td['goal']['backward'] > 5 or td['goal']['forward'] > 5)):
+    # Check for task failure conditions
+    if (
+        (td['goal']['forward'] < 15 and td['goal']['backward'] > 5) or
+        td['goal']['forward'] < -5 or td['goal']['backward'] < -5 or
+        (td["end_time"] - time.time() <= 2 and (td['goal']['backward'] > 5 or td['goal']['forward'] > 5))
+    ):
         result["success"] = False
         result["score"] = 0
         backward = 35 - td['goal']['backward']
         forward = 20 - td['goal']['forward']
         result["description"] = (
-            f'Robot failed the task, moved {forward:.1f} cm forward, {backward:.1f} cm backward | Score: {result["score"]}')
+            f'Robot failed the task, moved {forward:.1f} cm forward, {backward:.1f} cm backward | Score: {result["score"]}'
+        )
 
+    # Store the previous robot position
     td['prev_robot_center'] = robot_position
-    return image, td, text, result
 
+    return image, td, text, result
 
 def maneuvering(robot, image, td: dict):
     """Test for lesson 4: Maneuvering"""
@@ -75,6 +90,7 @@ def maneuvering(robot, image, td: dict):
     }
     text = "Not recognized"
 
+    # Initialize the task dictionary
     if not td:
         td = {
             "start_time": time.time(),
@@ -91,7 +107,8 @@ def maneuvering(robot, image, td: dict):
     robot_position = robot.get_info()["position"]
 
     if robot is not None:
-        ang = robot.compute_angle_x(robot)
+        # ✅ FIX: Removed the extra argument
+        ang = robot.compute_angle_x()
 
         if 'ang_0' in td:
             if td['ang_0'] < 90 and ang > 300:
@@ -151,11 +168,19 @@ def maneuvering(robot, image, td: dict):
     return image, td, text, result
 
 
-
 def calculate_target_point(rb, targets):
     """Calculate the target points based on the robot's current position and movement directions."""
-    point = [rb.center[0], rb.center[1]]
-    direction = rb.compute_angle_x(rb)
+    
+    # Get the robot's position properly
+    pos = rb.get_info().get("position")
+    
+    if pos is None:
+        print("Error: Robot position is None")
+        return []
+
+    point = [pos[0], pos[1]]
+    direction = rb.compute_angle_x()
+
     res = []
     for target in targets:
         if isinstance(target, dict):
@@ -172,11 +197,19 @@ def calculate_target_point(rb, targets):
     res.reverse()
     return res
 
-
 def image_to_mask(filename, percentage):
     """Load an image and create a mask with a given scaling percentage."""
+    
+    # Try to load the image
     temp = cv2.imread(filename)
-    temp = cv2.resize(temp, (int(temp.shape[1] * percentage), int(temp.shape[0] * percentage)))
+
+    # Check if the image is None
+    if temp is None:
+        print(f"Error: Could not load image at {filename}")
+        # Use a placeholder or return empty mask if the image can't be loaded
+        temp = np.zeros((100, 100, 3), dtype=np.uint8)  # Placeholder image
+    else:
+        temp = cv2.resize(temp, (int(temp.shape[1] * percentage), int(temp.shape[0] * percentage)))
 
     lower_limit = np.array([0, 0, 0])  
     upper_limit = np.array([255, 254, 255])  
@@ -185,9 +218,8 @@ def image_to_mask(filename, percentage):
     return temp, mask
 
 
-def fruit_ninja(robot, image, td: dict):
+def long_distance_race(robot, image, td: dict):
     """Test for lesson 5: Long distance race."""
-
 
     result = {
         "success": True,
@@ -204,7 +236,6 @@ def fruit_ninja(robot, image, td: dict):
             "delta": 4,
             "reached_point": False
         }
-
 
     if not td["data"] and robot:
         route = [
@@ -226,43 +257,53 @@ def fruit_ninja(robot, image, td: dict):
         td["data"]["animation"] = {}
 
         basepath = os.path.abspath(os.path.dirname(__file__))
+        
 
         for i in range(4):
             td["data"]["fruit"][i] = {}
             td["data"]["mask"][i] = {}
-            
+
             for j in range(1, 7):
+                filepath = os.path.join(basepath,'images', f'{i}-{j}.jpg')
                 filepath = os.path.join(basepath, 'images', f'{i}-{j}.jpg')
                 td["data"]["fruit"][i][j], td["data"]["mask"][i][j] = image_to_mask(filepath, percentage=0.7)
-            
+
             td["data"]["animation"][i] = 1
 
-        td["data"]['coordinates'] = [(robot.cm_to_pixel(x), robot.cm_to_pixel(y)) for x, y in td["data"]['targets']]
+        td["data"]['coordinates'] = [
+            (robot.cm_to_pixel(x), robot.cm_to_pixel(y)) for x, y in td["data"]['targets']
+        ]
 
     d = None
 
     if robot:
-        d = delta_points(robot.center, td["data"]['targets'][-1])
-        text = f'The distance to the next ({td["data"]["targets"][-1][0]:0.0f}, {td["data"]["targets"][-1][1]:0.0f}) ' \
-               f'point is {d:0.0f}'
+        robot_position = robot.get_info().get("position")
+        if robot_position is not None:
+            d = delta_points(robot_position, td["data"]['targets'][-1])
+            text = (
+                f'The distance to the next ({td["data"]["targets"][-1][0]:0.0f}, '
+                f'{td["data"]["targets"][-1][1]:0.0f}) point is {d:0.0f}'
+            )
 
-        if d < td["data"]['delta']:
-            if len(td["data"]['targets']) > 1:
-                td["data"]["animation"][len(td["data"]['targets']) - 1] += 1
-                td["data"]['delta'] += 1.3
-                td["data"]['targets'].pop()
-            elif not td["data"]['reached_point']:
-                td["data"]["animation"][0] += 1
-                td["data"]['reached_point'] = True
-                td["end_time"] = time.time() + 4
-
+            if d < td["data"]['delta']:
+                if len(td["data"]['targets']) > 1:
+                    td["data"]["animation"][len(td["data"]['targets']) - 1] += 1
+                    td["data"]['delta'] += 1.3
+                    td["data"]['targets'].pop()
+                elif not td["data"]['reached_point']:
+                    td["data"]["animation"][0] += 1
+                    td["data"]['reached_point'] = True
+                    td["end_time"] = time.time() + 4
 
     if d is not None and td["end_time"] - time.time() < 2 and (
             len(td["data"]['targets']) != 1 or d > td["data"]['delta']):
         if len(td["data"]['targets']) > 1:
             text = "Robot missed several checkpoints"
         else:
-            text = f'It is disappointing, but robot failed the task, because it is {d:0.0f} centimeters away from the target point'
+            text = (
+                f'It is disappointing, but robot failed the task, '
+                f'because it is {d:0.0f} centimeters away from the target point'
+            )
         result["description"] = text
         result["success"] = False
         result["score"] = 0
