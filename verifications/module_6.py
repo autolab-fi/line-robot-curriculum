@@ -6,6 +6,7 @@ import numpy as np
 target_points = {
     'line_follower': [(20, 50), (0,-350)],
     'line_detection': [(30, 50), (30, 0)],
+
 }
 
 block_library_functions = {
@@ -26,7 +27,7 @@ def get_target_points(task):
 
 
 
-def task_line_follower(robot, image, td: dict):
+def line_follower(robot, image, td: dict):
     """Test for line following with checkpoint verification."""
 
 
