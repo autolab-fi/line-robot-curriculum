@@ -25,7 +25,7 @@ def short_distance_race(robot, image, td: dict):
         "score": 100
     }
     text = "Not recognized"
-
+    image = robot.draw_info(image)
     # Initialize the dictionary with consistent structure
     if not td:
         td = {
@@ -89,7 +89,7 @@ def maneuvering(robot, image, td: dict):
         "score": 100  
     }
     text = "Not recognized"
-
+    image = robot.draw_info(image)
     # Initialize the task dictionary
     if not td:
         td = {
@@ -103,8 +103,7 @@ def maneuvering(robot, image, td: dict):
         }
 
     min_for_error = 15
-    min_for_change_point = 5
-    robot_position = robot.get_info()["position"]
+    min_for_change_point = 10
 
     if robot is not None:
         # ✅ FIX: Removed the extra argument
@@ -203,14 +202,6 @@ def image_to_mask(filename, percentage):
     # Try to load the image
     temp = cv2.imread(filename)
 
-    # Check if the image is None
-    if temp is None:
-        print(f"Error: Could not load image at {filename}")
-        # Use a placeholder or return empty mask if the image can't be loaded
-        temp = np.zeros((100, 100, 3), dtype=np.uint8)  # Placeholder image
-    else:
-        temp = cv2.resize(temp, (int(temp.shape[1] * percentage), int(temp.shape[0] * percentage)))
-
     lower_limit = np.array([0, 0, 0])  
     upper_limit = np.array([255, 254, 255])  
     mask = cv2.inRange(temp, lower_limit, upper_limit)
@@ -227,6 +218,7 @@ def long_distance_race(robot, image, td: dict):
         "score": 100
     }
     text = "Not recognized"
+    image = robot.draw_info(image)
 
     if not td:
         td = {
@@ -265,7 +257,6 @@ def long_distance_race(robot, image, td: dict):
 
             for j in range(1, 7):
                 filepath = os.path.join(basepath,'images', f'{i}-{j}.jpg')
-                filepath = os.path.join(basepath, 'images', f'{i}-{j}.jpg')
                 td["data"]["fruit"][i][j], td["data"]["mask"][i][j] = image_to_mask(filepath, percentage=0.7)
 
             td["data"]["animation"][i] = 1
