@@ -164,23 +164,6 @@
         "sn": 14,
         "description": "This lesson explains proportional, integral, and derivative controllers, their working principles, advantages, and real-world applications. It also includes hands-on implementation of a PID controller.",
         "template": "//Paste the code here"
-      },
-
-      {
-        "str_id": "pid_simulation",
-        "name": "Simulation of P, I, and D Effects",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_6/pid_simulation.md",
-        "sn": 15,
-        "description": "This lesson explores how different values of P, I, and D affect the steering value and error, using simulations to visualize their impact.",
-        "template": "//Paste the code here"
-      },
-      {
-        "str_id": "pid_tuning_methods",
-        "name": "Tuning Methods for Controllers",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_6/pid_tuning_methods.md",
-        "sn": 16,
-        "description": "This lesson covers various tuning methods for controllers, including the Ziegler-Nichols method, to optimize performance and stability.",
-        "template": "//Paste the code here"
       }
     ]
   }
