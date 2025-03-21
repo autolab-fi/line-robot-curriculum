@@ -74,7 +74,7 @@ def short_distance_race(robot, image, td: dict):
             td["goal"][direction] -= delta_pos
 
         # Check for task completion and add extra time if needed
-        if td['goal']['forward'] <= 3 and td['goal']['backward'] <= 3 and (td["end_time"] - time.time()) >= 20:
+        if td['goal']['forward'] <= 3 and td['goal']['backward'] <= 3 and (td["end_time"] - time.time()) > 3:
             td["end_time"] = time.time() + 3
 
     # Check for task failure conditions
