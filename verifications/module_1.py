@@ -11,6 +11,22 @@ target_points = {
     'long_distance_race': [(35, 50), (30, 0)]
 }
 
+block_library_functions = {
+    'short_distance_race': False,
+    'maneuvering': False,
+    'long_distance_race': False,
+}
+
+def get_block_library_functions(task):
+    global block_library_functions
+    return block_library_functions[task]
+
+
+# function to get value from dictionary target_point
+def get_target_points(task):
+    global target_points
+    return target_points[task]
+
 def delta_points(point_0, point_1):
     return math.sqrt(((point_0[0] - point_1[0]) ** 2) +
                      ((point_0[1] - point_1[1]) ** 2))
