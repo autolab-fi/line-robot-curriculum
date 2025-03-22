@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Line Follower Simulation</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h1>Line Follower Simulation</h1>
+        <canvas id="simulationCanvas"></canvas>
+        <div class="controls">
+            <div class="controls-container">
+                <label>Kp:</label>
+                <input
+                    type="range"
+                    id="kp"
+                    min="0"
+                    max="5"
+                    step="0.1"
+                    value="1.0"
+                    oninput="kpValue.value = this.value"
+                />
+                <input
+                    type="number"
+                    id="kpValue"
+                    min="0"
+                    max="5"
+                    step="0.1"
+                    value="1.0"
+                    oninput="kp.value = this.value"
+                />
+            </div>
+            <div class="controls-container">
+                <label>Ki:</label>
+                <input
+                    type="range"
+                    id="ki"
+                    min="0"
+                    max="5"
+                    step="0.1"
+                    value="0.0"
+                    oninput="kiValue.value = this.value"
+                />
+                <input
+                    type="number"
+                    id="kiValue"
+                    min="0"
+                    max="5"
+                    step="0.1"
+                    value="0.0"
+                    oninput="ki.value = this.value"
+                />
+            </div>
+            <div class="controls-container">
+                <label>Kd:</label>
+                <input
+                    type="range"
+                    id="kd"
+                    min="0"
+                    max="5"
+                    step="0.1"
+                    value="0.5"
+                    oninput="kdValue.value = this.value"
+                />
+                <input
+                    type="number"
+                    id="kdValue"
+                    min="0"
+                    max="5"
+                    step="0.1"
+                    value="0.5"
+                    oninput="kd.value = this.value"
+                />
+            </div>
+            <div class="controls-container">
+                <label>Speed:</label>
+                <input
+                    type="range"
+                    id="speed"
+                    min="0.01"
+                    max="0.2"
+                    step="0.01"
+                    value="0.005"
+                    oninput="speedValue.value = this.value"
+                />
+                <input
+                    type="number"
+                    id="speedValue"
+                    min="0.01"
+                    max="0.2"
+                    step="0.01"
+                    value="0.005"
+                    oninput="speed.value = this.value"
+                />
+            </div>
+        </div>
+        <script src="simulation.js"></script>
+    </body>
+</html>
