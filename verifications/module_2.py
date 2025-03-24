@@ -50,13 +50,6 @@ def headlights(robot, image, td: dict):
         temp_on = cv2.imread(os.path.join(basepath, "images", "headlight-on.jpg"))
         temp_off = cv2.imread(os.path.join(basepath, "images", "headlight-off.jpg"))
 
-        if temp_on is None or temp_off is None:
-            print("Error: One or both images failed to load.")
-            result["success"] = False
-            result["description"] = "Failed to load headlight images."
-            result["score"] = 0
-            return image, td, text, result
-
         
 
         td["data"]["turn-on"] = temp_on
@@ -67,9 +60,10 @@ def headlights(robot, image, td: dict):
 
     percentage_white = 0
     td["data"]["count_frames"] += 1
+    image = robot.draw_info(image)
 
     if robot:
-        lower_white = np.array([230, 230, 230])
+        lower_white = np.array([215, 215, 215])
         upper_white = np.array([255, 255, 255])
 
         # ✅ Use safe position retrieval
@@ -148,12 +142,6 @@ def alarm(robot, image, td: dict):
         temp_on = cv2.imread(os.path.join(basepath, "images", "headlight-on.jpg"))
         temp_off = cv2.imread(os.path.join(basepath, "images", "headlight-off.jpg"))
 
-        if temp_on is None or temp_off is None:
-            print("Error: One or both headlight images failed to load.")
-            result["success"] = False
-            result["description"] = "Failed to load headlight images."
-            result["score"] = 0
-            return image, td, text, result
 
         temp_on = cv2.resize(temp_on, (temp_on.shape[1] // 3, temp_on.shape[0] // 3))
         temp_off = cv2.resize(temp_off, (temp_off.shape[1] // 3, temp_off.shape[0] // 3))
@@ -166,9 +154,10 @@ def alarm(robot, image, td: dict):
 
     percentage_white = 0
     td["data"]["count_frames"] += 1
+    image = robot.draw_info(image)
 
     if robot:
-        lower_white = np.array([205, 205, 205])
+        lower_white = np.array([215, 215, 215])
         upper_white = np.array([255, 255, 255])
 
         robot_info = robot.get_info()
