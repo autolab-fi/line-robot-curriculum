@@ -57,7 +57,7 @@ where:
 - \( e(t) \) is the error (desired value - actual value).
 
 ### Block Diagram
-![P Controller](https://github.com/pranavk-2003/line-robot-curriculum/blob/main/images/module_7/p.png)
+![P Controller]((https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/module_7/p.png ?raw=True))
 
 ---
 
@@ -84,7 +84,7 @@ where:
 - The integral term accumulates past errors to eliminate steady-state error.
 
 ### Block Diagram
-![PI Controller](https://github.com/pranavk-2003/line-robot-curriculum/blob/main/images/module_7/pi.png)
+![PI Controller]((https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/module-7/pi.png?raw=True))
 
 ---
 
@@ -108,7 +108,7 @@ where:
 - The derivative term (\( de(t)/dt \)) reduces rapid changes and dampens oscillations.  
 
 ### Block Diagram  
-![PID Controller](https://github.com/pranavk-2003/line-robot-curriculum/blob/main/images/module_7/pid_f.png)  
+![PID Controller]((https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/module_7/pid_f.png?raw=True))  
 
 ## Assignment  
 Write a program that implements a PID-controller for a line-following robot.  
