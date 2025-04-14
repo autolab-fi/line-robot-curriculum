@@ -199,8 +199,12 @@ def alarm(robot, image, td: dict):
             if current_state:
                 text = "Headlights ON"
                 td["data"]["headlight_frames"] += 1
+                cv2.copyTo(td["data"]["turn-on"], td["data"]["turn-on-mask"],
+                   image[30:30 + td["data"]["turn-on"].shape[0], 1080:1080 + td["data"]["turn-on"].shape[1]])
             else:
                 text = "Headlights OFF"
+                cv2.copyTo(td["data"]["turn-off"], td["data"]["turn-off-mask"],
+                   image[30:30 + td["data"]["turn-off"].shape[0], 1080:1080 + td["data"]["turn-off"].shape[1]])
 
             if td["data"]["last_state"] is None:
                 td["data"]["last_state"] = current_state
