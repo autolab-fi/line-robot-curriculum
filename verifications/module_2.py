@@ -49,7 +49,8 @@ def headlights(robot, image, td: dict):
 
         temp_on = cv2.imread(os.path.join(basepath, "images", "headlight-on.jpg"))
         temp_off = cv2.imread(os.path.join(basepath, "images", "headlight-off.jpg"))
-
+        temp_on = cv2.resize(temp_on, (int(temp_on.shape[1]/3), int(temp_on.shape[0]/3)))
+        temp_off = cv2.resize(temp_off, (int(temp_off.shape[1]/3), int(temp_off.shape[0]/3)))
         
 
         td["data"]["turn-on"] = temp_on
