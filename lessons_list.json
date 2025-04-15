@@ -142,20 +142,12 @@
     "str_id": "module_6",
     "lessons": [
       {
-        "str_id": "line_sensor_intro",
-        "name": "Introduction to Line Sensor",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_6/line_sensor_intro.md",
-        "sn": 12,
-        "description": "This lesson introduces the concept of line sensor using an IR sensor array and provides an example program for basic line detection.",
-        "template": "//Paste the code here}"
-      },
-      {
         "str_id": "basic_line_follower",
         "name": "Basic Line Following",
         "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_6/basic_line_follower.md",
-        "sn": 13,
+        "sn": 12,
         "description": "This lesson introduces the concept of line following using a bang bang controller",
-        "template": "#include <Octoliner.h>\n#include <lineRobot.h>\nOctoliner octoliner(42);\nint speed = 30;\nconst int MY_BLACK_THRESHOLD = 100;\nvoid setup() {\n    octoliner.begin();\n    octoliner.setSensitivity(230);  // Adjust sensitivity if needed\n    for (uint8_t i = 0; i < 8; i++) {\n        int value = octoliner.analogRead(i);  // TODO: Process sensor values as needed\n    }\n    robot.runMotorSpeedRight(speed);\n    robot.runMotorSpeedLeft(speed);\n    delay(500);  // Adjust delay if needed\n}\nvoid loop() {\n    delay(1000);\n}"
+        "template": "//Paste the code here"
       }
     ]
   },
@@ -171,23 +163,6 @@
         "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_6/p_pi_pid_controllers.md",
         "sn": 14,
         "description": "This lesson explains proportional, integral, and derivative controllers, their working principles, advantages, and real-world applications. It also includes hands-on implementation of a PID controller.",
-        "template": "//Paste the code here"
-      },
-
-      {
-        "str_id": "pid_simulation",
-        "name": "Simulation of P, I, and D Effects",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_6/pid_simulation.md",
-        "sn": 15,
-        "description": "This lesson explores how different values of P, I, and D affect the steering value and error, using simulations to visualize their impact.",
-        "template": "//Paste the code here"
-      },
-      {
-        "str_id": "pid_tuning_methods",
-        "name": "Tuning Methods for Controllers",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_6/pid_tuning_methods.md",
-        "sn": 16,
-        "description": "This lesson covers various tuning methods for controllers, including the Ziegler-Nichols method, to optimize performance and stability.",
         "template": "//Paste the code here"
       }
     ]
