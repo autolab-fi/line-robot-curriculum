@@ -36,7 +36,7 @@ def encoders(robot, image, td):
 
     if not td:
         td = {
-            "end_time": time.time() + 5,
+            "end_time": time.time() + 10,
             "data": {
                 'messages': [],         
                 'encoder_pairs': [],    

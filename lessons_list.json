@@ -123,10 +123,10 @@
     "name": "Encoders",
     "description": "Explore the use of encoders in robotics, covering their purpose, types, and practical applications for movement control!",
     "sn": 4,
-    "str_id": "module_5",
+    "str_id": "module_4",
     "lessons": [
       {
-        "str_id": "encoder",
+        "str_id": "encoders",
         "name": "Encoder",
         "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_5/encoders_en.md",
         "sn": 11,

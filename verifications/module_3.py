@@ -114,8 +114,8 @@ def electric_motor(robot, image, td: dict):
             
         angle = robot.compute_angle_x()
         
-        x = position_px[0] + 150 if 90 < angle < 270 else position_px[0] - 120
-        y = position_px[1] - 180 if 90 < angle < 270 else position_px[1] + 200
+        x = position_px[0] + 180 if 90 < angle < 270 else position_px[0] - 200
+        y = position_px[1] - 220 if 90 < angle < 270 else position_px[1] + 250
         td["data"]["flag-coords"] = (x, y)
         td["data"]["flag-coords-cm"] = (robot.pixels_to_cm(x), robot.pixels_to_cm(y))
     
