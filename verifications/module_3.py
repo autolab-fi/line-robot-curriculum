@@ -26,12 +26,6 @@ def get_target_points(task):
     return target_points.get(task, [])
 
 
-
-
-
-
-
-
 def movement_function(robot, image, td: dict):
     """Test: Robot must turn 180 degrees."""
     # overlay robot info on image
@@ -98,7 +92,7 @@ def electric_motor(robot, image, td: dict):
         
         try:
             basepath = os.path.abspath(os.path.dirname(__file__))
-            filepath = os.path.join(basepath, 'auto_tests', 'images', 'flag_finish.jpg')
+            filepath = os.path.join(basepath, 'images', 'flag_finish.jpg')
               
             flag = cv2.imread(filepath)
             
@@ -113,57 +107,54 @@ def electric_motor(robot, image, td: dict):
             td["data"]["image_error"] = True
             return image, td, f"Error processing image: {str(e)}", result
 
-    # Only proceed with flag-related operations if we have a flag
-    if not td["data"].get("image_error", False):
-        # First, set the flag coordinates if they don't exist yet
-        if "flag-coords" not in td["data"] and robot:
-            robot_info = robot.get_info()
-            position_px = robot_info["position_px"]
+    # First, set the flag coordinates if they don't exist yet
+    robot_info = robot.get_info()
+    position_px = robot_info["position_px"]
+    if "flag-coords" not in td["data"] and  position_px is not None:
             
-            if position_px is None:
-                return image, td, "Robot position not detected", result
-                
-            angle = robot.compute_angle_x()
-            
-            x = position_px[0] + 150 if 90 < angle < 270 else position_px[0] - 120
-            y = position_px[1] - 180 if 90 < angle < 270 else position_px[1] + 200
-            td["data"]["flag-coords"] = (x, y)
-            td["data"]["flag-coords-cm"] = (robot.pixels_to_cm(x), robot.pixels_to_cm(y))
+        angle = robot.compute_angle_x()
         
-        # Then, in a separate condition, draw the flag using those coordinates
-        if "flag-coords" in td["data"]:
-            flag = td["data"]["flag"]
-            x_left = int(flag.shape[0]/2)
-            x_right = flag.shape[0] - x_left
-            y_bottom = int(flag.shape[1]/2)
-            y_up = flag.shape[1] - y_bottom
+        x = position_px[0] + 150 if 90 < angle < 270 else position_px[0] - 120
+        y = position_px[1] - 180 if 90 < angle < 270 else position_px[1] + 200
+        td["data"]["flag-coords"] = (x, y)
+        td["data"]["flag-coords-cm"] = (robot.pixels_to_cm(x), robot.pixels_to_cm(y))
+    
+    # Then, in a separate condition, draw the flag using those coordinates
+    if "flag-coords" in td["data"]:
+        flag = td["data"]["flag"]
+        x_left = int(flag.shape[0]/2)
+        x_right = flag.shape[0] - x_left
+        y_bottom = int(flag.shape[1]/2)
+        y_up = flag.shape[1] - y_bottom
+        
+        # Check if coordinates are within image bounds
+        coords = td["data"]["flag-coords"]
+        if (0 <= coords[0] - x_left < image.shape[0] and 
+            coords[0] + x_right < image.shape[0] and
+            0 <= coords[1] - y_bottom < image.shape[1] and
+            coords[1] + y_up < image.shape[1]):
             
-            # Check if coordinates are within image bounds
-            coords = td["data"]["flag-coords"]
-            if (0 <= coords[0] - x_left < image.shape[0] and 
-                coords[0] + x_right < image.shape[0] and
-                0 <= coords[1] - y_bottom < image.shape[1] and
-                coords[1] + y_up < image.shape[1]):
-                
-                if td["data"]["reached"]:
-                    # Increased rotation angle from 25 to 45 degrees
-                    result_img = rotate_image(flag, 45)  
-                    mask = cv2.inRange(result_img, (0, 0, 0), (205, 205, 205))
-                    result_img[mask > 0] = (0, 255, 0)
-                    cv2.copyTo(result_img, rotate_image(td["data"]["flag-mask"], 45), 
-                              image[coords[0] - x_left:x_right + coords[0], 
-                                    coords[1] - y_bottom:y_up + coords[1]])
-                else:
-                    cv2.copyTo(flag, td["data"]["flag-mask"], 
-                              image[coords[0] - x_left:x_right + coords[0], 
-                                    coords[1] - y_bottom:y_up + coords[1]])
+            if td["data"]["reached"]:
+                # Increased rotation angle from 25 to 45 degrees
+                result_img = rotate_image(flag, 45)  
+                mask = cv2.inRange(result_img, (0, 0, 0), (205, 205, 205))
+                result_img[mask > 0] = (0, 255, 0)
+                cv2.circle(image, (td['data']['flag-coords'][1],td['data']['flag-coords'][0]) , 135, (0, 255, 0),2)
+                cv2.copyTo(result_img, rotate_image(td["data"]["flag-mask"], 45), 
+                          image[coords[0] - x_left:x_right + coords[0], 
+                                coords[1] - y_bottom:y_up + coords[1]])
+            else:
+                cv2.copyTo(flag, td["data"]["flag-mask"], 
+                          image[coords[0] - x_left:x_right + coords[0], 
+                                coords[1] - y_bottom:y_up + coords[1]])
+                cv2.circle(image, (td['data']['flag-coords'][1],td['data']['flag-coords'][0]) , 135, (0, 255, 0),2)
 
-    position = robot.get_info()["position"]
+    position = robot_info["position"]
     if position and "flag-coords-cm" in td["data"]:
         delta = robot.delta_points((position[1], position[0]), td["data"]["flag-coords-cm"])
         
         # Increased threshold from 5.1 to 7.0 cm for better detection
-        if delta < 7.0:
+        if delta < 9.0:
             td["data"]["reached"] = True
             text = "The robot has reached target point!"
         else:
@@ -221,7 +212,7 @@ def differential_drive(robot, image, td):
         
         try:
             basepath = os.path.abspath(os.path.dirname(__file__))
-            filepath = os.path.join(basepath, "auto_tests", "images", "traffic-sign.jpg")
+            filepath = os.path.join(basepath, "images", "traffic-sign.jpg")
 
             if not os.path.exists(filepath):
                 filepath = os.path.join(basepath, "images", "traffic-sign.jpg")
