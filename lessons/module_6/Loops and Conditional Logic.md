@@ -1,14 +1,14 @@
-# **Lesson 2: Loops and Conditional Logic**
+# **Lesson 2: Loops and Conditional Logic on ESP32**
 
 ## **Lesson Objective**
 
-Learn how to repeat actions using `for` and `while` loops, and combine them with `if-else` statements for decision-making.
+Learn how to repeat actions using `for` and `while` loops on ESP32, and combine them with `if-else` statements.
 
 ---
 
 ## **Introduction**
 
-Loops allow you to execute a block of code **multiple times**. You can control how many times the loop runs using conditions. Combined with `if-else`, you can build intelligent programs that respond to different values inside loops.
+Loops are essential for microcontrollers perform repeated actions. Using loops saves you from writing the same code over and over, making your programs more efficient and easier to maintain.
 
 ---
 
@@ -16,48 +16,82 @@ Loops allow you to execute a block of code **multiple times**. You can control h
 
 ### **For Loop**
 
-Runs code a fixed number of times.
+Runs code a fixed number of times - perfect for iterating through sensors or creating patterns:
 
 ```cpp
+// Blink LED 5 times
 for (int i = 1; i <= 5; i++) {
-    cout << i << endl;
+    digitalWrite(ledPin, HIGH);
+    delay(200);
+    digitalWrite(ledPin, LOW);
+    delay(200);
+    Serial.print("Blink #");
+    Serial.println(i);
 }
 ```
 
 ### **While Loop**
 
-Runs code **while a condition is true**.
+Runs code **while a condition is true** - good for reading sensors until a condition is met:
 
 ```cpp
-int i = 1;
-while (i <= 5) {
-    cout << i << endl;
-    i++;
+// Wait until sensor detects object
+int sensorValue = 0;
+while (sensorValue < threshold) {
+    sensorValue = analogRead(sensorPin);
+    delay(10);
 }
 ```
 
 ### **Combining Loops with If-Else**
 
-You can make decisions inside a loop using `if-else`. For example, print only even numbers in a loop.
+You can make decisions inside a loop to respond differently to changing conditions:
 
 ---
 
-## **Code Implementation**
+## **Example Implementation**
 
 ```cpp
-#include <iostream>
-using namespace std;
+#include <Arduino.h>
 
-int main() {
-    for (int i = 1; i <= 10; i++) {
-        if (i % 2 == 0) {
-            cout << i << " is even" << endl;
-        } else {
-            cout << i << " is odd" << endl;
-        }
+const int ledPin = 2;  // ESP32 onboard LED
+const int potPin = 36; // Potentiometer on analog pin
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(ledPin, OUTPUT);
+  
+  Serial.println("ESP32 Loop Example");
+}
+
+void loop() {
+  // Read potentiometer to set number of blinks
+  int numBlinks = map(analogRead(potPin), 0, 4095, 1, 10);
+  
+  Serial.print("Blinking LED ");
+  Serial.print(numBlinks);
+  Serial.println(" times");
+  
+  // For loop to blink LED
+  for (int i = 1; i <= numBlinks; i++) {
+    if (i % 2 == 0) {
+      // For even counts, blink fast
+      digitalWrite(ledPin, HIGH);
+      delay(100);
+      digitalWrite(ledPin, LOW);
+      delay(100);
+      Serial.println("Fast blink (even count)");
+    } else {
+      // For odd counts, blink slow
+      digitalWrite(ledPin, HIGH);
+      delay(400);
+      digitalWrite(ledPin, LOW);
+      delay(100);
+      Serial.println("Slow blink (odd count)");
     }
-
-    return 0;
+  }
+  
+  delay(1000);  // Wait before next sequence
 }
 ```
 
@@ -65,16 +99,58 @@ int main() {
 
 ## **Understanding the Logic**
 
-1. The `for` loop runs 10 times.
-2. Each time, it checks whether `i` is even or odd.
-3. It prints a message accordingly.
+1. The program reads an analog value from a potentiometer to determine how many times to blink.
+2. The `for` loop runs the specified number of times.
+3. Inside the loop, an `if-else` statement checks if the current count is even or odd.
+4. For even counts, the LED blinks quickly; for odd counts, it blinks slowly.
+5. After completing all blinks, the program waits 1 second and repeats.
 
 ---
 
-## **Assignment**
+## **Assignment: Reading Multiple Octoliner Sensors**
+
+Your task is to create a program that reads values from all 8 Octoliner sensors (0-7) using a for loop and prints their values to the MQTT Console.
+
+Complete the code below:
+
+```cpp
+#include <Octoliner.h>
+
+// I2C Address (default 42)
+Octoliner octoliner(42);
+
+void setup() {
+    Serial.begin(115200);
+    octoliner.begin();
+    octoliner.setSensitivity(230);  // Adjust sensitivity if needed
+    Serial.println("Octoliner Sensor Array Reader");
+}
+
+void loop() {
+    Serial.println("------- Sensor Readings -------");
+    
+    // YOUR CODE HERE:
+    // Use a for loop to read and print values from all 8 sensors (0-7)
+    // For each sensor, print its number and the analog value
+    
+    Serial.println("------------------------------");
+}
+```
+
+Your goal is to use a for loop to iterate through each sensor (indices 0-7), read its value, and print both the sensor number and value to the MQTT Console.
+
+Expected output should look like:
+```
+------- Sensor Readings -------
+Sensor 0: 245
+Sensor 1: 127
+Sensor 2: 85
+...and so on for all 8 sensors
+------------------------------
+```
 
 ---
 
 ## **Conclusion**
 
-In this lesson, you learned how to use loops to repeat code and combine them with `if-else` for making decisions. This sets the foundation for processing lists and patterns in programming.
+In this lesson, you learned how to use loops to efficiently perform repeated tasks on the ESP32. The `for` loop is particularly useful for handling multiple sensors or outputs in sequence, while combining loops with conditional statements allows your robot to make complex decisions based on changing sensor inputs.
