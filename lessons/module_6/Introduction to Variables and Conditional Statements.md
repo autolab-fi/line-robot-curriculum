@@ -2,11 +2,13 @@
 
 ## **Lesson Objective**
 
-## Learn how to declare and use variables in C++, and apply conditional logic using `if`, `else if`, and `else`.
+Learn how to declare and use variables in ESP32 programming, and apply conditional logic using `if` and `else` statements to make decisions.
+
+---
 
 ## **Introduction**
 
-Variables are the building blocks of any program. They store information like numbers, characters, and true/false values. Once we store values in variables, we can apply logic to make decisions using conditional statements.
+Variables are essential in microcontroller programming for storing information like sensor readings, motor speeds, and system states. In robot programming, we use conditional statements (`if-else`) to make decisions based on these variables, creating intelligent behavior.
 
 ---
 
@@ -14,18 +16,15 @@ Variables are the building blocks of any program. They store information like nu
 
 ### **What are Variables?**
 
-Variables are named storage locations in memory.  
-Examples:
+Variables are named storage locations in the ESP32's memory:
 
-- `int age = 20;` stores a whole number
-- `float pi = 3.14;` stores a decimal
-- `char grade = 'A';` stores a character
-- `bool isActive = true;` stores true/false
+- `int motorSpeed = 200;` stores a motor speed value
+- `float batteryLevel = 3.7;` stores the battery voltage
+- `bool isOnLine = true;` stores whether the robot detects a line
 
 ### **What is an If-Else Statement?**
 
-It helps the program **make decisions** based on conditions.  
-Syntax:
+It enables your robot to **make decisions** based on conditions:
 
 ```cpp
 if (condition) {
@@ -35,26 +34,47 @@ if (condition) {
 }
 ```
 
+### **Comparison Operators**
+
+- `==` equal to
+- `!=` not equal to 
+- `>` greater than
+- `<` less than
+- `>=` greater than or equal to
+- `<=` less than or equal to
+
 ---
 
-## **Code Implementation**
+## **Example Implementation**
 
 ```cpp
-#include <iostream>
-using namespace std;
+#include <Arduino.h>
 
-int main() {
-    int age;
-    cout << "Enter your age: ";
-    cin >> age;
+// Define pins
+const int ledPin = 2;      // ESP32 onboard LED
+const int sensorPin = 36;  // Analog sensor pin
 
-    if (age >= 18) {
-        cout << "You are an adult." << endl;
-    } else {
-        cout << "You are a minor." << endl;
-    }
+void setup() {
+  Serial.begin(115200);
+  pinMode(ledPin, OUTPUT);
+  
+  Serial.println("ESP32 Sensor Monitoring");
+}
 
-    return 0;
+void loop() {
+  // Read sensor value
+  int sensorValue = analogRead(sensorPin);
+  
+  // Make decision based on threshold
+  if (sensorValue > 2000) {
+    digitalWrite(ledPin, HIGH);
+    Serial.println("Sensor value HIGH");
+  } else {
+    digitalWrite(ledPin, LOW);
+    Serial.println("Sensor value LOW");
+  }
+  
+  delay(100);  // Small delay for stability
 }
 ```
 
@@ -62,104 +82,50 @@ int main() {
 
 ## **Understanding the Logic**
 
-1. The program asks the user for their age.
-2. If the age is 18 or more, it prints **"You are an adult."**
-3. Otherwise, it prints **"You are a minor."**
+1. The program reads an analog sensor value.
+2. The `if` statement compares this value against a threshold (2000).
+3. If the value is above the threshold, the LED turns ON and "HIGH" is printed.
+4. Otherwise (`else`), the LED turns OFF and "LOW" is printed.
 
 ---
 
-## **Assignment**
+## **Assignment: Line Detection with ESP32**
 
-1. Write a program that takes a number as input.
-2. If the number is greater than 0 → Print "Positive"
-3. If the number is less than 0 → Print "Negative"
-4. Otherwise → Print "Zero"
+For this assignment, you'll use the Octoliner sensor to detect whether the robot is on a black line.
+
+Your task is to:
+1. Compare the sensor value.(Sensor value is > 200 if its on the line else its <200)
+2. Print the appropriate message to the MQTT Dashboard
+
+Complete the code below by adding the `if-else` statement:
+
+```cpp
+#include <Octoliner.h>
+// I2C Address (default 42)
+Octoliner octoliner(42);
+// Black threshold for detection
+const int MY_BLACK_THRESHOLD = 100;  
+
+void setup() {
+    Serial.begin(115200);  // Initialize Serial communication
+    octoliner.begin();
+    octoliner.setSensitivity(230);  // Adjust sensitivity if needed
+    Serial.println("Line Detection Program Started");
+}
+
+void loop() {
+    int value = octoliner.analogRead(5);
+    
+    // YOUR CODE HERE:
+    // Add an if-else statement to determine if the robot is on the line
+    // Print "ON LINE" or "OFF LINE" accordingly
+    
+    delay(100);  // Small delay between readings
+}
+```
 
 ---
 
 ## **Conclusion**
 
-In this lesson, you learned how to declare and use variables in C++. You also used `if-else` conditions to make your program react based on input.
-
----
-
-# **Lesson 2: Loops and Conditional Logic**
-
-## **Lesson Objective**
-
-Learn how to repeat actions using `for` and `while` loops, and combine them with `if-else` statements for decision-making.
-
----
-
-## **Introduction**
-
-Loops allow you to execute a block of code **multiple times**. You can control how many times the loop runs using conditions. Combined with `if-else`, you can build intelligent programs that respond to different values inside loops.
-
----
-
-## **Theory**
-
-### **For Loop**
-
-Runs code a fixed number of times.
-
-```cpp
-for (int i = 1; i <= 5; i++) {
-    cout << i << endl;
-}
-```
-
-### **While Loop**
-
-Runs code **while a condition is true**.
-
-```cpp
-int i = 1;
-while (i <= 5) {
-    cout << i << endl;
-    i++;
-}
-```
-
-### **Combining Loops with If-Else**
-
-You can make decisions inside a loop using `if-else`. For example, print only even numbers in a loop.
-
----
-
-## **Code Implementation**
-
-```cpp
-#include <iostream>
-using namespace std;
-
-int main() {
-    for (int i = 1; i <= 10; i++) {
-        if (i % 2 == 0) {
-            cout << i << " is even" << endl;
-        } else {
-            cout << i << " is odd" << endl;
-        }
-    }
-
-    return 0;
-}
-```
-
----
-
-## **Understanding the Logic**
-
-1. The `for` loop runs 10 times.
-2. Each time, it checks whether `i` is even or odd.
-3. It prints a message accordingly.
-
----
-
-## **Assignment**
-
----
-
-## **Conclusion**
-
-In this lesson, you learned how to use loops to repeat code and combine them with `if-else` for making decisions. This sets the foundation for processing lists and patterns in programming.
+In this lesson, you learned how variables store different types of data and how `if-else` statements make decisions based on those values. These are fundamental concepts for creating responsive robot behavior that reacts to sensor inputs from the environment.
