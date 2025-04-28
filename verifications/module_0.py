@@ -129,11 +129,11 @@ def draw(robot, image, td: dict):
     # init result dictionary
     result = {
         "success": True,
-        "description": "You are amazing! The Robot has completed the assignment",
+        "description": "DEV BRANCH!!!!You are amazing! The Robot has completed the assignment",
         "score": 100
     }
 
-    text = "Not recognized"
+    text = "DEV BRANCH!!!!Not recognized"
     # init testData
     if not td:
         td = {
@@ -148,7 +148,7 @@ def draw(robot, image, td: dict):
     # if robot found on the image then add point to trajectory
     if robot_position is not None:
         td['trajectory'].append(robot_position_px)
-        text = f'Robot position: x: {robot_position[0]:0.1f} y: {robot_position[1]:0.1f}'
+        text = f'DEV BRANCH!!!!Robot position: x: {robot_position[0]:0.1f} y: {robot_position[1]:0.1f}'
     # draw trajectory
     if len(td['trajectory'])>0:
         draw_trajectory(image, td['trajectory'], (255, 0, 0), 3, True)
