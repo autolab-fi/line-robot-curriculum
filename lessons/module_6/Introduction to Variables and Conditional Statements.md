@@ -2,13 +2,13 @@
 
 ## **Lesson Objective**
 
-Learn how to declare and use variables in ESP32 programming, and apply conditional logic using `if` and `else` statements to make decisions.
+Learn how to declare and use variables in ESP32 programming, and apply conditional logic using `if`, `else if`, and `else` statements to make decisions.
 
 ---
 
 ## **Introduction**
 
-Variables are essential in microcontroller programming for storing information like sensor readings, motor speeds, and system states. In robot programming, we use conditional statements (`if-else`) to make decisions based on these variables, creating intelligent behavior.
+Variables are essential in microcontroller programming for storing information like sensor readings, motor speeds, and system states. In robot programming, we use conditional statements to make decisions based on these variables, creating intelligent behavior.
 
 ---
 
@@ -27,17 +27,19 @@ Variables are named storage locations in the ESP32's memory:
 It enables your robot to **make decisions** based on conditions:
 
 ```cpp
-if (condition) {
-    // code runs if condition is true
+if (condition1) {
+    // code runs if condition1 is true
+} else if (condition2) {
+    // code runs if condition1 is false but condition2 is true
 } else {
-    // code runs if condition is false
+    // code runs if all conditions above are false
 }
 ```
 
 ### **Comparison Operators**
 
 - `==` equal to
-- `!=` not equal to 
+- `!=` not equal to
 - `>` greater than
 - `<` less than
 - `>=` greater than or equal to
@@ -49,31 +51,31 @@ if (condition) {
 
 ```cpp
 #include <Arduino.h>
+#include <lineRobot.h>  // Includes printMQTT function
 
 // Define pins
 const int ledPin = 2;      // ESP32 onboard LED
 const int sensorPin = 36;  // Analog sensor pin
 
 void setup() {
-  Serial.begin(115200);
   pinMode(ledPin, OUTPUT);
-  
-  Serial.println("ESP32 Sensor Monitoring");
+
+  printMQTT("ESP32 Sensor Monitoring Started");
 }
 
 void loop() {
   // Read sensor value
   int sensorValue = analogRead(sensorPin);
-  
+
   // Make decision based on threshold
   if (sensorValue > 2000) {
     digitalWrite(ledPin, HIGH);
-    Serial.println("Sensor value HIGH");
+    printMQTT("Sensor value HIGH");
   } else {
     digitalWrite(ledPin, LOW);
-    Serial.println("Sensor value LOW");
+    printMQTT("Sensor value LOW");
   }
-  
+
   delay(100);  // Small delay for stability
 }
 ```
@@ -84,48 +86,57 @@ void loop() {
 
 1. The program reads an analog sensor value.
 2. The `if` statement compares this value against a threshold (2000).
-3. If the value is above the threshold, the LED turns ON and "HIGH" is printed.
-4. Otherwise (`else`), the LED turns OFF and "LOW" is printed.
+3. If the value is above the threshold, the LED turns ON and "Sensor value HIGH" is sent.
+4. Otherwise (`else`), the LED turns OFF and "Sensor value LOW" is sent.
 
 ---
 
-## **Assignment: Line Detection with ESP32**
+## **Assignment: Dual-Sensor Line Detection**
 
-For this assignment, you'll use the Octoliner sensor to detect whether the robot is on a black line.
+In this assignment, you'll use two of the Octoliner sensors to detect line positions and send appropriate messages to the MQTT dashboard.
 
 Your task is to:
-1. Compare the sensor value.(Sensor value is > 200 if its on the line else its <200)
-2. Print the appropriate message to the MQTT Dashboard
 
-Complete the code below by adding the `if-else` statement:
+1. Compare both sensor values (value_1 and value_2)
+2. Use if-else if-else logic to determine different conditions
+3. Send different messages based on which sensors detect the line
+
+Complete the code below by adding the conditional logic:
 
 ```cpp
 #include <Octoliner.h>
+#include <lineRobot.h>
+
 // I2C Address (default 42)
 Octoliner octoliner(42);
-// Black threshold for detection
-const int MY_BLACK_THRESHOLD = 100;  
 
 void setup() {
-    Serial.begin(115200);  // Initialize Serial communication
     octoliner.begin();
-    octoliner.setSensitivity(230);  // Adjust sensitivity if needed
-    Serial.println("Line Detection Program Started");
+    octoliner.setSensitivity(230);
 }
 
 void loop() {
-    int value = octoliner.analogRead(5);
-    
+    // Read values from two sensors
+    int value_1 = octoliner.analogRead(5);
+    int value_2 = octoliner.analogRead(6);
+
     // YOUR CODE HERE:
-    // Add an if-else statement to determine if the robot is on the line
-    // Print "ON LINE" or "OFF LINE" accordingly
-    
-    delay(100);  // Small delay between readings
+    // Add if-else if-else statements to determine which sensor(s) detect the line
+    // Remember: Values greater than 200 indicate the sensor is on the line
+    // Send appropriate messages via printMQTT
+
 }
 ```
+
+### Expected Output
+
+Your code should detect and report one of the following condition:
+
+- If only sensor 5 is on the line: "SENSOR 5 ON LINE & SENSOR 6 ON LINE"
+- If only sensor 6 is on the line: "SENSOR 6 ON LINE & SENSOR 5 ON LINE"
 
 ---
 
 ## **Conclusion**
 
-In this lesson, you learned how variables store different types of data and how `if-else` statements make decisions based on those values. These are fundamental concepts for creating responsive robot behavior that reacts to sensor inputs from the environment.
+In this lesson, you learned how variables store different types of data and how conditional statements make decisions based on those values. The `if-else if-else` structure lets you create more complex logic for your robot to respond to different sensor combinations, which is essential for creating responsive robot behavior.

@@ -25,8 +25,7 @@ for (int i = 1; i <= 5; i++) {
     delay(200);
     digitalWrite(ledPin, LOW);
     delay(200);
-    Serial.print("Blink #");
-    Serial.println(i);
+    printMQTT("Blink #" + String(i));
 }
 ```
 
@@ -53,25 +52,23 @@ You can make decisions inside a loop to respond differently to changing conditio
 
 ```cpp
 #include <Arduino.h>
+#include <lineRobot.h>  // For printMQTT function
 
 const int ledPin = 2;  // ESP32 onboard LED
 const int potPin = 36; // Potentiometer on analog pin
 
 void setup() {
-  Serial.begin(115200);
   pinMode(ledPin, OUTPUT);
-  
-  Serial.println("ESP32 Loop Example");
+
+  printMQTT("ESP32 Loop Example");
 }
 
 void loop() {
   // Read potentiometer to set number of blinks
   int numBlinks = map(analogRead(potPin), 0, 4095, 1, 10);
-  
-  Serial.print("Blinking LED ");
-  Serial.print(numBlinks);
-  Serial.println(" times");
-  
+
+  printMQTT("Blinking LED " + String(numBlinks) + " times");
+
   // For loop to blink LED
   for (int i = 1; i <= numBlinks; i++) {
     if (i % 2 == 0) {
@@ -80,17 +77,17 @@ void loop() {
       delay(100);
       digitalWrite(ledPin, LOW);
       delay(100);
-      Serial.println("Fast blink (even count)");
+      printMQTT("Fast blink (even count)");
     } else {
       // For odd counts, blink slow
       digitalWrite(ledPin, HIGH);
       delay(400);
       digitalWrite(ledPin, LOW);
       delay(100);
-      Serial.println("Slow blink (odd count)");
+      printMQTT("Slow blink (odd count)");
     }
   }
-  
+
   delay(1000);  // Wait before next sequence
 }
 ```
@@ -115,38 +112,34 @@ Complete the code below:
 
 ```cpp
 #include <Octoliner.h>
+#include <lineRobot.h>
 
 // I2C Address (default 42)
 Octoliner octoliner(42);
 
 void setup() {
-    Serial.begin(115200);
     octoliner.begin();
-    octoliner.setSensitivity(230);  // Adjust sensitivity if needed
-    Serial.println("Octoliner Sensor Array Reader");
+    octoliner.setSensitivity(230);
 }
 
 void loop() {
-    Serial.println("------- Sensor Readings -------");
-    
+
     // YOUR CODE HERE:
     // Use a for loop to read and print values from all 8 sensors (0-7)
-    // For each sensor, print its number and the analog value
-    
-    Serial.println("------------------------------");
+    // For each sensor, print its number and the analog value using printMQTT
+
 }
 ```
 
 Your goal is to use a for loop to iterate through each sensor (indices 0-7), read its value, and print both the sensor number and value to the MQTT Console.
 
 Expected output should look like:
+
 ```
-------- Sensor Readings -------
 Sensor 0: 245
 Sensor 1: 127
 Sensor 2: 85
 ...and so on for all 8 sensors
-------------------------------
 ```
 
 ---

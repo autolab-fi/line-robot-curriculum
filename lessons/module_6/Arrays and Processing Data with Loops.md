@@ -71,7 +71,7 @@ void loop() {
 
     Serial.print("Number of bright sensors: ");
     Serial.println(brightCount);
-    
+
     delay(3000); // Wait 3 seconds before repeating
 }
 ```
@@ -122,6 +122,7 @@ for (int i = 0; i < 8; i++) {
 ## **Assignment: Line Follower Sensor Array Analysis**
 
 For this assignment, you'll create a program that:
+
 1. Reads all 8 Octoliner sensors and stores the values in an array
 2. Processes the array to determine which sensors detect the line
 3. Uses printMQTT to report which sensors are over the line
@@ -135,7 +136,7 @@ Complete the code below:
 // I2C Address (default 42)
 Octoliner octoliner(42);
 // Black threshold for detection
-const int BLACK_THRESHOLD = 100;  
+const int BLACK_THRESHOLD = 100;
 
 void setup() {
     Serial.begin(115200);
@@ -150,8 +151,7 @@ void loop() {
     // 2. Use a for loop to store all sensor readings in the array
     // 3. Use another for loop to check which sensors detect the line
     // 4. Use printMQTT to report which sensors detect the line
-    
-    delay(500);  // Update twice per second
+
 }
 ```
 

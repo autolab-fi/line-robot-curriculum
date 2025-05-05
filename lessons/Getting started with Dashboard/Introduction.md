@@ -1,4 +1,4 @@
-# Lesson 4: Monitoring Robot Data with printMQTT
+# Lesson 1: Monitoring Robot Data with printMQTT
 
 ## Lesson Objective
 
