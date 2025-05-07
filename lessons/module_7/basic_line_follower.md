@@ -21,8 +21,7 @@ Infrared sensors operate by emitting infrared light and detecting the amount of 
 ### **IR Sensor Configuration**  
 The **Octoliner** sensor array consists of **8 sensors**, each providing an analog value that indicates the intensity of reflected IR light.  
 
-![IR Sensor Logic](https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/module_6/IR_sensor_array.png?raw=True)
-
+![IR Sensor Logic](https://github.com/pranavk-2003/line-robot-curriculum/blob/assignments/images/module_6/IR_sensor_array.png?raw=True)
 In this lesson:  
 - **Central sensors (3 & 4)** → Move straight  
 - **Left sensors (0,1,2)** → Guide left turns  
@@ -87,7 +86,7 @@ void loop() {
 The robot determines movement based on which sensors detect the black line.  
 Below is a flowchart for a clear understanding:  
 
-![Flow](https://github.com/autolab-fi/line-robot-curriculum/blob/main/images/module_6/FC.png?raw=True)  
+![Flow](https://github.com/pranavk-2003/line-robot-curriculum/blob/assignments/images/module_6/FC.png?raw=True)  
 
 1. **If middle sensors (3 OR 4) detect the line** → Move forward.  
 2. **If left sensors (0 OR 1 OR 2) detect the line** → Turn left.  
