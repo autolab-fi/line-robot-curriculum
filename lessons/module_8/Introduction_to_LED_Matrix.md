@@ -40,11 +40,11 @@ This creates a smiley face.
 
 ## **Required Library**
 
-Use the **LedControl** or **MD_MAX72XX** library depending on your module (or the one mentioned in your PDF if it uses **TM1638/TM1640** drivers or similar I2C commands). Below is a simplified example using a generic I2C library interface like the one in the PDF:
+Use the **MD_MAX72XX** library. Below is a simplified example using a generic I2C library interface:
 
 ```cpp
 #include <Wire.h>
-#define LED_MATRIX_ADDR 0x70  // Adjust based on your module
+#define LED_MATRIX_ADDR 0x70
 
 void sendPattern(uint8_t pattern[8]) {
     Wire.beginTransmission(LED_MATRIX_ADDR);
@@ -63,7 +63,7 @@ void sendPattern(uint8_t pattern[8]) {
 ```cpp
 #include <Wire.h>
 
-#define MATRIX_ADDR 0x70  // Replace with your module's I2C address
+#define MATRIX_ADDR 0x70
 
 uint8_t Xpattern[8] = {
     0b10000001,
@@ -78,13 +78,11 @@ uint8_t Xpattern[8] = {
 
 void setup() {
     Wire.begin();
-    Serial.begin(115200);
-    Serial.println("LED Matrix Pattern Display");
+    printMQTT("LED Matrix Pattern Display");
 }
 
 void loop() {
     displayPattern(Xpattern);
-    delay(2000);
 }
 
 void displayPattern(uint8_t pattern[8]) {

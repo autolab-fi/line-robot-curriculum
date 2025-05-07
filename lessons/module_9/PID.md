@@ -1,6 +1,4 @@
-## <!--  -->
-
-## **Lesson 4: PID Controller**
+## **Lesson 2: PID Controller**
 
 ### Objective
 

@@ -2,7 +2,7 @@
 
 ## **Lesson Objective**
 
-Learn how to repeat actions using `for` and `while` loops on ESP32, and combine them with `if-else` statements.
+Learn how to repeat actions using `for` and `while` loops, and combine them with `if-else` statements.
 
 ---
 
@@ -52,19 +52,17 @@ You can make decisions inside a loop to respond differently to changing conditio
 
 ```cpp
 #include <Arduino.h>
-#include <lineRobot.h>  // For printMQTT function
-
-const int ledPin = 2;  // ESP32 onboard LED
-const int potPin = 36; // Potentiometer on analog pin
+#include <lineRobot.h>
+const int ledPin = 2;
+const int potPin = 36;
 
 void setup() {
   pinMode(ledPin, OUTPUT);
 
-  printMQTT("ESP32 Loop Example");
+  printMQTT("Loop Example");
 }
 
 void loop() {
-  // Read potentiometer to set number of blinks
   int numBlinks = map(analogRead(potPin), 0, 4095, 1, 10);
 
   printMQTT("Blinking LED " + String(numBlinks) + " times");
