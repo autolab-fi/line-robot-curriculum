@@ -1,0 +1,83 @@
+# **Lesson 3: Arrays and Processing Data with Loops**
+
+## **Lesson Objective**
+
+Understand how to use arrays in C++ and process multiple values using loops and conditions.
+
+---
+
+## **Introduction**
+
+Arrays allow you to store multiple values under one name. Instead of creating separate variables for each item, arrays group them together, making it easier to loop through and perform operations.
+
+---
+
+## **Theory**
+
+### **What is an Array?**
+
+An array is a fixed-size list of elements of the same type.  
+Example:
+
+```cpp
+int scores[5] = {90, 85, 78, 92, 88};
+```
+
+### **Accessing Elements**
+
+You can access array items using indexes (starting from 0).  
+`scores[0]` → 90  
+`scores[2]` → 78
+
+### **Looping Through Arrays**
+
+Use a `for` loop to process all elements.
+
+```cpp
+for (int i = 0; i < 5; i++) {
+    cout << scores[i] << endl;
+}
+```
+
+---
+
+## **Code Implementation**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int numbers[6] = {55, 23, 99, 47, 60, 12};
+    int count = 0;
+
+    for (int i = 0; i < 6; i++) {
+        if (numbers[i] > 50) {
+            count++;
+        }
+    }
+
+    cout << "Count of numbers greater than 50: " << count << endl;
+
+    return 0;
+}
+```
+
+---
+
+## **Understanding the Logic**
+
+1. The program has an array of 6 numbers.
+2. A loop checks each number using an `if` condition.
+3. If the number is greater than 50, we increment the count.
+4. The final result is displayed at the end.
+
+---
+
+## **Assignment**
+
+---
+
+## **Conclusion**
+
+In this lesson, you learned how to use arrays to store data and process them using loops and conditions. Arrays are useful for tasks involving multiple inputs like grades, sensor values, and more.
