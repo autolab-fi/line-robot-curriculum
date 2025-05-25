@@ -2,7 +2,7 @@
 
 ## **Lesson Objective**
 
-Learn how to declare and use variables in C++ programming, and apply conditional logic using `if`, `else if`, and `else` statements to make decisions.
+Learn how to declare and use variables in ESP32 programming, and apply conditional logic using `if`, `else if`, and `else` statements to make decisions.
 
 ---
 
@@ -16,7 +16,7 @@ Variables are essential in microcontroller programming for storing information l
 
 ### **What are Variables?**
 
-Variables are named storage locations in the memory:
+Variables are named storage locations in the ESP32's memory:
 
 - `int motorSpeed = 200;` stores a motor speed value
 - `float batteryLevel = 3.7;` stores the battery voltage
@@ -51,16 +51,16 @@ if (condition1) {
 
 ```cpp
 #include <Arduino.h>
-#include <lineRobot.h>
+#include <lineRobot.h>  // Includes printMQTT function
 
 // Define pins
-const int ledPin = 2;
-const int sensorPin = 36;
+const int ledPin = 2;      // ESP32 onboard LED
+const int sensorPin = 36;  // Analog sensor pin
 
 void setup() {
   pinMode(ledPin, OUTPUT);
 
-  printMQTT("Sensor Monitoring Started");
+  printMQTT("ESP32 Sensor Monitoring Started");
 }
 
 void loop() {
@@ -76,6 +76,7 @@ void loop() {
     printMQTT("Sensor value LOW");
   }
 
+  delay(100);  // Small delay for stability
 }
 ```
 
@@ -90,7 +91,7 @@ void loop() {
 
 ---
 
-## **Assignment: Sensor Line Detection**
+## **Assignment: Dual-Sensor Line Detection**
 
 In this assignment, you'll use two of the Octoliner sensors to detect line positions and send appropriate messages to the MQTT dashboard.
 
