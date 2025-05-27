@@ -2,7 +2,7 @@
 
 ## **Lesson Objective**
 
-Learn how to declare and use variables in ESP32 programming, and apply conditional logic using `if`, `else if`, and `else` statements to make decisions.
+Learn how to declare and use variables in programming, and apply conditional logic using `if`, `else if`, and `else` statements to make decisions.
 
 ---
 
@@ -16,7 +16,7 @@ Variables are essential in microcontroller programming for storing information l
 
 ### **What are Variables?**
 
-Variables are named storage locations in the ESP32's memory:
+Variables are named storage locations in the memory:
 
 - `int motorSpeed = 200;` stores a motor speed value
 - `float batteryLevel = 3.7;` stores the battery voltage
@@ -54,13 +54,13 @@ if (condition1) {
 #include <lineRobot.h>  // Includes printMQTT function
 
 // Define pins
-const int ledPin = 2;      // ESP32 onboard LED
+const int ledPin = 2;
 const int sensorPin = 36;  // Analog sensor pin
 
 void setup() {
   pinMode(ledPin, OUTPUT);
 
-  printMQTT("ESP32 Sensor Monitoring Started");
+  printMQTT("Sensor Monitoring Started");
 }
 
 void loop() {
@@ -132,8 +132,8 @@ void loop() {
 
 Your code should detect and report one of the following condition:
 
-- If only sensor 5 is on the line: "SENSOR 5 ON LINE & SENSOR 6 ON LINE"
-- If only sensor 6 is on the line: "SENSOR 6 ON LINE & SENSOR 5 ON LINE"
+- If only sensor 5 is on the line: "SENSOR 5 ON LINE & SENSOR 6 OFF LINE"
+- If only sensor 6 is on the line: "SENSOR 6 ON LINE & SENSOR 5 OFF LINE"
 
 ---
 
