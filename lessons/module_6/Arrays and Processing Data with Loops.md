@@ -35,10 +35,8 @@ Use a `for` loop to process all elements.
 
 ```cpp
 for (int i = 0; i < 8; i++) {
-    Serial.print("Sensor ");
-    Serial.print(i);
-    Serial.print(": ");
-    Serial.println(sensorValues[i]);
+    String message = "Sensor " + String(i) + ": " + String(sensorValues[i]);
+    printMQTT(message);
 }
 ```
 
@@ -47,11 +45,10 @@ for (int i = 0; i < 8; i++) {
 ## **Example Implementation**
 
 ```cpp
-#include <Arduino.h>
+#include <lineRobot.h>  // Include this for printMQTT function
 
 void setup() {
-    Serial.begin(115200);
-    Serial.println("Array Example");
+    printMQTT("Array Example");
 }
 
 void loop() {
@@ -63,14 +60,14 @@ void loop() {
     for (int i = 0; i < 6; i++) {
         if (lightLevels[i] > 500) {
             brightCount++;
-            Serial.print("Sensor ");
-            Serial.print(i);
-            Serial.println(" detects bright light");
+            // Combine all elements into a single string
+            String message = "Sensor " + String(i) + " detects bright light";
+            printMQTT(message);
         }
     }
 
-    Serial.print("Number of bright sensors: ");
-    Serial.println(brightCount);
+    // Print count of bright sensors
+    printMQTT("Number of bright sensors: " + String(brightCount));
 
     delay(3000); // Wait 3 seconds before repeating
 }
@@ -103,8 +100,8 @@ for (int i = 1; i < 8; i++) {
     }
 }
 
-Serial.print("Highest reading at sensor ");
-Serial.println(maxIndex);
+printMQTT("Highest reading at sensor ");
+printMQTT(maxIndex);
 ```
 
 ### **Updating Array Values**
@@ -139,7 +136,6 @@ Octoliner octoliner(42);
 const int BLACK_THRESHOLD = 100;
 
 void setup() {
-    Serial.begin(115200);
     octoliner.begin();
     octoliner.setSensitivity(230);  // Adjust sensitivity if needed
     printMQTT("Line Sensor Array Analysis Started");

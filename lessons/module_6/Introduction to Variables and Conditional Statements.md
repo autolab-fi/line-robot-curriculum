@@ -24,7 +24,7 @@ Variables are named storage locations in the memory:
 
 ### **What is an If-Else Statement?**
 
-It enables your robot to **make decisions** based on conditions:
+It enables your robot to make decisions based on conditions:
 
 ```cpp
 if (condition1) {
@@ -91,7 +91,7 @@ void loop() {
 
 ---
 
-## **Assignment: Dual-Sensor Line Detection**
+## **Assignment: Line Detection**
 
 In this assignment, you'll use two of the Octoliner sensors to detect line positions and send appropriate messages to the MQTT dashboard.
 
@@ -112,7 +112,7 @@ Octoliner octoliner(42);
 
 void setup() {
     octoliner.begin();
-    octoliner.setSensitivity(230);
+    octoliner.setSensitivity(245);
 }
 
 void loop() {
@@ -134,6 +134,7 @@ Your code should detect and report one of the following condition:
 
 - If only sensor 5 is on the line: "SENSOR 5 ON LINE & SENSOR 6 OFF LINE"
 - If only sensor 6 is on the line: "SENSOR 6 ON LINE & SENSOR 5 OFF LINE"
+- If none of the sensors detect the line: "NO SENSORS ARE ON THE LINE
 
 ---
 

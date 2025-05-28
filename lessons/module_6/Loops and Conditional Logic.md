@@ -2,7 +2,7 @@
 
 ## **Lesson Objective**
 
-Learn how to repeat actions using `for` and `while` loops on ESP32, and combine them with `if-else` statements.
+Learn how to repeat actions using `for` and `while` loops, and combine them with `if-else` statements.
 
 ---
 
@@ -31,7 +31,7 @@ for (int i = 1; i <= 5; i++) {
 
 ### **While Loop**
 
-Runs code **while a condition is true** - good for reading sensors until a condition is met:
+Runs code while a condition is true - good for reading sensors until a condition is met:
 
 ```cpp
 // Wait until sensor detects object
@@ -51,16 +51,15 @@ You can make decisions inside a loop to respond differently to changing conditio
 ## **Example Implementation**
 
 ```cpp
-#include <Arduino.h>
 #include <lineRobot.h>  // For printMQTT function
 
-const int ledPin = 2;  // ESP32 onboard LED
+const int ledPin = 2;
 const int potPin = 36; // Potentiometer on analog pin
 
 void setup() {
   pinMode(ledPin, OUTPUT);
 
-  printMQTT("ESP32 Loop Example");
+  printMQTT("Loop Example");
 }
 
 void loop() {
@@ -88,7 +87,7 @@ void loop() {
     }
   }
 
-  delay(1000);  // Wait before next sequence
+  delay(1000);
 }
 ```
 
@@ -119,7 +118,7 @@ Octoliner octoliner(42);
 
 void setup() {
     octoliner.begin();
-    octoliner.setSensitivity(230);
+    octoliner.setSensitivity(245);
 }
 
 void loop() {
