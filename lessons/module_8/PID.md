@@ -1,6 +1,4 @@
-## <!--  -->
-
-## **Lesson 4: PID Controller**
+# **Lesson 2: PID Controller**
 
 ### Objective
 
@@ -81,7 +79,3 @@ This sets the robot's left and right motor speeds based on the total output of t
 You now have a full understanding of PID control. This is the most powerful and widely used controller in robotics. By tuning the three constants — Kp, Ki, and Kd — you can get a balance of speed, accuracy, and stability.
 
 The proportional term keeps the robot centered, the integral term eliminates slow drift, and the derivative term makes everything smoother by preventing overshoot. Together, they make your robot move confidently and cleanly along the line.
-
-In the next lesson, we’ll explore how to tune these values effectively and test their impact in real-time.
-
-Let me know if you want this turned into a formatted PDF or converted into slides for a class.
