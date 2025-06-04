@@ -71,7 +71,7 @@ void loop() {
 The robot determines movement based on which sensors detect the black line.  
 Below is a flowchart for a clear understanding:
 
-![Flow](https://github.com/pranavk-2003/line-robot-curriculum/blob/assignments/images/module_6/FC.png?raw=True)
+![Flow](https://github.com/pranavk-2003/line-robot-curriculum/blob/assignments/images/module_7/FC.png?raw=True)
 
 1. **If middle sensors (3 OR 4) detect the line** → Move forward.
 2. **If left sensors (0 OR 1 OR 2) detect the line** → Turn left.

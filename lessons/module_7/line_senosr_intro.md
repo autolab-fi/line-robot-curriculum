@@ -20,13 +20,13 @@ A line-following robot uses an array of infrared (IR) sensors to detect the trac
 
 Infrared sensors operate by emitting infrared light and detecting the amount of reflection. When placed over a white surface, a significant amount of IR light is reflected back to the sensor. However, a black surface absorbs more infrared light, resulting in lower reflection detected by the sensor. This principle is used to differentiate between the black line and the surrounding surface.
 
-![IR Sensor Working](https://github.com/pranavk-2003/line-robot-curriculum/blob/assignments/images/module_6/IR's.png?raw=True)
+![IR Sensor Working](https://github.com/pranavk-2003/line-robot-curriculum/blob/assignments/images/module_7/IR's.png?raw=True)
 
 ### **IR Sensor Configuration**
 
 The Octoliner sensor array consists of 8 sensors, each providing an analog value that indicates the intensity of reflected IR light.
 
-![IR Sensor Logic](https://github.com/pranavk-2003/line-robot-curriculum/blob/assignments/images/module_6/IR_sensor_array.png?raw=True)
+![IR Sensor Logic](https://github.com/pranavk-2003/line-robot-curriculum/blob/assignments/images/module_7/IR_sensor_array.png?raw=True)
 
 - **Central sensors (3 & 4)** → Move straight
 - **Left sensors (0,1,2)** → Guide left turns
@@ -89,7 +89,7 @@ Now that you understand how the IR sensor detects black and white surfaces, try 
 
 For better visualization of the logic flow, refer to the flowchart below:
 
-![IR Sensor Logic](https://github.com/pranavk-2003/line-robot-curriculum/blob/assignments/images/module_6/FC_module_6.png?raw=True)
+![IR Sensor Logic](https://github.com/pranavk-2003/line-robot-curriculum/blob/assignments/images/module_7/FC_module_6.png?raw=True)
 
 By modifying the `blackDetected` flag, you can fine-tune the detection mechanism and improve sensor response.
 
