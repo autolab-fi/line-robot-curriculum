@@ -4,51 +4,6 @@
 
 Understand how different types of controllers work — Relay, Proportional (P), and Proportional-Integral (PI). Learn how each improves performance for a line-following robot.
 
----
-
-## **Introduction**
-
-In this lesson, we will use an IR line sensor array to detect and follow a black line. The robot will read sensor values, determine the line's position, and adjust its movement accordingly.
-
----
-
-## **Theory**
-
-A line-following robot uses an array of infrared (IR) sensors to detect the track. These sensors measure reflected IR light, distinguishing between black (low reflection) and white (high reflection).
-
-### **How IR Sensors Work**
-
-Infrared sensors operate by emitting infrared light and detecting the amount of reflection. When placed over a white surface, a significant amount of IR light is reflected back to the sensor. However, a black surface absorbs more infrared light, resulting in lower reflection detected by the sensor. This principle is used to differentiate between the black line and the surrounding surface.
-
-### **IR Sensor Configuration**
-
-The Octoliner sensor array consists of 8 sensors, each providing an analog value that indicates the intensity of reflected IR light.
-
-![IR Sensor Logic](https://github.com/pranavk-2003/line-robot-curriculum/blob/assignments/images/module_6/IR_sensor_array.png?raw=True)
-In this lesson:
-
-- **Central sensors (3 & 4)** → Move straight
-- **Left sensors (0,1,2)** → Guide left turns
-- **Right sensors (5,6,7)** → Guide right turns
-
-### **Line Detection Mechanism**
-
-- If the middle sensors detect the line, the robot moves forward.
-- If the left sensors detect the line, the robot turns left by reducing the left motor speed.
-- If the right sensors detect the line, the robot turns right by reducing the right motor speed.
-- If no sensors detect the line, the robot stops or searches for the line.
-
-### **Challenges in Line Following**
-
-1. **Sensor Calibration**
-   - The reflectivity of different surfaces varies, so sensor thresholds must be carefully tuned.
-2. **Speed Control**
-   - Sudden turns can cause instability, requiring smooth speed adjustments.
-3. **Noise Filtering**
-   - The sensor readings may fluctuate due to variations in ambient light or minor surface irregularities. Filtering techniques may be required to stabilize the readings.
-
----
-
 ### 1. **Relay Controller**
 
 A relay controller is the simplest type of control system. It just turns motors fully left or right based on which side of the line the robot is on. It doesn't care how far the robot is from the center — it only knows left or right.

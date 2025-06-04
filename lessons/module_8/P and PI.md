@@ -16,6 +16,8 @@ Where:
 
 The farther the robot is from the line center, the stronger the correction. This makes the movement smoother and more precise.
 
+![P](https://github.com/pranavk-2003/line-robot-curriculum/blob/assignments/images/module_7/p.png?raw=True)
+
 **Limitations:**
 
 - Can't completely eliminate steady-state error.
@@ -41,7 +43,7 @@ Where:
 - `Ki` is the integral gain,
 - `sum_of_errors` is the running total of all previous errors.
 
----
+## ![Pi](https://github.com/pranavk-2003/line-robot-curriculum/blob/assignments/images/module_7/pi.png?raw=True)
 
 ## Assignment – Implement a PI Controller
 

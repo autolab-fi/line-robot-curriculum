@@ -8,19 +8,45 @@ This lesson focuses on understanding how an Octoliner sensor detects black lines
 
 ## **Introduction**
 
-Infrared (IR) line sensors play a crucial role in robotics, particularly in line-following robots, automated vehicles, and path-tracking systems. These sensors detect black and white surfaces based on how much infrared light is reflected. A robot equipped with an array of IR sensors can follow a predefined path by continuously scanning the surface and adjusting its movement. This capability is widely used in industrial automation, logistics, and robotic competitions. In this lesson, we will explore the working principles of IR sensors and discuss how to interpret sensor readings for black line detection.
+In this lesson, we will use an IR line sensor array to detect and follow a black line. The robot will read sensor values, determine the line's position, and adjust its movement accordingly.
 
 ---
 
 ## **Theory**
 
-Line sensors rely on the principle of infrared reflection to differentiate between black and white surfaces. When IR light is emitted by the sensor, it either gets reflected back or absorbed, depending on the surface type. White surfaces reflect most of the IR light, leading to a higher voltage output, while black surfaces absorb most of the IR light, resulting in a lower voltage output. This difference in voltage allows the microcontroller to determine whether the sensor is over a black or white surface.
+A line-following robot uses an array of infrared (IR) sensors to detect the track. These sensors measure reflected IR light, distinguishing between black (low reflection) and white (high reflection).
 
-A line-following robot typically uses a row of multiple IR sensors to detect the black track. When the robot moves, the sensor readings guide it by detecting the line’s position relative to its current movement path. If the black line shifts toward the left or right, the robot can adjust its trajectory accordingly. The IR sensor array provides crucial feedback for navigation, ensuring smooth and precise movement along the path.
+### **How IR Sensors Work**
 
-![IR Sensor Working](https://github.com/pranavk-2003/line-robot-curriculum/blob/assignments/images/module_6/IR's.png)
+Infrared sensors operate by emitting infrared light and detecting the amount of reflection. When placed over a white surface, a significant amount of IR light is reflected back to the sensor. However, a black surface absorbs more infrared light, resulting in lower reflection detected by the sensor. This principle is used to differentiate between the black line and the surrounding surface.
 
-However, using IR sensors effectively requires overcoming several real-world challenges. Surface texture variations can affect reflection, meaning not all black surfaces absorb IR light in the same way. Ambient light interference from external sources like the sun or bright LEDs may cause fluctuations in sensor readings, leading to false detections. Another issue is sensor calibration, as different sensors may produce slightly different readings, requiring threshold adjustments to ensure accurate detection. Noise in sensor data is another challenge that must be managed using filtering techniques. To achieve optimal performance, the system needs to be tested in various conditions, and sensor thresholds should be fine-tuned.
+![IR Sensor Working](https://github.com/pranavk-2003/line-robot-curriculum/blob/assignments/images/module_6/IR's.png?raw=True)
+
+### **IR Sensor Configuration**
+
+The Octoliner sensor array consists of 8 sensors, each providing an analog value that indicates the intensity of reflected IR light.
+
+![IR Sensor Logic](https://github.com/pranavk-2003/line-robot-curriculum/blob/assignments/images/module_6/IR_sensor_array.png?raw=True)
+
+- **Central sensors (3 & 4)** → Move straight
+- **Left sensors (0,1,2)** → Guide left turns
+- **Right sensors (5,6,7)** → Guide right turns
+
+### **Line Detection Mechanism**
+
+- If the middle sensors detect the line, the robot moves forward.
+- If the left sensors detect the line, the robot turns left by reducing the left motor speed.
+- If the right sensors detect the line, the robot turns right by reducing the right motor speed.
+- If no sensors detect the line, the robot stops or searches for the line.
+
+### **Challenges in Line Following**
+
+1. **Sensor Calibration**
+   - The reflectivity of different surfaces varies, so sensor thresholds must be carefully tuned.
+2. **Speed Control**
+   - Sudden turns can cause instability, requiring smooth speed adjustments.
+3. **Noise Filtering**
+   - The sensor readings may fluctuate due to variations in ambient light or minor surface irregularities. Filtering techniques may be required to stabilize the readings.
 
 ---
 
@@ -63,7 +89,7 @@ Now that you understand how the IR sensor detects black and white surfaces, try 
 
 For better visualization of the logic flow, refer to the flowchart below:
 
-![Flowchart](https://github.com/pranavk-2003/line-robot-curriculum/blob/assignments/images/module_6/FC_module_6.png)
+![IR Sensor Logic](https://github.com/pranavk-2003/line-robot-curriculum/blob/assignments/images/module_6/FC_module_6.png?raw=True)
 
 By modifying the `blackDetected` flag, you can fine-tune the detection mechanism and improve sensor response.
 
