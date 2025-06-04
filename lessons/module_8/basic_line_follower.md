@@ -1,8 +1,8 @@
-# **Lesson 2: Implementing Line Following with an IR Sensor**
+# **Lesson 1: Relay, P, and PI Controllers**
 
-## **Lesson Objective**
+### Objective
 
-Learn how to program a Robot to follow a black line using an IR sensor array.
+Understand how different types of controllers work — Relay, Proportional (P), and Proportional-Integral (PI). Learn how each improves performance for a line-following robot.
 
 ---
 
@@ -49,7 +49,29 @@ In this lesson:
 
 ---
 
-## **Programming the Line Following Algorithm**
+### 1. **Relay Controller**
+
+A relay controller is the simplest type of control system. It just turns motors fully left or right based on which side of the line the robot is on. It doesn't care how far the robot is from the center — it only knows left or right.
+
+**Control rule:**
+
+```
+If error > 0 → turn full right
+If error < 0 → turn full left
+```
+
+**Formula:**
+
+```
+u(t) = max_speed  if error > 0
+u(t) = min_speed  if error <= 0
+```
+
+This results in a zigzag movement. The robot overcorrects and keeps switching directions.
+
+---
+
+## **Programming the Line Following Algorithm to use a Relay Controller**
 
 This code will:
 
@@ -109,7 +131,7 @@ Modify the program to:
 
 1. Write a program to make the robot line follow.
 2. Fine-tune motor speeds for smoother movement.
-3. Experiment with different thresholds\*\* to improve accuracy.
+3. Experiment with different thresholds to improve accuracy.
 4. Ensure the robot successfully crosses both checkpoints to complete the Assignment.
 
 ---

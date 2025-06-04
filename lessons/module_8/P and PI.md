@@ -1,31 +1,3 @@
-# **Lesson 1: Relay, P, and PI Controllers**
-
-### Objective
-
-Understand how different types of controllers work — Relay, Proportional (P), and Proportional-Integral (PI). Learn how each improves performance for a line-following robot.
-
-### 1. **Relay Controller**
-
-A relay controller is the simplest type of control system. It just turns motors fully left or right based on which side of the line the robot is on. It doesn't care how far the robot is from the center — it only knows left or right.
-
-**Control rule:**
-
-```
-If error > 0 → turn full right
-If error < 0 → turn full left
-```
-
-**Formula:**
-
-```
-u(t) = max_speed  if error > 0
-u(t) = min_speed  if error <= 0
-```
-
-This results in a zigzag movement. The robot overcorrects and keeps switching directions.
-
----
-
 ### 2. **Proportional (P) Controller**
 
 The P controller improves on relay by making the output proportional to how far off the robot is from the center of the line.
