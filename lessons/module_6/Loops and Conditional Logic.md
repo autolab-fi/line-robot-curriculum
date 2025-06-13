@@ -1,4 +1,4 @@
-# **Lesson 2: Loops and Conditional Logic on ESP32**
+# **Lesson 2: Loops and Conditional Logic**
 
 ## **Lesson Objective**
 

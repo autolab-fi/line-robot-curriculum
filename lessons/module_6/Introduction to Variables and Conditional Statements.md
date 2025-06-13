@@ -97,9 +97,10 @@ In this assignment, you'll use two of the Octoliner sensors to detect line posit
 
 Your task is to:
 
-1. Compare both sensor values (value_1 and value_2)
-2. Use if-else if-else logic to determine different conditions
-3. Send different messages based on which sensors detect the line
+1. Read all the sensor values (sensor 0 to sensor 7)
+2. Compare all the sensor values
+3. Use if-else if-else logic to determine different conditions
+4. Send different messages based on which sensors detect the line
 
 Complete the code below by adding the conditional logic:
 
@@ -116,9 +117,10 @@ void setup() {
 }
 
 void loop() {
-    // Read values from two sensors
-    int value_1 = octoliner.analogRead(5);
-    int value_2 = octoliner.analogRead(6);
+    // Read values from all sensors (0 - 7)
+    int value_0 = octoliner.analogRead(0);
+    int value_1 = octoliner.analogRead(1);
+
 
     // YOUR CODE HERE:
     // Add if-else if-else statements to determine which sensor(s) detect the line
@@ -132,8 +134,10 @@ void loop() {
 
 Your code should detect and report one of the following condition:
 
-- If only sensor 5 is on the line: "SENSOR 5 ON LINE & SENSOR 6 OFF LINE"
-- If only sensor 6 is on the line: "SENSOR 6 ON LINE & SENSOR 5 OFF LINE"
+- Only return the messages for respective sensors that are ON the line
+- If only sensor 5 is on the line: "SENSOR 5 ON LINE"
+- If only sensor 6 is on the line: "SENSOR 6 ON LINE"
+- This should be done for all the sensors.
 - If none of the sensors detect the line: "NO SENSORS ARE ON THE LINE
 
 ---
