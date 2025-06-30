@@ -1,14 +1,14 @@
-# **Lesson 3: Arrays and Processing Sensor Data with Loops**
+# **Lesson 3: Arrays and Sensor Data History Analysis**
 
 ## **Lesson Objective**
 
-Understand how to use arrays.
+Understand how to use arrays to store and analyze sensor data.
 
 ---
 
 ## **Introduction**
 
-Arrays allow you to store multiple values under one name. For robotics applications, arrays are perfect for handling multiple sensor readings, motor values, or LED patterns. Instead of creating separate variables for each sensor, arrays group them together, making it easier to loop through and analyze data.
+Arrays allow you to store multiple values under one name. For robotics applications, arrays are perfect for handling multiple sensor readings, storing historical data, or tracking patterns over time. Instead of creating separate variables for each measurement, arrays group them together, making it easier to loop through and analyze data.
 
 ---
 
@@ -87,42 +87,44 @@ void loop() {
 
 ## **Advanced Array Techniques**
 
-### **Finding the Maximum Value**
+### **Storing Multiple Measurements**
 
 ```cpp
-int maxValue = sensorValues[0];
-int maxIndex = 0;
+// Store three sets of sensor readings
+int first_measurement[8];
+int second_measurement[8];
+int third_measurement[8];
 
-for (int i = 1; i < 8; i++) {
-    if (sensorValues[i] > maxValue) {
-        maxValue = sensorValues[i];
-        maxIndex = i;
-    }
+// Take readings at different positions
+for(int i = 0; i < 8; i++){
+    first_measurement[i] = octoliner.analogRead(i);
 }
-
-printMQTT("Highest reading at sensor ");
-printMQTT(maxIndex);
+// Move robot and take more readings...
 ```
 
-### **Updating Array Values**
+### **Processing All Stored Data**
 
 ```cpp
-// Calibrate by subtracting baseline from all values
-int baseline = 100;
-for (int i = 0; i < 8; i++) {
-    sensorValues[i] -= baseline;
+// Send all measurements systematically
+for(int i = 0; i < 8; i++){
+    printMQTT(String(first_measurement[i]));
+    delay(100);  // Prevent message loss
+    printMQTT(String(second_measurement[i]));
+    delay(100);
+    printMQTT(String(third_measurement[i]));
+    delay(100);
 }
 ```
 
 ---
 
-## **Assignment: Line Follower Sensor Array Analysis**
+## **Assignment: Sensor Data Collection and Analysis**
 
 For this assignment, you'll create a program that:
 
-1. Reads all 8 Octoliner sensors and stores the values in an array
-2. Processes the array to determine which sensors detect the line
-3. Uses printMQTT to report which sensors are over the line
+1. Uses arrays to store sensor readings from three different robot positions
+2. Moves the robot between measurements to collect varied data
+3. Systematically sends all collected data via MQTT
 
 Complete the code below:
 
@@ -132,30 +134,34 @@ Complete the code below:
 
 // I2C Address (default 42)
 Octoliner octoliner(42);
-// Black threshold for detection
-const int BLACK_THRESHOLD = 100;
+const int MY_BLACK_THRESHOLD = 100;
 
 void setup() {
     octoliner.begin();
-    octoliner.setSensitivity(230);  // Adjust sensitivity if needed
-    printMQTT("Line Sensor Array Analysis Started");
+    octoliner.setSensitivity(245);
+
+    // YOUR CODE HERE:
+    // 1. Create three arrays to store 8 sensor readings each
+    // 2. Take first set of sensor readings
+    // 3. Move robot forward for 10cm and take second set of readings
+    // 4. Move robot forward again by 10cm and take third set of readings
+    // 5. Use loops to send all 24 values systematically with delays
+
 }
 
 void loop() {
-    // YOUR CODE HERE:
-    // 1. Create an array with 8 elements
-    // 2. Use a for loop to store all sensor readings in the array
-    // 3. Use another for loop to check which sensors detect the line
-    // 4. Use printMQTT to report which sensors detect the line
-
+    // Empty - all work done in setup() as it shall be performed only once
 }
 ```
 
-Expected output:
-When a sensor detects the line, it should send a message like: "Sensor 3 is ON THE LINE"
+### **Expected Behavior:**
+
+- The robot should collect 24 total sensor values (8 sensors × 3 positions)
+- Values should be sent systematically with proper delays
+- The verification system will check whether the sensor outputs are as expected.
 
 ---
 
 ## **Conclusion**
 
-Arrays are powerful tools for working with multiple related values in your robot programs. By combining arrays with loops and conditional statements, you can efficiently analyze sensor data, detect patterns, and make decisions based on multiple inputs. This approach is essential for more complex robotic behaviors like line following, obstacle avoidance, and sensor fusion.
+Arrays are essential for organizing and processing multiple related values in robotics. By combining arrays with movement commands and systematic data collection, you can create programs that gather comprehensive sensor data over time and space. This approach is fundamental for advanced robotics applications like mapping, pattern recognition, and environmental analysis. The ability to store, organize, and systematically process sensor data using arrays is a crucial skill for any robotics programmer.

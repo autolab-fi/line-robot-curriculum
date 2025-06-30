@@ -138,7 +138,7 @@ Your code should detect and report one of the following condition:
 - If only sensor 5 is on the line: "SENSOR 5 ON LINE"
 - If only sensor 6 is on the line: "SENSOR 6 ON LINE"
 - This should be done for all the sensors.
-- If none of the sensors detect the line: "NO SENSORS ARE ON THE LINE
+- If none of the sensors detect the line: "NO SENSORS ARE ON THE LINE"
 
 ---
 

@@ -2,7 +2,7 @@
 
 ## **Lesson Objective**
 
-Learn how to repeat actions using `for` and `while` loops, and combine them with `if-else` statements.
+Learn how to repeat actions using `for` and `while` loops.
 
 ---
 
@@ -124,13 +124,13 @@ void setup() {
 void loop() {
 
     // YOUR CODE HERE:
-    // Use a for loop to read and print values from all 8 sensors (0-7)
+    // Use a loop to read and print values from all 8 sensors (0-7)
     // For each sensor, print its number and the analog value using printMQTT
 
 }
 ```
 
-Your goal is to use a for loop to iterate through each sensor (indices 0-7), read its value, and print both the sensor number and value to the MQTT Console.
+Your goal is to use a loop to iterate through each sensor (indices 0-7), read its value, and print both the sensor number and value to the MQTT Console.
 
 Expected output should look like:
 
