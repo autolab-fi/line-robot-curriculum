@@ -27,25 +27,21 @@ def get_target_points(task):
     return target_points.get(task, [])
 
 
-basic_line_follower_checkpoints = [(220,230),(210, 400)]
-pi_checkpoints = [(270, 1120),(420, 860),(500, 1050),(740, 970),(770,550)]
-pid_checkpoints = [(270, 1120),(420, 860),(500, 1050),(740, 970),(770,550),(400,480),(500,640),(530,230),(210, 400)]
-
 def basic_line_follower(robot, image, td: dict):
-    basic_line_follower_checkpoints = [(220,230),(210, 400)]
-    return checkpoint_verification(robot, image, td, basic_line_follower_checkpoints)
+    basic_line_follower_checkpoints = [(25.4,26.5),(24.2, 46.2)]
+    return checkpoint_verification(robot, image, td, basic_line_follower_checkpoints, 20)
 
 
 def pi(robot, image, td: dict):
-    pi_checkpoints = [(270, 1120),(420, 860),(500, 1050),(740, 970),(770,550)]
-    return checkpoint_verification(robot, image, td, pi_checkpoints)
+    pi_checkpoints = [(31, 116),(48, 99),(53, 113),(74, 114),(85,65.5)]
+    return checkpoint_verification(robot, image, td, pi_checkpoints,30)
 
 def pid(robot, image, td: dict):
-    pid_checkpoints = [(270, 1120),(420, 860),(500, 1050),(740, 970),(770,550),(400,480),(500,640),(530,230),(210, 400)]
-    return checkpoint_verification(robot, image, td, pid_checkpoints)
+    pid_checkpoints = [(31, 116),(48, 99),(53, 113),(74, 114),(89,63.5),(46,55.4),(57.7,73.9),(61.2,26.6),(24.2, 46.2)]
+    return checkpoint_verification(robot, image, td, pid_checkpoints, 50)
 
 
-def checkpoint_verification(robot, image, td, checkpoint_positions):
+def checkpoint_verification(robot, image, td, checkpoint_positions, verification_time):
     """Verification function for line following with multiple checkpoints"""
     result = {
         "success": True,
@@ -61,7 +57,7 @@ def checkpoint_verification(robot, image, td, checkpoint_positions):
     if not td:
         td = {
             "start_time": time.time(),
-            "end_time": time.time() + 35,  # Extended time for multiple checkpoints
+            "end_time": time.time() + verification_time,  # Extended time for multiple checkpoints
             "data": {
                 "reached_checkpoints": [False] * len(checkpoint_positions),
                 "task_completed": False
@@ -97,10 +93,10 @@ def checkpoint_verification(robot, image, td, checkpoint_positions):
     for i, (y, x) in enumerate(checkpoint_positions):
         if not td["data"]["reached_checkpoints"][i]:
             # Make sure we stay within image bounds
-            y_start = max(0, y - 30)
-            y_end = min(image.shape[0], y + 30)
-            x_start = max(0, x - 30)
-            x_end = min(image.shape[1], x + 30)
+            y_start = max(0, robot.cm_to_pixel(y,2) - 30)
+            y_end = min(image.shape[0], robot.cm_to_pixel(y,2) + 30)
+            x_start = max(0, robot.cm_to_pixel(x,1) - 30)
+            x_end = min(image.shape[1], robot.cm_to_pixel(x,1) + 30)
             
             # Get region of interest
             roi = image[y_start:y_end, x_start:x_end]
@@ -117,19 +113,19 @@ def checkpoint_verification(robot, image, td, checkpoint_positions):
     
     # Check if robot passes through checkpoints
     if robot and robot.position_px:
-        robot_x, robot_y = robot.position_px
+        robot_x, robot_y = robot.position
         
         # Check each checkpoint
         for i, (y, x) in enumerate(checkpoint_positions):
-            if not td["data"]["reached_checkpoints"][i] and np.linalg.norm([robot_x - x, robot_y - y]) < 50:
+            if not td["data"]["reached_checkpoints"][i] and np.linalg.norm([robot_x - x, robot_y - y]) < 10:
                 td["data"]["reached_checkpoints"][i] = True
                 
                 # Mark checkpoint as reached with white circle
-                y_start = max(0, y - 30)
-                y_end = min(image.shape[0], y + 30)
-                x_start = max(0, x - 30)
-                x_end = min(image.shape[1], x + 30)
-                cv2.circle(image, (x, y), 30, (255, 255, 255), -1)
+                y_start = max(0, robot.cm_to_pixel(y,2) - 30)
+                y_end = min(image.shape[0], robot.cm_to_pixel(y,2) + 30)
+                x_start = max(0, robot.cm_to_pixel(x,1) - 30)
+                x_end = min(image.shape[1], robot.cm_to_pixel(x,1) + 30)
+                cv2.circle(image, (robot.cm_to_pixel(x,1), robot.cm_to_pixel(y,2)), 30, (255, 255, 255), -1)
                 
                 text = f"Checkpoint {i+1}/{len(checkpoint_positions)} reached!"
                 
