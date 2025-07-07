@@ -136,33 +136,81 @@
     ]
   },
   {
-    "name": "Line Following",
-    "description": "Learn how to program a robot to follow a line using infrared sensors. This module covers sensor calibration, movement control, and line-tracking algorithms.",
+    "name": "Line Sensor Introduction",
+    "description": "Understanding how IR line sensors work and detecting black lines using the Octoliner sensor array.",
     "sn": 5,
     "str_id": "module_6",
     "lessons": [
       {
-        "str_id": "basic_line_follower",
-        "name": "Basic Line Following",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_6/basic_line_follower.md",
+        "str_id": "line_senosor_intro",
+        "name": "Line Sensor and Black Line Detection",
+        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_6/line_senosor_intro.md",
         "sn": 12,
-        "description": "This lesson introduces the concept of line following using a bang bang controller",
-        "template": "//Paste the code here"
+        "description": "This lesson focuses on understanding how an Octoliner sensor detects black lines using IR sensors and implementing black line detection.",
+        "template": "#include <Octoliner.h>\n\n// I2C Address (default 42)\nOctoliner octoliner(42);\n\n// Black threshold for detection\nconst int MY_BLACK_THRESHOLD = 100;\n\nvoid setup() {\n    octoliner.begin();\n    octoliner.setSensitivity(245);  // Adjust sensitivity if needed\n}\n\nvoid loop() {\n    int value1 = octoliner.analogRead(1);\n}"
       }
     ]
   },
   {
-    "name": "Controllers",
-    "description": "This module introduces the concept of controllers, their significance, and different types, including P, PI, and PID controllers, along with practical implementation and tuning of a real PID controller.",
+    "name": "Programming Fundamentals",
+    "description": "Essential programming concepts including variables, conditional statements, loops, and arrays for robot control.",
     "sn": 6,
     "str_id": "module_7",
     "lessons": [
       {
-        "str_id": "p_pi_pid_controllers",
-        "name": "P, PI, and PID Controllers",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_6/p_pi_pid_controllers.md",
+        "str_id": "variables_conditionals",
+        "name": "Introduction to Variables and Conditional Statements",
+        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_7/Introduction%20to%20Variables%20and%20Conditional%20Statements.md",
+        "sn": 13,
+        "description": "Learn how to declare and use variables in programming, and apply conditional logic using if, else if, and else statements.",
+        "template": "#include <Octoliner.h>\n#include <lineRobot.h>\n\n// I2C Address (default 42)\nOctoliner octoliner(42);\n\nvoid setup() {\n    octoliner.begin();\n    octoliner.setSensitivity(245);\n}\n\nvoid loop() {\n    // Read values from all sensors (0 - 7)\n    int value_0 = octoliner.analogRead(0);\n    int value_1 = octoliner.analogRead(1);\n\n    // YOUR CODE HERE:\n    // Add if-else if-else statements to determine which sensor(s) detect the line\n\n}"
+      },
+      {
+        "str_id": "loops_conditional_logic",
+        "name": "Loops and Conditional Logic",
+        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_7/Loops%20and%20Conditional%20Logic.md",
         "sn": 14,
-        "description": "This lesson explains proportional, integral, and derivative controllers, their working principles, advantages, and real-world applications. It also includes hands-on implementation of a PID controller.",
+        "description": "Learn how to repeat actions using for and while loops combined with conditional statements.",
+        "template": "#include <Octoliner.h>\n#include <lineRobot.h>\n\n// I2C Address (default 42)\nOctoliner octoliner(42);\n\nvoid setup() {\n    octoliner.begin();\n    octoliner.setSensitivity(245);\n}\n\nvoid loop() {\n    // YOUR CODE HERE:\n    // Use a loop to read and print values from all 8 sensors (0-7)\n\n}"
+      },
+      {
+        "str_id": "arrays_data_processing",
+        "name": "Arrays and Processing Data with Loops",
+        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_7/Arrays%20and%20Processing%20Data%20with%20Loops.md",
+        "sn": 15,
+        "description": "Understand how to use arrays to store and analyze sensor data with systematic data collection.",
+        "template": "#include <Octoliner.h>\n#include <lineRobot.h>\n\n// I2C Address (default 42)\nOctoliner octoliner(42);\nconst int MY_BLACK_THRESHOLD = 100;\n\nvoid setup() {\n    octoliner.begin();\n    octoliner.setSensitivity(245);\n\n    // YOUR CODE HERE:\n    // 1. Create three arrays to store 8 sensor readings each\n    // 2. Take measurements at different robot positions\n    // 3. Send all data systematically using printMQTT()\n\n}\n\nvoid loop() {\n    // Empty - all work done in setup()\n}"
+      }
+    ]
+  },
+  {
+    "name": "Advanced Line Following",
+    "description": "Advanced line following techniques including relay, P, PI, and PID controllers for smooth and accurate robot movement.",
+    "sn": 7,
+    "str_id": "module_8",
+    "lessons": [
+      {
+        "str_id": "basic_line_follower",
+        "name": "Relay, P, and PI Controllers",
+        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_8/basic_line_follower.md",
+        "sn": 16,
+        "description": "Understand how different types of controllers work — Relay, Proportional (P), and Proportional-Integral (PI) for line following.",
+        "template": "#include <Octoliner.h>\n#include <lineRobot.h>\n\n// I2C Address (default 42)\nOctoliner octoliner(42);\nint speed=30;\n\n// Black threshold for detection\nconst int MY_BLACK_THRESHOLD = 100;\n\nvoid setup() {\n    octoliner.begin();\n    octoliner.setSensitivity(230);\n}\n\nvoid loop() {\n    // Read all sensor values\n    for (uint8_t i = 0; i < 8; i++) {\n       int value = octoliner.analogRead(i);\n    }\n    robot.runMotorSpeedRight(speed);\n    robot.runMotorSpeedLeft(speed);\n}"
+      },
+      {
+        "str_id": "p_pi_controllers",
+        "name": "P and PI Controllers",
+        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_8/P%20and%20PI.md",
+        "sn": 17,
+        "description": "Learn about Proportional and Proportional-Integral controllers for improved line following performance.",
+        "template": "//Paste the code here"
+      },
+      {
+        "str_id": "pid_controller",
+        "name": "PID Controller",
+        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_8/PID.md",
+        "sn": 18,
+        "description": "Implement a complete PID controller combining proportional, integral, and derivative terms for optimal line following.",
         "template": "//Paste the code here"
       }
     ]
