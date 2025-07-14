@@ -62,8 +62,6 @@ The following example code initializes the Octoliner sensor, sets its sensitivit
 // I2C Address (default 42)
 Octoliner octoliner(42);
 
-// Black threshold for detection
-const int MY_BLACK_THRESHOLD = 100;
 
 void setup() {
     octoliner.begin();
@@ -81,19 +79,13 @@ This code is a starting point and can be expanded to process all sensor readings
 
 ## **Assignment**
 
-Now that you understand how the IR sensor detects black and white surfaces, try modifying the code to enhance its functionality. Your task is to:
+Your task for this assignment is to write code that performs the following steps:
 
-1. Detect whether the entire sensor array identifies a black line.
-2. Display meaningful messages indicating whether a black line has been detected or not.
-3. Experiment with different sensitivity levels to understand how they affect detection accuracy.
+1. Read the value from sensor 5 of the Octoliner array and print to printMQTT console.
+2. Move the robot forward by 35 cm.
+3. Read the value from sensor 5 again and print to printMQTT console.
 
-For better visualization of the logic flow, refer to the flowchart below:
-
-![IR Sensor Logic](https://github.com/pranavk-2003/line-robot-curriculum/blob/assignments/images/module_7/FC_module_6.png?raw=True)
-
-By modifying the `blackDetected` flag, you can fine-tune the detection mechanism and improve sensor response.
-
----
+This will help you observe how the sensor reading changes before and after the robot moves. Use this logic to understand sensor behavior and experiment with different sensitivity levels if
 
 ## **Conclusion**
 
