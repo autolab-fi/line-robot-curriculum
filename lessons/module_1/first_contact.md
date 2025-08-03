@@ -9,20 +9,30 @@ In this introductory lesson, students will familiarize themselves with the Mars 
 - Master system initialization and status checking
 - Perform basic movement operations
 
-## Required Equipment
-- Mars rover simulator platform
-- Control interface software
-- System diagnostic tools
-- Basic movement testing area
-
-## Theoretical Background
+Let's imagine that you have to control remotely a Mars rover named Rover. Rover is equipped with various components that help it explore the red planet. Let's take a closer look at these components:
 
 ### 1. Mars Rover Components
-- Main control unit
 - Drive system
 - Sensor array
 - Power management system
 - Communication module
+
+### System Initialization
+In order to control Rover effectively, we need to initialize marsRover library. In C++ we can do it as follows:
+
+```cpp
+#include <marsRover.h>
+
+void setup() {
+}
+
+void loop() {
+
+}
+```
+_void setup()_ is a function that is called once at the beginning of the program.
+
+_void loop()_ is a function that is called repeatedly in the program.
 
 ### 2. Control Interface
 - Command structure
@@ -30,70 +40,57 @@ In this introductory lesson, students will familiarize themselves with the Mars 
 - Basic movement commands
 - Status monitoring
 
+In order to move rover, we need to use the following commands:
+- move(_distance_)
+- rotate(_angle_)
+inside setup or loop funciton
+
+```cpp
+#include <marsRover.h>
+void setup(){
+   robot.move(20);
+   robot.rotate(180);
+   robot.move(20);
+}
+void loop(){
+}
+```
+_
+
 ### 3. Safety Procedures
 - Pre-operation checks
 - Emergency protocols
 - System limitations
 
-## Practical Exercises
+Pre-operation checks:
+- Rover must have power
+- Rover must have connection to the network
 
-### Exercise 1: System Initialization
+You can check it in right bottom window it must have green background
+
+If something went wrong you always can stop execution of robot by pressing STOP button
+
+
+
+## Practical Exercises: Perimeter check
+You must check perimeter by making Rover move around the perimeter, use square with side length 20
+
 ```cpp
 #include <marsRover.h>
-
-void setup() {
-    // Initialize rover systems
-    rover.initializeSystems();
-    
-    // Perform system check
-    rover.checkSensors();
-    
-    // Display current status
-    rover.displayStatus();
+void setup(){
+    // you code here
 }
-
-void loop() {
-    // Monitor system status
-    rover.monitorSystems();
+void loop(){
 }
 ```
+### System limitations
 
-### Exercise 2: Basic Movement Control
-```cpp
-// Add movement commands
-rover.moveForward(20);  // Move forward 20 cm
-rover.rotate(45);       // Rotate 45 degrees
-rover.moveForward(20);  // Move forward again
-```
+If you try to send signal to Mars it might take a long time to receive response due to distance and signal propagation delay.
+In this simulation we also have limitations:
+1. Code must be compiled and uploaded to the rover, it might take 30-40 seconds
+2. Rover shared among multiple users so you might need to wait for other users to finish their tasks
+3. Stream of the robot will be available only during eacution of your code on Rover after stream you will have video recoding of your code execution
+4. Only 3 latest video available for each user
 
-### Exercise 3: Status Monitoring
-Practice reading and interpreting:
-- Power levels
-- Sensor data
-- System status
-- Error messages
-
-## Assignment
-1. Complete system initialization sequence
-2. Perform basic movement pattern
-3. Monitor and record system status
-4. Document any error messages
-
-## Success Criteria
-- Successfully initialize all systems
-- Complete basic movement sequence
-- Maintain stable system status
-- Properly document all operations
-
-## Additional Resources
-- Mars Rover Technical Manual
-- Component Diagram
-- Command Reference Guide
-- Emergency Procedures Handbook
-
-## Next Steps
-After completing this lesson, you will be prepared for:
-- Mars Landing Simulation
-- Advanced Movement Control
-- Sensor Integration
-- Complex Navigation Tasks
+Now you can start your first exercise, write the code and hit VERIFY button.
+Good luck!
