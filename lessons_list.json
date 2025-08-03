@@ -1,49 +1,49 @@
 [
   {
-    "name": "Introduction to the Robot",
-    "description": "Getting familiar with the platform and learning how to control the robot.",
+    "name": "Introduction to Mars Rover Operations",
+    "description": "Getting familiar with the Mars rover platform and basic control operations.",
     "sn": 0,
     "str_id": "module_0",
     "lessons": [
       {
-        "str_id": "draw",
-        "name": "Drawing",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/draw.md",
+        "str_id": "first_contact",
+        "name": "First Contact",
+        "url": "lessons/module_1/first_contact.md",
         "sn": 0,
-        "description": "Introduction to the platform, listing all peripherals, describing what we will be working with, and outlining any restrictions on libraries and tag words.",
-        "template": "// Include the library for controlling the robot\n#include <lineRobot.h>\n// The setup() function runs once when the robot is powered on or reset\nvoid setup() {\n\t// Comment lines with commands you do not want to use\n\t// To comment out a line, just add \"//\" at the beginning of the line\n\trobot.turnLeftAngle(45);\n\trobot.moveForwardDistance(20);\n\trobot.turnRight();\n\trobot.moveForwardDistance(20);\n\trobot.turnRight();\n\trobot.moveForwardDistance(20);\n\trobot.turnRight();\n\trobot.moveForwardDistance(20);\n}\n\n// The loop() function runs repeatedly after setup() has finished\nvoid loop() {\n\t// No instructions for continuous execution\n}"
+        "description": "Introduction to Mars rover systems, platform overview, and basic control interface familiarization.",
+        "template": "// Include the Mars rover control library\n#include <marsRover.h>\n\nvoid setup() {\n\t// System initialization and basic controls demonstration\n\trover.initializeSystems();\n\trover.checkSensors();\n\trover.displayStatus();\n\t\n\t// Basic movement demonstration\n\trover.moveForward(20);\n\trover.rotate(45);\n\trover.moveForward(20);\n}\n\nvoid loop() {\n\t// System monitoring\n\trover.monitorSystems();\n}"
       },
       {
-        "str_id": "test_drive",
-        "name": "Test drive",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/test_drive.md",
+        "str_id": "landing_simulation",
+        "name": "Mars Landing Simulation",
+        "url": "lessons/module_1/landing_simulation.md",
         "sn": 1,
-        "description": "Some introductory words on moving the robot forward using a library.",
-        "template": "// Paste code here"
+        "description": "Programming the rover's landing sequence and initial movement patterns.",
+        "template": "#include <marsRover.h>\n\nvoid setup() {\n\t// Landing sequence simulation\n\trover.initializeLandingSequence();\n\t\n\t// Basic movement pattern\n\trover.moveForwardWithPrecision(50);\n\trover.checkPosition();\n\trover.adjustOrientation();\n}\n\nvoid loop() {\n\trover.monitorEnvironment();\n}"
       },
       {
-        "str_id": "license_to_drive",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/license_to_drive.md",
+        "str_id": "operator_certification",
+        "url": "lessons/module_1/operator_certification.md",
         "sn": 2,
-        "name": "License to drive",
-        "description": "Writing a simple program independently, similar to the previous lesson.",
-        "template": "#include <lineRobot.h>\nvoid setup() {\n\t// Write movement function here\n}\nvoid loop(){\n}"
+        "name": "Rover Operator Certification",
+        "description": "Complete certification course demonstrating mastery of basic rover controls.",
+        "template": "#include <marsRover.h>\n\nvoid setup() {\n\t// Certification course sequence\n\trover.startCertification();\n\t\n\t// Your certification course code here\n\t// Demonstrate precise movement and control\n}\n\nvoid loop() {\n\trover.monitorPerformance();\n\trover.logResults();\n}"
       }
     ]
   },
   {
-    "name": "Controlling Robot Movement",
-    "description": "Demonstrating the robot's capabilities.",
+    "name": "Basic Navigation Systems",
+    "description": "Advanced movement control and navigation techniques for Mars terrain.",
     "sn": 1,
     "str_id": "module_1",
     "lessons": [
       {
-        "str_id": "short_distance_race",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_1/short_distance_race.md",
+        "str_id": "crater_navigation",
+        "url": "lessons/module_1/crater_navigation.md",
         "sn": 3,
-        "name": "Short distance race",
-        "description": "Using library functions to move a specific distance, both forward and backward.",
-        "template": "#include <lineRobot.h>\nvoid setup() {\n\t// Write movement functions here\n}\nvoid loop(){\n}"
+        "name": "Crater Navigation",
+        "description": "Programming precise movements for navigating crater edges and challenging terrain.",
+        "template": "#include <marsRover.h>\n\nvoid setup() {\n\t// Crater edge navigation sequence\n\trover.initializeNavigationSystems();\n\trover.enableTerrainAnalysis();\n\t\n\t// Your crater navigation code here\n}\n\nvoid loop() {\n\trover.monitorTerrain();\n\trover.adjustTrajectory();\n}"
       },
       {
         "str_id": "maneuvering",
@@ -64,74 +64,82 @@
     ]
   },
   {
-    "name": "Controlling LEDs",
-    "description": "Basic arduino functions of working with GPIO using LEDs as examples.",
+    "name": "Mars Environmental Systems",
+    "description": "Control and monitor Mars rover's environmental and signaling systems.",
     "sn": 2,
     "str_id": "module_2",
     "lessons": [
       {
-        "str_id": "headlights",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_2/headlights.md",
+        "str_id": "visibility_systems",
+        "url": "lessons/module_2/visibility_systems.md",
         "sn": 6,
-        "name": "Headlights",
-        "description": "Understanding how LEDs work. Task: Turning on LEDs.",
-        "template": "#include <lineRobot.h>\nvoid setup() {\n\t// Write code to tutn on led here\n}\nvoid loop(){\n}"
+        "name": "Visibility Systems",
+        "description": "Program rover's visibility systems for different Mars lighting conditions and dust storms.",
+        "template": "#include <marsRover.h>\nvoid setup() {\n\t// Initialize visibility systems\n\trover.initializeVisibilitySystems();\n\t\n\t// Configure light sensors\n\trover.configureLightSensors();\n}\n\nvoid loop() {\n\t// Monitor ambient conditions and adjust lighting\n\trover.monitorLightConditions();\n\trover.adjustVisibilitySystems();\n}"
       },
       {
-        "str_id": "alarm",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_2/alarm.md",
+        "str_id": "emergency_signals",
+        "url": "lessons/module_2/emergency_signals.md",
         "sn": 7,
-        "name": "Robot's alarm",
-        "description": "More about the digitalWrite() and pinMode() functions. Task: Blinking LEDs.",
-        "template": "#include <lineRobot.h>\nvoid setup() {\n\t// Use the pinMode function here\n}\nvoid loop(){\n\t// Write code to turn the LED on and off here, and don't forget to add pauses \n}"
+        "name": "Emergency Signaling",
+        "description": "Implement emergency signaling patterns for various Mars mission scenarios.",
+        "template": "#include <marsRover.h>\nvoid setup() {\n\t// Initialize emergency systems\n\trover.initializeEmergencySystems();\n\t\n\t// Configure signal patterns\n\trover.configureEmergencySignals();\n}\n\nvoid loop() {\n\t// Monitor conditions and trigger appropriate signals\n\trover.checkEnvironmentalStatus();\n\trover.updateEmergencySignals();\n}"
       }
     ]
   },
   {
-    "name": "Controlling Motors",
-    "description": "Studying robot kinematics. Writing functions. What are DC motors.",
+    "name": "Mars Terrain Navigation",
+    "description": "Advanced movement systems for Mars terrain navigation and obstacle handling.",
     "sn": 3,
     "str_id": "module_3",
     "lessons": [
       {
-        "str_id": "differential_drive",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_3/differential_drive.md",
+        "str_id": "terrain_drive",
+        "url": "lessons/module_3/terrain_drive.md",
         "sn": 8,
-        "name": "Differential drive",
-        "description": "An introduction to the robot's kinematics. Task: Experiment with functions for moving the robot forward.",
-        "template": "#include <lineRobot.h>\nvoid setup() {\n\t// Write code to run and stop the motors here\n}\nvoid loop(){\n}"
+        "name": "All-Terrain Drive System",
+        "description": "Master the rover's advanced drive system for various Mars terrain types.",
+        "template": "#include <marsRover.h>\nvoid setup() {\n\t// Initialize terrain systems\n\trover.initializeTerrainSystems();\n\t\n\t// Configure drive parameters\n\trover.configureTerrainResponse();\n}\n\nvoid loop() {\n\t// Monitor and adjust to terrain\n\trover.analyzeTerrain();\n\trover.adjustDriveSystem();\n}"
       },
       {
-        "str_id": "move_function",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_3/move_function.md",
+        "str_id": "obstacle_navigation",
+        "url": "lessons/module_3/obstacle_navigation.md",
         "sn": 9,
-        "name": "Movement Function",
-        "description": "Writing functions in Arduino. Task: Write a function to rotate the robot.",
-        "template": "#include <lineRobot.h>\nvoid setup() {\n\t// Call your function here\n}\nvoid loop(){\n}\n // Write your function here"
+        "name": "Obstacle Navigation",
+        "description": "Program advanced obstacle detection and navigation routines.",
+        "template": "#include <marsRover.h>\nvoid setup() {\n\t// Initialize obstacle systems\n\trover.initializeObstacleSystems();\n\t\n\t// Configure detection parameters\n\trover.configureObstacleDetection();\n}\n\nvoid loop() {\n\t// Monitor for obstacles and navigate\n\trover.scanForObstacles();\n\trover.executeAvoidanceManeuver();\n}"
       },
       {
-        "str_id": "electric_motor",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_3/electric_motor.md",
+        "str_id": "power_optimization",
+        "url": "lessons/module_3/power_optimization.md",
         "sn": 10,
-        "name": "Electric Motor",
-        "description": "Basic principles of DC motors. Task: Move to a specific point on the map using only functions for controlling motors.",
-        "template": "#include <lineRobot.h>\n\n// We recommend writing a function to control the robot's movement \nvoid setup() {\n\t// Call your function here \n}\nvoid loop(){\n}\n // Write your function here"
+        "name": "Power Optimization",
+        "description": "Implement efficient power usage strategies for extended Mars operations.",
+        "template": "#include <marsRover.h>\n\nvoid setup() {\n\t// Initialize power management\n\trover.initializePowerSystems();\n\t\n\t// Configure power profiles\n\trover.configurePowerProfiles();\n}\n\nvoid loop() {\n\t// Monitor and optimize power usage\n\trover.monitorPowerLevels();\n\trover.optimizePowerUsage();\n}"
       }
     ]
   },
   {
-    "name": "Encoders",
-    "description": "Explore the use of encoders in robotics, covering their purpose, types, and practical applications for movement control!",
+    "name": "Position Tracking Systems",
+    "description": "Master Mars rover position tracking and movement precision using advanced sensor systems.",
     "sn": 4,
     "str_id": "module_4",
     "lessons": [
       {
-        "str_id": "encoders",
-        "name": "Encoder",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_4/encoders_en.md",
+        "str_id": "position_tracking",
+        "name": "Position Tracking",
+        "url": "lessons/module_4/position_tracking.md",
         "sn": 11,
-        "description": "This lesson introduces encoders as sensors for measuring wheel rotation and and provides practical exercise to read encoder values.",
-        "template": "#include <lineRobot.h>\nvoid setup() {\n\t// Reset encoders values\n\trobot.resetLeftEncoder();\n\trobot.resetRightEncoder();\n\t// Read start position values\n\tprintMQTT(\"START POSITION\");\n\tprintMQTT(\"LEFT:\");\n\t// Will take encoder values in degrees\n\t// Assume one rotation ~360°\n\t// printMQTT(robot.encoderDegreesLeft()); // TODO: this line should be done by student\n\tprintMQTT(\"RIGHT:\");\n\t//printMQTT(robot.encoderDegreesRight()); // TODO: this line should be done by student\n\n\t// Move forward\n\trobot.moveForwardDistance(3.5 * 2 * 3.14159);  // one rotation forward (wheels diameter * pi)\n\tprintMQTT(\"FORWARD MOVEMENT POSITION\");\n\tprintMQTT(\"LEFT:\");\n\t//printMQTT(robot.encoderDegreesLeft()); // TODO: this line should be done by student\n\tprintMQTT(\"RIGHT:\");\n\t//printMQTT(robot.encoderDegreesRight()); // TODO: this line should be done by student\n\t\n\tdelay(500);\n\t\n\t// Move backward\n\trobot.moveBackwardDistance(3.5 * 2 * 3.14159);  // one rotation backward (wheels diameter * pi)\n\tprintMQTT(\"BACKWARD MOVEMENT POSITION\");\n\tprintMQTT(\"LEFT:\");\n\t// printMQTT(robot.encoderDegreesLeft()); //TODO: this line should be done by student\n\tprintMQTT(\"RIGHT:\");\n\t//printMQTT(robot.encoderDegreesRight());\t//TODO: this line should be done by student\n}\n\nvoid loop() {\n\tdelay(1000);\n}"
+        "description": "Implement precise position tracking for Mars rover navigation and mapping.",
+        "template": "#include <marsRover.h>\n\nvoid setup() {\n\t// Initialize tracking systems\n\trover.initializePositionSystems();\n\trover.resetPositionTracking();\n\n\t// Configure tracking parameters\n\trover.setTrackingPrecision(HIGH);\n\n\t// Start position logging\n\trover.logPosition(\"START_POSITION\");\n\n\t// Test movement sequence\n\trover.moveWithTracking(50, FORWARD);\n\trover.logPosition(\"CHECKPOINT_1\");\n\n\trover.rotateWithTracking(90, RIGHT);\n\trover.logPosition(\"CHECKPOINT_2\");\n\n\trover.moveWithTracking(30, FORWARD);\n\trover.logPosition(\"FINAL_POSITION\");\n}\n\nvoid loop() {\n\t// Continuous position monitoring\n\trover.monitorPosition();\n\trover.updateNavigationData();\n}"
+      },
+      {
+        "str_id": "movement_precision",
+        "name": "Movement Precision",
+        "url": "lessons/module_4/movement_precision.md",
+        "sn": 12,
+        "description": "Develop precise movement control for delicate Mars surface operations.",
+        "template": "#include <marsRover.h>\n\nvoid setup() {\n\t// Initialize precision systems\n\trover.initializePrecisionSystems();\n\t\n\t// Configure movement parameters\n\trover.setPrecisionLevel(HIGH);\n}\n\nvoid loop() {\n\t// Monitor and adjust movement precision\n\trover.trackMovementAccuracy();\n\trover.adjustMovementParameters();\n}"
       }
     ]
   },
@@ -184,34 +192,34 @@
     ]
   },
   {
-    "name": "Advanced Line Following",
-    "description": "Advanced line following techniques including relay, P, PI, and PID controllers for smooth and accurate robot movement.",
+    "name": "Advanced Autonomous Navigation",
+    "description": "Implement sophisticated control systems for autonomous Mars exploration using various controller types.",
     "sn": 7,
     "str_id": "module_8",
     "lessons": [
       {
-        "str_id": "basic_line_follower",
-        "name": "Relay, P, and PI Controllers",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_8/basic_line_follower.md",
+        "str_id": "basic_autonomous_control",
+        "name": "Basic Autonomous Control",
+        "url": "lessons/module_8/basic_autonomous_control.md",
         "sn": 16,
-        "description": "Understand how different types of controllers work — Relay, Proportional (P), and Proportional-Integral (PI) for line following.",
-        "template": "#include <Octoliner.h>\n#include <lineRobot.h>\n\n// I2C Address (default 42)\nOctoliner octoliner(42);\nint speed=30;\n\n// Black threshold for detection\nconst int MY_BLACK_THRESHOLD = 100;\n\nvoid setup() {\n    octoliner.begin();\n    octoliner.setSensitivity(230);\n}\n\nvoid loop() {\n    // Read all sensor values\n    for (uint8_t i = 0; i < 8; i++) {\n       int value = octoliner.analogRead(i);\n    }\n    robot.runMotorSpeedRight(speed);\n    robot.runMotorSpeedLeft(speed);\n}"
+        "description": "Implement basic autonomous control systems for Mars rover navigation.",
+        "template": "#include <marsRover.h>\n\n// Initialize controller parameters\nfloat baseSpeed = 30;\nfloat navigationThreshold = 100;\n\nvoid setup() {\n    rover.initializeAutonomousSystems();\n    rover.setNavigationParameters(baseSpeed, navigationThreshold);\n}\n\nvoid loop() {\n    // Read terrain and navigation data\n    rover.updateTerrainData();\n    rover.processNavigationInput();\n    \n    // Apply basic autonomous control\n    rover.executeAutonomousNavigation();\n    rover.monitorPerformance();\n}"
       },
       {
-        "str_id": "p_pi_controllers",
-        "name": "P and PI Controllers",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_8/P%20and%20PI.md",
+        "str_id": "advanced_control_systems",
+        "name": "Advanced Control Systems",
+        "url": "lessons/module_8/advanced_control_systems.md",
         "sn": 17,
-        "description": "Learn about Proportional and Proportional-Integral controllers for improved line following performance.",
-        "template": "//Paste the code here"
+        "description": "Implement sophisticated P and PI controllers for precise Mars navigation.",
+        "template": "#include <marsRover.h>\n\nvoid setup() {\n    // Initialize advanced control systems\n    rover.initializeAdvancedControl();\n    rover.configureControlParameters();\n}\n\nvoid loop() {\n    // Execute advanced control algorithms\n    rover.processNavigationData();\n    rover.executeAdvancedControl();\n}"
       },
       {
-        "str_id": "pid_controller",
-        "name": "PID Controller",
-        "url": "https://raw.githubusercontent.com/autolab-fi/line-robot-curriculum/main/lessons/module_8/PID.md",
+        "str_id": "autonomous_exploration",
+        "name": "Autonomous Exploration",
+        "url": "lessons/module_8/autonomous_exploration.md",
         "sn": 18,
-        "description": "Implement a complete PID controller combining proportional, integral, and derivative terms for optimal line following.",
-        "template": "//Paste the code here"
+        "description": "Develop complete autonomous exploration capabilities using advanced PID control.",
+        "template": "#include <marsRover.h>\n\nvoid setup() {\n    // Initialize exploration systems\n    rover.initializeExplorationSystems();\n    rover.configurePIDParameters();\n}\n\nvoid loop() {\n    // Execute autonomous exploration\n    rover.updateExplorationData();\n    rover.executeAutonomousExploration();\n    rover.logExplorationData();\n}"
       }
     ]
   }
