@@ -45,7 +45,7 @@ for (int i = 0; i < 8; i++) {
 ## **Example Implementation**
 
 ```cpp
-#include <lineRobot.h>  // Include this for printMQTT function
+#include <rover.h>
 
 void setup() {
     printMQTT("Array Example");
@@ -122,7 +122,7 @@ for(int i = 0; i < 8; i++){
 
 For this assignment, you'll create a program that:
 
-1. Uses arrays to store sensor readings from three different robot positions
+1. Uses arrays to store sensor readings from three different rover positions
 2. Moves the robot between measurements to collect varied data
 3. Systematically sends all collected data via MQTT
 
@@ -130,7 +130,7 @@ Complete the code below:
 
 ```cpp
 #include <Octoliner.h>
-#include <lineRobot.h>
+#include <rover.h>
 
 // I2C Address (default 42)
 Octoliner octoliner(42);

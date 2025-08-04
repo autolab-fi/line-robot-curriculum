@@ -8,7 +8,7 @@ Understand how the derivative term adds predictive power to a control system. Le
 
 So far, we’ve seen how the proportional term reacts to present error and how the integral term accumulates past errors. But both of these only respond after an error happens. The derivative term predicts future behavior by measuring how fast the error is changing.
 
-If the robot is correcting too aggressively, the derivative slows things down before it overshoots. This makes the system more stable and less wobbly.
+If the rover is correcting too aggressively, the derivative slows things down before it overshoots. This makes the system more stable and less wobbly.
 
 ## ![Pid](https://github.com/pranavk-2003/line-robot-curriculum/blob/assignments/images/module_8/pid_f.png?raw=True)
 
@@ -66,8 +66,8 @@ You now combine the present error, the accumulated error, and the error trend in
 double leftSpeed = fwdspeed - 1.5 * output;
 double rightSpeed = fwdspeed + 1.5 * output;
 
-robot.runMotorSpeedLeft(leftSpeed);
-robot.runMotorSpeedRight(rightSpeed);
+rover.runMotorSpeedLeft(leftSpeed);
+rover.runMotorSpeedRight(rightSpeed);
 ```
 
 This sets the robot's left and right motor speeds based on the total output of the PID controller.
@@ -78,4 +78,4 @@ This sets the robot's left and right motor speeds based on the total output of t
 
 You now have a full understanding of PID control. This is the most powerful and widely used controller in robotics. By tuning the three constants — Kp, Ki, and Kd — you can get a balance of speed, accuracy, and stability.
 
-The proportional term keeps the robot centered, the integral term eliminates slow drift, and the derivative term makes everything smoother by preventing overshoot. Together, they make your robot move confidently and cleanly along the line.
+The proportional term keeps the robot centered, the integral term eliminates slow drift, and the derivative term makes everything smoother by preventing overshoot. Together, they make your rover move confidently and cleanly along the line.

@@ -1,9 +1,3 @@
----
-index: 1
-module: module_5
-task: encoder
-previous: electric_motor
-next: odometer
 # Lesson 1: Encoder
 
 ## Lesson objective
@@ -21,7 +15,6 @@ An encoder is a sensor that measures rotation. In robotics, we commonly use "rot
 1. **Absolute Encoders**: These tell you the exact position of rotation (like a compass showing North)
 2. **Incremental Encoders**: These count steps of rotation (like counting your footsteps)
 
-
 ### Getting Encoder Values in Our Robot
 
 In this lesson we will measure the rotation of the robot's wheels in degrees, where:
@@ -30,11 +23,12 @@ In this lesson we will measure the rotation of the robot's wheels in degrees, wh
 Each wheel has its own encoder, so we will measure the rotation of each wheel separately. Left encoder for the left wheel and right encoder for the right wheel.
 
 You will be able to use the following functions:
+
 ```cpp
-robot.encoderDegreesLeft()   // Get left wheel rotation in degrees
-robot.encoderDegreesRight()  // Get right wheel rotation in degrees
-robot.resetLeftEncoder()     // Reset left encoder to 0
-robot.resetRightEncoder()    // Reset right encoder to 0
+rover.encoderDegreesLeft()   // Get left wheel rotation in degrees
+rover.encoderDegreesRight()  // Get right wheel rotation in degrees
+rover.resetLeftEncoder()     // Reset left encoder to 0
+rover.resetRightEncoder()    // Reset right encoder to 0
 ```
 
 ### Distance and Rotation
@@ -55,37 +49,37 @@ Write a program that demonstrates encoder measurements by:
 
 Use our new functions to get the encoder values for left and right wheels accordingly. Print the values and compare them at different robot's moving stages
 ```cpp
-#include <lineRobot.h>
+#include <rover.h>
 void setup() {
     // Reset encoders values
-    robot.resetLeftEncoder();
-    robot.resetRightEncoder();
+    rover.resetLeftEncoder();
+    rover.resetRightEncoder();
     // Read start position values
   printMQTT("START POSITION");
     printMQTT("LEFT:");
     // Will take encoder values in degrees
     // Assume one rotation ~360°
-    // printMQTT(robot.encoderDegreesLeft()); // TODO: this line should be done by student
+    // printMQTT(rover.encoderDegreesLeft()); // TODO: this line should be done by student
     printMQTT("RIGHT:");
-    //printMQTT(robot.encoderDegreesRight()); // TODO: this line should be done by student
+    //printMQTT(rover.encoderDegreesRight()); // TODO: this line should be done by student
     
     // Move forward
-    robot.moveForwardDistance(3.5 * 2 * 3.14159);  // one rotation forward (wheels diameter * pi)
+    rover.moveForwardDistance(3.5 * 2 * 3.14159);  // one rotation forward (wheels diameter * pi)
     printMQTT("FORWARD MOVEMENT POSITION");
     printMQTT("LEFT:");
-    //printMQTT(robot.encoderDegreesLeft()); // TODO: this line should be done by student
+    //printMQTT(rover.encoderDegreesLeft()); // TODO: this line should be done by student
     printMQTT("RIGHT:");
-    //printMQTT(robot.encoderDegreesRight()); // TODO: this line should be done by student
+    //printMQTT(rover.encoderDegreesRight()); // TODO: this line should be done by student
     
     delay(500);
     
     // Move backward
-    robot.moveBackwardDistance(3.5 * 2 * 3.14159);  // one rotation backward (wheels diameter * pi)
+    rover.moveBackwardDistance(3.5 * 2 * 3.14159);  // one rotation backward (wheels diameter * pi)
     printMQTT("BACKWARD MOVEMENT POSITION");
     printMQTT("LEFT:");
-   // printMQTT(robot.encoderDegreesLeft()); //TODO: this line should be done by student
+   // printMQTT(rover.encoderDegreesLeft()); //TODO: this line should be done by student
     printMQTT("RIGHT:");
-    //printMQTT(robot.encoderDegreesRight()); //TODO: this line should be done by student
+    //printMQTT(rover.encoderDegreesRight()); //TODO: this line should be done by student
 }
 
 void loop() {
@@ -94,4 +88,4 @@ void loop() {
 ```
 
 ## Conclusion
-You've learned about encoders - sensors for precise robot movement. Understanding how they work and how to read their values is crucial for advanced robot control. In the next lesson, we'll use encoders to build an odometer that tracks the robot's total distance traveled!
+You've learned about encoders - sensors for precise rover movement. Understanding how they work and how to read their values is crucial for advanced robot control. In the next lesson, we'll use encoders to build an odometer that tracks the robot's total distance traveled!

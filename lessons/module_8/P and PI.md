@@ -86,8 +86,8 @@ double output = (Kp * error) + (Ki * integral);
 double leftSpeed = fwdspeed - 1.5 * output;
 double rightSpeed = fwdspeed + 1.5 * output;
 
-robot.runMotorSpeedLeft(leftSpeed);
-robot.runMotorSpeedRight(rightSpeed);
+rover.runMotorSpeedLeft(leftSpeed);
+rover.runMotorSpeedRight(rightSpeed);
 ```
 
 ---
