@@ -51,8 +51,6 @@ You can make decisions inside a loop to respond differently to changing conditio
 ## **Example Implementation**
 
 ```cpp
-#include <lineRobot.h>  // For printMQTT function
-
 const int ledPin = 2;
 const int potPin = 36; // Potentiometer on analog pin
 
@@ -111,7 +109,6 @@ Complete the code below:
 
 ```cpp
 #include <Octoliner.h>
-#include <lineRobot.h>
 
 // I2C Address (default 42)
 Octoliner octoliner(42);

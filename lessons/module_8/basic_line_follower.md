@@ -22,7 +22,7 @@ u(t) = max_speed  if error > 0
 u(t) = min_speed  if error <= 0
 ```
 
-This results in a zigzag movement. The robot overcorrects and keeps switching directions.
+This results in a zigzag movement. The rover overcorrects and keeps switching directions.
 
 ---
 
@@ -38,7 +38,7 @@ This code will:
 
 ```cpp
 #include <Octoliner.h>
-#include <lineRobot.h>
+#include <rover.h>
 
 // I2C Address (default 42)
 Octoliner octoliner(42);
@@ -57,8 +57,8 @@ void loop() {
     for (uint8_t i = 0; i < 8; i++) {
        int value = octoliner.analogRead(i);
     }
-    robot.runMotorSpeedRight(speed);
-    robot.runMotorSpeedLeft(speed);
+    rover.runMotorSpeedRight(speed);
+    rover.runMotorSpeedLeft(speed);
 }
 ```
 
@@ -87,7 +87,7 @@ Modify the program to:
 1. Write a program to make the robot line follow.
 2. Fine-tune motor speeds for smoother movement.
 3. Experiment with different thresholds to improve accuracy.
-4. Ensure the robot successfully crosses both checkpoints to complete the Assignment.
+4. Ensure the rover successfully crosses both checkpoints to complete the Assignment.
 
 ---
 

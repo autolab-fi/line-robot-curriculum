@@ -8,7 +8,7 @@ This lesson focuses on understanding how an Octoliner sensor detects black lines
 
 ## **Introduction**
 
-In this lesson, we will use an IR line sensor array to detect and follow a black line. The robot will read sensor values, determine the line's position, and adjust its movement accordingly.
+In this lesson, we will use an IR line sensor array to detect and follow a black line. The rover will read sensor values, determine the line's position, and adjust its movement accordingly.
 
 ---
 
@@ -85,7 +85,7 @@ Your task for this assignment is to write code that performs the following steps
 2. Move the robot forward by 35 cm.
 3. Read the value from sensor 5 again and print to printMQTT console.
 
-This will help you observe how the sensor reading changes before and after the robot moves. Use this logic to understand sensor behavior and experiment with different sensitivity levels if
+This will help you observe how the sensor reading changes before and after the rover moves. Use this logic to understand sensor behavior and experiment with different sensitivity levels if
 
 ## **Conclusion**
 

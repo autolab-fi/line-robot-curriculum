@@ -51,7 +51,6 @@ if (condition1) {
 
 ```cpp
 #include <Arduino.h>
-#include <lineRobot.h>  // Includes printMQTT function
 
 // Define pins
 const int ledPin = 2;
@@ -106,7 +105,6 @@ Complete the code below by adding the conditional logic:
 
 ```cpp
 #include <Octoliner.h>
-#include <lineRobot.h>
 
 // I2C Address (default 42)
 Octoliner octoliner(42);
